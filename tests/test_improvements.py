@@ -1,5 +1,6 @@
 """Regression coverage for simple runs, baseline tables and optional verification."""
-import contextlib,copy,json,tempfile,unittest
+import contextlib,copy,json,os,sys,tempfile,unittest
+from types import SimpleNamespace
 from pathlib import Path
 from unittest.mock import patch
 from test_contracts import Backend,Tokenizer,config,row,program
@@ -74,6 +75,20 @@ class Improvements(unittest.TestCase):
             a=Adapter(config('response'),Abnormal(),t)
             with self.assertRaisesRegex(RuntimeError,'raw batch preserved'):a.generate([a.request(row(),'response','Instruction',draw=i) for i in range(2)])
             self.assertEqual(len(rows(Path(t)/'responses.jsonl')),2);self.assertEqual(a.calls,2)
+    def test_offline_applies_to_tokenizers_and_model_workers(self):
+        from legal_prompt_optimization.backend import LocalModels
+        tokenizer_calls=[];models=[]
+        def tokenizer(*args,**kwargs):tokenizer_calls.append(kwargs);return Tokenizer()
+        def model(**kwargs):models.append(kwargs);return object()
+        modules={'transformers':SimpleNamespace(AutoTokenizer=SimpleNamespace(from_pretrained=tokenizer)),
+            'vllm':SimpleNamespace(LLM=model)}
+        spec=SimpleNamespace(loader=SimpleNamespace(exec_module=lambda *_:None))
+        with patch.dict(os.environ,{},clear=True),patch.dict(sys.modules,modules),\
+            patch('importlib.util.spec_from_file_location',return_value=spec),patch('importlib.util.module_from_spec',return_value=SimpleNamespace()):
+            LocalModels(read(ROOT/'configs/ledgar/response.json'),offline=True)
+            self.assertEqual(os.environ['HF_HUB_OFFLINE'],'1');self.assertEqual(os.environ['TRANSFORMERS_OFFLINE'],'1')
+            self.assertTrue(all(r['local_files_only'] for r in tokenizer_calls));self.assertEqual(len(models),2)
+
     def test_default_cli_runs_lightweight_checks_not_advanced_audit(self):
         with tempfile.TemporaryDirectory() as t:
             p=Path(t);data=p/'data';data.mkdir();out=p/'run';cfg=ROOT/'configs/ledgar/response.json'

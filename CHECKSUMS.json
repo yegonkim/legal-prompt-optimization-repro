@@ -33,7 +33,7 @@
   "legal_prompt_optimization/__init__.py": "667d4a15b970b851e20d17510224670c14646cfb6d5a1e388ca6b9cc6da8bf41",
   "legal_prompt_optimization/__main__.py": "7225097a5dc4f99152ba1dc5324ed73d5ee09508cbc5268fa3b1114905340036",
   "legal_prompt_optimization/audit.py": "7ce7e3fb16f6a3bcbd5879a13fbbec839ce041f8d4d5a14917cd10bde0b09af2",
-  "legal_prompt_optimization/backend.py": "e8df66b1f2dfe5ea636dfbd2faeb00801b4728acf89212b2d56ed9b5372a3615",
+  "legal_prompt_optimization/backend.py": "02c10c66af3d732e47a522b9c6a4651d2f26d1158ba7a2c0771cbc1938159588",
   "legal_prompt_optimization/cli.py": "907044687d596576cda5bca0f03e364030398ec4ae12828edabd43c868bf8f64",
   "legal_prompt_optimization/core.py": "e78834988da32ab8ac3b42724fb7eed122c93353c8506205b6b1da15fe28ec5d",
   "legal_prompt_optimization/data.py": "33d91acd26c48dec053237be4a7c378fcee5b6c35ce7be5c89502be7fb729183",
@@ -100,8 +100,8 @@
   "results/sara_entailment/source_configs.json": "7020b7e6065f2b4155807026395c5948fb5c54a042fe8a23d5f6a4b2cf6f5ce7",
   "results/task3_all_five_changed_final_20261111_v1.json": "2b2ac609cacb9e6c121e5244133cda303fe99c518a01e6b0dd38e4f040010bb4",
   "results/task3_all_five_changed_prompts.txt": "05dbe53b31c63cdbc5de70d1353fee5555cad16a4b5b717d4dea0a64abfa3e72",
-  "results/validation.json": "45a2fb489b698ce1df25621a19575a3e3ab593fe4b4940e2a0a92494aedad566",
+  "results/validation.json": "bbe7d24afb1e082440c976c7fcc0c40267084d392d589d7b7f1cff50c81dbe59",
   "tests/test_contracts.py": "56a59d173da876d7ed7e16d48b3776cab619c2a388dec43e4fc9331ec9c7f22c",
   "tests/test_gepa_integration.py": "d91a15cbe3034dd71f99a0092ebd4ba70c94bf6ad87fc078e2bc6eb06319c616",
-  "tests/test_improvements.py": "097b43f498eceac92a3ec36816c234a3f5ac00e91fd5c6bf9191d1717aea5f82"
+  "tests/test_improvements.py": "5d447f856efeae22f7c627aa90c8acfc0f45fc387adfe204d9a0333802e5330b"
 }

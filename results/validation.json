@@ -40,7 +40,7 @@
   },
   "row_hash_contract": "record_id/question/answer/public_labels/source_record_id/reference_feedback where present",
   "CPU_tests": {
-    "tests": 21,
+    "tests": 22,
     "all_passed": true,
     "actual_GEPA_integration_modes": [
       "response",
@@ -57,7 +57,8 @@
       "recursive runtime-hook provenance",
       "unsupported config rejection",
       "truncated proposer/student-batch evidence retention",
-      "automatic checks with advanced audit optional"
+      "automatic checks with advanced audit optional",
+      "offline flag covers model loading and spawned workers"
     ]
   },
   "GPU_validation_of_portable_package": "not performed; archived scores belong to original audited research code"

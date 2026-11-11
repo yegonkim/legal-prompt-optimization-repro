@@ -5,6 +5,9 @@ from .core import render, schema
 
 class LocalModels:
     def __init__(self,config,proposer=True,offline=False):
+        if offline:
+            os.environ['HF_HUB_OFFLINE']='1'
+            os.environ['TRANSFORMERS_OFFLINE']='1'
         # Workers start fresh interpreters: make the same compiler fix available there.
         os.environ['LEGAL_PHI_EOS_ALIGNMENT']='1'
         runtime=str(Path(__file__).parent/'runtime')
