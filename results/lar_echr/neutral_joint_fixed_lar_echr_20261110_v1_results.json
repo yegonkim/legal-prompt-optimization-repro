@@ -1,0 +1,19 @@
+{
+  "audit_passed": true,
+  "plan_sha256": "1c61172863e8c848a6e3249b037389c9c32305e60e95c64324f4a04c099a2d6c",
+  "student_calls": 1880,
+  "proposer_calls": 88,
+  "selected_index": 13,
+  "SELECT_accuracy": 0.5,
+  "changed_components": {
+    "persona0": true,
+    "persona1": false,
+    "persona2": true,
+    "persona3": false,
+    "aggregator": false
+  },
+  "winner_sha256": "bbff29b1248604b073db31a5c036d7540bf17c15655b421173f53ad05a650234",
+  "audit_addendum": "Correctactorseedusesoriginalrequestsource_record_idwhenpresent;aggregatorusesframedrowID. Nogenerationchange.",
+  "full_four_reasonings_verified": true,
+  "no_DEV_TEST_in_optimization": true
+}

@@ -1,0 +1,26 @@
+{
+  "dataset": "barexamqa_closed_book",
+  "student": {
+    "model": "microsoft/Phi-4-mini-instruct",
+    "revision": "cfbefacb99257ffa30c83adab238a50856ac3083"
+  },
+  "proposer": {
+    "model": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7"
+  },
+  "actor_max_tokens": 1024,
+  "judge_max_tokens": 512,
+  "ordinary_instruction": "Answer the legal multiple-choice question.",
+  "candidate_selection_strategy": "pareto",
+  "use_merge": false,
+  "context": 8192,
+  "proposer_context": 32768,
+  "proposer_max_tokens": 8192,
+  "mode": "joint",
+  "seed": 42,
+  "reflection_minibatch_size": 3,
+  "module_selector": "round_robin",
+  "student_call_cap": 9911,
+  "proposer_call_cap": 88,
+  "runtime_seconds": 19800
+}

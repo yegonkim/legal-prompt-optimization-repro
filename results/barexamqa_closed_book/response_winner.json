@@ -1,0 +1,8 @@
+{
+  "best_candidate": {
+    "instruction": "Answer the legal multiple-choice question."
+  },
+  "selected_on": "SELECT only",
+  "source_path": "outputs/blind_transfer_barexamqa_closed_book_response42_20261108_v1/attempt1/generator/winner_freeze.json",
+  "source_sha256": "4c1dc4db9adaf3e39e8c7715690581de296eb5a1efd6f810538faa5cc7bd0d09"
+}

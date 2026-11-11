@@ -1,0 +1,26 @@
+{
+  "audit_passed": true,
+  "plan_sha256": "8873ddff4c2e6b58159ec3cccb5f3edf2acf103c886932942ac17fe3908f8eac",
+  "metrics": {
+    "DEV": {
+      "ordinary_pass1": 0.608642578125,
+      "ordinary_vote4": 0.6171875,
+      "optimized_pass1": 0.6163330078125,
+      "optimized_vote4": 0.63525390625,
+      "optimized_judge": 0.63330078125,
+      "questions": 512
+    },
+    "TEST": {
+      "ordinary_pass1": 0.558837890625,
+      "ordinary_vote4": 0.56103515625,
+      "optimized_pass1": 0.5693359375,
+      "optimized_vote4": 0.5732421875,
+      "optimized_judge": 0.5830078125,
+      "questions": 512
+    }
+  },
+  "new_calls": 4096,
+  "imported_calls": 32768,
+  "reporting_only": true,
+  "no_TEST_tuning": true
+}

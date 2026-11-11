@@ -1,0 +1,39 @@
+{
+  "audit_passed": true,
+  "plan_sha256": "0a4ad6713f71579ba8f372284760dc4974fd172325211f0572175f1a1874f4bd",
+  "winner_sha256": "4a340b339afe2cc5f406e646c1245d8d02c70fa7e747f63f6e8feacff2b96771",
+  "metrics": {
+    "DEV": {
+      "questions": 512,
+      "pooled_individual_accuracy": 0.24169921875,
+      "per_generator_accuracy": {
+        "persona0": 0.2373046875,
+        "persona1": 0.2529296875,
+        "persona2": 0.2587890625,
+        "persona3": 0.2177734375
+      },
+      "vote4": 0.25634765625,
+      "judge": 0.2412109375,
+      "invalid": 6,
+      "length_finishes": 6
+    },
+    "TEST": {
+      "questions": 512,
+      "pooled_individual_accuracy": 0.244384765625,
+      "per_generator_accuracy": {
+        "persona0": 0.2421875,
+        "persona1": 0.24951171875,
+        "persona2": 0.26904296875,
+        "persona3": 0.216796875
+      },
+      "vote4": 0.265625,
+      "judge": 0.2490234375,
+      "invalid": 4,
+      "length_finishes": 4
+    }
+  },
+  "new_calls": 20480,
+  "full_four_reasonings_verified": true,
+  "reporting_only": true,
+  "no_TEST_tuning": true
+}

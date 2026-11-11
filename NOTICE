@@ -1,0 +1,5 @@
+Private research reproduction package derived from yegonkim/msv_legal.
+Original experiment provenance and attribution are recorded in PROVENANCE.json.
+No general redistribution license is granted by this repository.
+Third-party GEPA, vLLM, Transformers and other dependencies retain their own licenses.
+Dataset text, feedback passages, generations and model weights are not distributed.

@@ -1,0 +1,413 @@
+{
+  "reporting_only": true,
+  "no_TEST_selection": true,
+  "datasets": {
+    "ledgar": {
+      "optimization_audit": {
+        "audit_passed": true,
+        "plan_sha256": "d1fb80c9814043e44ed8036334b9359f9fb38a8060c55f8d17a39825a94a7b95",
+        "student_calls": 6388,
+        "proposer_calls": 88,
+        "selected_index": 23,
+        "SELECT_accuracy": 0.515625,
+        "changed_components": {
+          "persona0": true,
+          "persona1": false,
+          "persona2": false,
+          "persona3": true,
+          "aggregator": false
+        },
+        "winner_sha256": "f9f1dd8ad2048a799d0b6bf561772a3b775eb7e5ac08709351a02c18c39c3e32",
+        "full_four_reasonings_verified": true,
+        "no_DEV_TEST_in_optimization": true
+      },
+      "selected_program": {
+        "persona0": "Classify the contract provision by its main legal purpose. You must select exactly one category from the provided list of 100 public category names.\n\nTo ensure high accuracy, you must adhere to the following hierarchical rules, legal doctrines, and specific vocabulary mappings:\n\n### 1. Prioritize Legal Doctrine over Literal Word Matching\nDo not select a category simply because a keyword from that category appears in the text. Instead, identify the underlying legal doctrine or the primary structural purpose of the clause. \n*   *Example:* Do not select \"Cooperation\" just because the word \"cooperate\" is present if the clause is actually defining a \"Further Assurances\" obligation.\n\n### 2. Structural Hierarchy\nWhen a provision contains multiple legal concepts, prioritize the **structural legal framework** over the **operational mechanics**. \n*   **Structural Framework:** Severability, Terminations, Governing Laws, Counterparts.\n*   **Operational Mechanics:** Authority, Survival, general Agreements, or specific Duties.\n\n### 3. Specific Category Mappings\nUse the following specific mappings to resolve ambiguity between similar categories:\n\n*   **Governing Laws vs. Jurisdictions:** If a provision contains a combination of governing law, venue/forum selection, waiver of jury trials, and recovery of legal costs, classify it as **Governing Laws**. (Even if \"Jurisdictions\" is a prominent component, \"Governing Laws\" is the primary structural category for this boilerplate).\n*   **Further Assurances:** Classify as **Further Assurances** if the provision requires parties to take specific actions (signing documents, providing information, performing acts) specifically to \"give effect to,\" \"carry out the intent of,\" or \"fulfill the purposes\" of the agreement.\n*   **Severability:** If a provision describes the effect of the contract if a specific part is held invalid, illegal, or unenforceable (e.g., \"the remaining provisions shall remain in effect\"), classify it as **Severability**, even if the provision also mentions \"Survival\" or \"Representations.\"\n*   **Terminations:** If a provision describes the requirements or restrictions for filing a \"termination statement\" or \"amendment statement\" (specifically regarding security interests), the primary purpose is **Terminations**, even if the clause focuses on obtaining \"authority\" or \"consent.\"\n\n### 4. Distinguish \"Cooperation\" from \"Further Assurances\"\nIt is critical to distinguish between these two categories:\n*   **Further Assurances:** Use this when the provision requires parties to take \"reasonable actions,\" \"cooperate,\" or perform specific acts specifically linked to the **fulfillment of the agreement's core intent or purpose**.\n*   **Cooperation:** Use this only for general, non-specific mutual assistance that is not explicitly linked to the execution of the agreement's core objectives.\n\n### 5. Precise Vocabulary & Niche Mappings\nThe dataset follows specific naming conventions for certain types of provisions. You must prioritize these specific terms over synonyms:\n\n*   **Expenses vs. Costs:** If a provision describes the allocation of costs, fees, or legal expenses between parties (e.g., \"each party bears its own costs... except for expenses paid by Buyer\"), classify it as **Expenses**. Do not use \"Costs.\"\n*   **Powers vs. Authority:** If a provision defines the scope of what an agent or representative is allowed to do, including their specific delegated powers, duties, and limitations of liability (e.g., \"powers as are specifically delegated to the Administrative Agent\"), classify it as **Powers**. Do not use \"Authority\" or \"Authorizations.\"\n*   **Counterparts:** If a provision states that the agreement can be signed in multiple copies that together form one instrument, classify it as **Counterparts**.",
+        "persona1": "Classify the contract provision by its main legal purpose.",
+        "persona2": "Classify the contract provision by its main legal purpose.",
+        "persona3": "thought\nClassify contract provisions into 100 specific legal categories.\n\n        *   Prioritize Legal Doctrine over literal word matching.\n        *   Identify Structural Boilerplate (e.g., Severability).\n        *   Identify the Subject Matter of the Action (e.g., Terminations vs. Authority).\n        *   Distinguish \"Cooperation\" from \"Further Assurances\".\n        *   Contextual Hierarchy (Structural Framework over Operational Mechanics).\n        *   Specific mappings (Expenses vs. Costs, Powers vs. Authority, Counterparts, Governing Laws vs. Jurisdictions).\n\n        *   *Example 1:* Provision about tax withholding. Assistant 1 (and Aggregator) chose \"Further Assurances\" because it's an action to fulfill purpose. *Feedback:* Incorrect. Correct answer is \"Tax Withholdings\".\n        *   *Example 2:* Provision about compliance with laws. Assistant chose \"Compliance With Laws\". *Feedback:* Correct.\n        *   *Example 3:* Provision about maintaining insurance. Assistant chose \"Insurances\". *Feedback:* Correct.\n\n    *   *Failure in Example 1:* The assistant (and the aggregator) over-applied the \"Further Assurances\" rule. The provision says \"Agilent shall make appropriate arrangements... for satisfaction of such obligation [tax withholding]\". While this *is* a specific action, the primary *subject matter* is tax withholding.\n    *   *The Rule of Thumb:* If a provision is clearly about a specific regulatory or financial obligation (like Taxes, Withholdings, Insurances, Compliance), that specific subject matter should take precedence over general structural categories like \"Further Assurances\" or \"Duties.\"\n    *   *Refining \"Further Assurances\":* It should be reserved for clauses where the *only* goal is to ensure the agreement's execution (e.g., \"Parties shall sign any documents needed to perfect the security interest\"). If the clause is about *doing* something specific (like paying taxes or maintaining insurance), use the specific category.\n\n    *   *Input Format:* Contract provision + List of 100 categories.\n    *   *Task:* Single-label classification based on legal doctrine and structural purpose.\n\n    *   *Guideline 1 (Doctrine):* Keep.\n    *   *Guideline 2 (Structural Boilerplate):* Keep.\n    *   *Guideline 3 (Subject Matter):* Keep and strengthen. If the provision specifies a concrete subject matter (Tax, Insurance, Compliance), prioritize that over \"Further Assurances.\"\n    *   *Guideline 4 (Cooperation vs. Further Assurances):* Keep, but clarify that \"Further Assurances\" is for *procedural* actions to fulfill the contract, not *substantive* obligations (like tax).\n    *   *Guideline 5 (Hierarchy):* Keep.\n    *   *Specific Mappings:* Keep the ones provided (Expenses/Costs, Powers/Authority, Counterparts, Governing Laws).\n\n    *   *New Rule Idea:* **Substantive Obligations vs. Procedural Assurances.**\n        *   If a clause mandates a specific substantive activity (e.g., \"Pay taxes,\" \"Maintain insurance,\" \"Comply with environmental laws\"), classify it by that specific subject matter (e.g., \"Taxes,\" \"Insurances,\" \"Compliance With Laws\").\n        *   Use \"Further Assurances\" only when the clause is a general procedural requirement to \"execute,\" \"perfect,\" or \"give effect to\" the agreement's goals (e.g., \"Parties shall execute any further documents necessary to perfect the lien\").\n\n    *   *Rule 1: Doctrine over Literal.*\n    *   *Rule 2: Structural Boilerplate (Severability/Terminations).*\n    *   *Rule 3: Substantive Subject Matter Priority (The fix for Example 1).*\n    *   *Rule 4: Cooperation vs. Further Assurances.*\n    *   *Rule 5: Contextual Hierarchy.*\n    *   *Rule 6: Specific Niche Mappings.*\n\n    *   *Check Example 1 again:* \"Agilent shall make appropriate arrangements... for satisfaction of such obligation [tax withholding].\" -> This is a substantive tax obligation. Category: \"Tax Withholdings\".\n    *   *Check \"Further Assurances\" definition:* \"Signing documents... specifically to give effect to... the agreement.\" This matches \"execute any documents to perfect a lien,\" but not \"make arrangements to pay taxes.\"To perform this task accurately, use the following instructions. Your goal is to classify a contract provision into exactly one of the 100 provided categories based on its primary legal purpose and structural role within a contract.\n\n### Core Classification Principles\n\n**1. Prioritize Legal Doctrine over Literal Word Matching**\nDo not select a category simply because a keyword from that category appears in the text. Instead, identify the underlying legal doctrine or the primary structural purpose of the clause. \n*   *Example:* Do not select \"Cooperation\" just because the word \"cooperate\" is present if the clause is actually defining a \"Further Assurances\" obligation.\n\n**2. Substantive Subject Matter Priority (Crucial Rule)**\nIf a provision describes a specific, substantive obligation or a regulatory requirement, prioritize the category that identifies that specific subject matter over general structural categories like \"Further Assurances\" or \"Duties.\"\n*   **Tax/Withholding:** If the provision describes obligations to withhold, pay, or account for taxes, classify it as **Tax Withholdings** or **Taxes**.\n*   **Insurance:** If the provision describes the requirement to maintain, procure, or name parties on insurance policies, classify it as **Insurances**.\n*   **Compliance:** If the provision describes adherence to laws, orders, or regulations, classify it as **Compliance With Laws**.\n*   *Note:* Even if these provisions require the party to \"take action\" or \"make arrangements,\" the primary purpose is the subject matter (Tax, Insurance, etc.), not the procedural act of making arrangements.\n\n**3. Identify Structural Boilerplate**\nIdentify the effect of the contract if a specific part is held invalid, illegal, or unenforceable (i.e., \"the remaining provisions shall remain in effect\"). Classify these as **Severability**, even if the provision also discusses \"Survival\" or \"Representations.\"\n\n**4. Distinguish \"Cooperation\" from \"Further Assurances\"**\n*   **Further Assurances:** Use this when the provision requires parties to take \"reasonable actions,\" \"cooperate,\" or perform specific acts (like signing documents or providing information) specifically to \"give effect to,\" \"carry out the intent of,\" or \"fulfill the purposes\" of the agreement (e.g., perfecting a security interest).\n*   **Cooperation:** Use this only for general, non-specific mutual assistance that is not explicitly linked to the execution of the agreement's core objectives.\n*   *Constraint:* Do not use \"Further Assurances\" for substantive obligations (like paying taxes or maintaining insurance).\n\n**5. Contextual Hierarchy**\nWhen a provision contains multiple legal concepts, identify the \"main\" purpose. The dataset prioritizes the structural legal framework over operational mechanics.\n*   **Structural Framework:** Severability, Terminations, Governing Laws, Counterparts.\n*   **Operational Mechanics:** Authority, Survival, general Agreements, or specific Duties.\n\n**6. Precise Vocabulary & Niche Mappings**\nThe dataset follows specific naming conventions. You must prioritize these terms over synonyms:\n*   **Governing Laws vs. Jurisdictions:** If a provision contains a combination of governing law, venue/forum selection, waiver of jury trials, and recovery of legal costs, classify it as **Governing Laws**.\n*   **Expenses vs. Costs:** If a provision describes the allocation of costs, fees, or legal expenses between parties (e.g., \"each party bears its own costs... except for expenses paid by Buyer\"), classify it as **Expenses**. Do not use \"Costs.\"\n*   **Powers vs. Authority:** If a provision defines the scope of what an agent or representative is allowed to do, including their specific delegated powers, duties, and limitations of liability (e.g., \"powers as are specifically delegated to the Administrative Agent\"), classify it as **Powers**. Do not use \"Authority\" or \"Authorizations.\"\n*   **Counterparts:** If a provision states that the agreement can be signed in multiple copies that together form one instrument, classify it as **Counterparts**.\n*   **Terminations:** If a provision describes the requirements or restrictions for filing a \"termination statement\" or \"amendment statement\" (specifically regarding security interests), the primary purpose is **Terminations**, even if the clause focuses on obtaining \"authority\" or \"consent.\"",
+        "aggregator": "Read the original problem and the four proposed responses, including their reasoning and answers. Select the best answer to the original problem and explain it briefly."
+      },
+      "readout_status": "audited",
+      "readout": {
+        "audit_passed": true,
+        "plan_sha256": "8714d4b741812a52aa7bad1fa4ffa89efab0e472950a5d4bd45c319a897d0eb2",
+        "winner_sha256": "f9f1dd8ad2048a799d0b6bf561772a3b775eb7e5ac08709351a02c18c39c3e32",
+        "metrics": {
+          "DEV": {
+            "questions": 512,
+            "pooled_individual_accuracy": 0.4906005859375,
+            "per_generator_accuracy": {
+              "persona0": 0.4423828125,
+              "persona1": 0.5146484375,
+              "persona2": 0.51611328125,
+              "persona3": 0.4892578125
+            },
+            "vote4": 0.5693359375,
+            "judge": 0.53662109375,
+            "invalid": 0,
+            "length_finishes": 0
+          },
+          "TEST": {
+            "questions": 512,
+            "pooled_individual_accuracy": 0.4400634765625,
+            "per_generator_accuracy": {
+              "persona0": 0.40966796875,
+              "persona1": 0.46923828125,
+              "persona2": 0.45947265625,
+              "persona3": 0.421875
+            },
+            "vote4": 0.53173828125,
+            "judge": 0.4931640625,
+            "invalid": 0,
+            "length_finishes": 0
+          }
+        },
+        "new_calls": 20480,
+        "full_four_reasonings_verified": true,
+        "reporting_only": true,
+        "no_TEST_tuning": true
+      }
+    },
+    "casehold": {
+      "optimization_audit": {
+        "audit_passed": true,
+        "plan_sha256": "2af019bc21e13aa3d6d52d3e045f4b8c817f187f211d71c7e0ff55a7285c4f0f",
+        "student_calls": 4716,
+        "proposer_calls": 88,
+        "selected_index": 0,
+        "SELECT_accuracy": 0.6875,
+        "changed_components": {
+          "persona0": false,
+          "persona1": false,
+          "persona2": false,
+          "persona3": false,
+          "aggregator": false
+        },
+        "winner_sha256": "b212c0ed94766b9cf7c87662006efee00d2078fa3f2b686e9ba11d89e601cefd",
+        "audit_addendum": "Correctactorseedusesoriginalrequestsource_record_idwhenpresent;aggregatorusesframedrowID. Nogenerationchange.",
+        "full_four_reasonings_verified": true,
+        "no_DEV_TEST_in_optimization": true
+      },
+      "selected_program": {
+        "persona0": "Answer the legal multiple-choice question.",
+        "persona1": "Answer the legal multiple-choice question.",
+        "persona2": "Answer the legal multiple-choice question.",
+        "persona3": "Answer the legal multiple-choice question.",
+        "aggregator": "Read the original problem and the four proposed responses, including their reasoning and answers. Select the best answer to the original problem and explain it briefly."
+      },
+      "readout_status": "audited",
+      "readout": {
+        "audit_passed": true,
+        "plan_sha256": "2ee53ed4180ade3e48d4ee6de1765f0d2df98870e84f2286f5a6d76cee5da3b0",
+        "winner_sha256": "b212c0ed94766b9cf7c87662006efee00d2078fa3f2b686e9ba11d89e601cefd",
+        "metrics": {
+          "DEV": {
+            "questions": 512,
+            "pooled_individual_accuracy": 0.6112060546875,
+            "per_generator_accuracy": {
+              "persona0": 0.611328125,
+              "persona1": 0.60400390625,
+              "persona2": 0.609375,
+              "persona3": 0.6201171875
+            },
+            "vote4": 0.615234375,
+            "judge": 0.619140625,
+            "invalid": 0,
+            "length_finishes": 0
+          },
+          "TEST": {
+            "questions": 512,
+            "pooled_individual_accuracy": 0.5648193359375,
+            "per_generator_accuracy": {
+              "persona0": 0.5673828125,
+              "persona1": 0.56884765625,
+              "persona2": 0.5615234375,
+              "persona3": 0.5615234375
+            },
+            "vote4": 0.5712890625,
+            "judge": 0.58642578125,
+            "invalid": 0,
+            "length_finishes": 0
+          }
+        },
+        "new_calls": 20480,
+        "full_four_reasonings_verified": true,
+        "reporting_only": true,
+        "no_TEST_tuning": true
+      }
+    },
+    "lar_echr": {
+      "optimization_audit": {
+        "audit_passed": true,
+        "plan_sha256": "1c61172863e8c848a6e3249b037389c9c32305e60e95c64324f4a04c099a2d6c",
+        "student_calls": 1880,
+        "proposer_calls": 88,
+        "selected_index": 13,
+        "SELECT_accuracy": 0.5,
+        "changed_components": {
+          "persona0": true,
+          "persona1": false,
+          "persona2": true,
+          "persona3": false,
+          "aggregator": false
+        },
+        "winner_sha256": "bbff29b1248604b073db31a5c036d7540bf17c15655b421173f53ad05a650234",
+        "audit_addendum": "Correctactorseedusesoriginalrequestsource_record_idwhenpresent;aggregatorusesframedrowID. Nogenerationchange.",
+        "full_four_reasonings_verified": true,
+        "no_DEV_TEST_in_optimization": true
+      },
+      "selected_program": {
+        "persona0": "Answer the legal multiple-choice question by identifying the option that represents the most logical next step in the Court's judicial reasoning.\n\n### Task Overview\nYou are provided with a legal case summary consisting of \"Facts\" and \"Previous arguments.\" The \"Previous arguments\" section summarizes the positions taken by both the Government and the Applicant. Your goal is to select the multiple-choice option (A, B, C, or D) that represents the immediate next step in the Court's judicial narrative.\n\n### Core Logic: Procedural Continuity\nThe correct answer is not necessarily the \"most correct\" legal statement in a general sense; it must be the *next logical step* in the specific sequence of a judicial judgment. To find the correct answer, follow this hierarchical logic:\n\n1.  **Identify the Current Stage of the Judgment:**\n    Analyze the final paragraph of the \"Previous arguments\" to determine where the Court is currently positioned in the decision-making process. The judgment usually follows this sequence:\n    *   **Admissibility:** Has the applicant exhausted domestic remedies? Is the complaint \"manifestly ill-founded\"?\n    *   **Scope/Applicability:** Does the specific situation (e.g., a relationship, a specific action) fall under the protection of a specific Convention article (e.g., Article 8 for family life)?\n    *   **Merits:** Did the state actually violate the rights? (This involves balancing the interference against the \"Margin of Appreciation\").\n    *   **Just Satisfaction:** If a violation occurred, what is the appropriate compensation (pecuniary or non-pecuniary damage)?\n\n2.  **Predict the \"Next Step\":**\n    *   If the arguments just finished listing the articles violated (e.g., Article 3 and Article 8), the next step is usually an **Admissibility** ruling (e.g., \"The Court finds the application admissible\").\n    *   If the arguments are debating the merits of the case, the next step is often the Court **Establishing Scope** (e.g., \"It is not disputed that the relationship falls within the scope of Article 8\").\n    *   If the arguments are about the amount of compensation, the next step is the **Awarding of Damages** based on specific precedents.\n\n3.  **Verify Fact Consistency (Critical Step):**\n    Before selecting an answer, cross-reference the option against the \"Facts\" section. You must eliminate any option that:\n    *   Refers to the wrong number of children (e.g., \"two children\" vs. \"three children\").\n    *   Refers to the wrong gender of a child (e.g., \"son\" vs. \"daughter\").\n    *   Refers to the wrong country or specific party names.\n    *   *Example:* If the facts state there are three children, an option mentioning \"two daughters\" is a distractor and must be ignored even if the legal reasoning sounds plausible.\n\n4.  **Distinguish Between \"General Truths\" and \"Contextual Flow\":**\n    An option might be a perfectly valid legal statement but may be a \"distractor\" because it addresses a point that was already settled earlier in the text or jumps too far ahead in the narrative (e.g., jumping to a final award before the Court has established that a violation occurred). The correct answer usually addresses the *most recent* point of contention.\n\n### Domain-Specific Context\n*   **Article 8 (Right to Respect for Private and Family Life):** Often involves the Hague Convention (international child abduction) and the \"Margin of Appreciation\" (the leeway given to states to balance rights).\n*   **Article 3 (Prohibition of Torture/Inhuman Treatment):** Often raised in cases involving risks of physical or psychological harm.\n*   **Just Satisfaction:** The Court may award \"non-pecuniary damage\" (for stress, anxiety, or distress) even if \"pecuniary damage\" (financial loss) is not claimed or proven.\n*   **Admissibility vs. Merits:** A complaint can be \"admissible\" (allowed to be heard) but still be found to have \"no violation\" on the merits.\n*   **Manifestly Ill-founded:** A standard used to reject a case quickly if it is clear there is no violation.\n\n### Summary Checklist for Selection:\n1.  What was the very last thing discussed in the \"Previous arguments\"?\n2.  What is the immediate next procedural step after that point?\n3.  Does the chosen option match the specific facts (names, genders, numbers)?\n4.  Does the option avoid jumping ahead to a conclusion not yet reached in the narrative?",
+        "persona1": "Answer the legal multiple-choice question.",
+        "persona2": "Answer the legal multiple-choice question by identifying the option that logically continues the specific chain of legal arguments provided in the \"Previous arguments\" section.\n\n### Task Overview\nYou are presented with a legal case summary consisting of \"Facts\" and \"Previous arguments.\" The \"Previous arguments\" section summarizes the positions taken by both the Government and the Applicant. Your goal is to select the multiple-choice option (A, B, C, or D) that represents the most logical next step in the Court's judicial reasoning.\n\n### Guidelines for Selection\nTo successfully complete this task, you must follow these specific logical steps:\n\n1.  **Identify the Core Legal Dispute:** Analyze the \"Previous arguments\" to determine the specific legal hurdles being discussed. Common themes include:\n    *   **Exhaustion of Domestic Remedies:** Arguments about whether the applicant tried all available legal avenues in their home country before coming to the Court.\n    *   **Article 8 (Right to Respect for Private and Family Life):** Arguments regarding whether a relationship constitutes \"family life\" or whether state interference was \"proportionate.\"\n    *   **Merits vs. Procedure:** Arguments about whether the Court should look at the underlying facts (e.g., who should keep the child) or the procedure (e.g., how the search was conducted).\n\n2.  **Prioritize Procedural Continuity:** The correct answer is not necessarily a \"correct\" legal statement in a vacuum; it must be the *next logical step* in the specific flow of the provided text. \n    *   If the last argument discussed is about the **exhaustion of domestic remedies**, the correct answer will likely be the Court's decision on that admissibility issue (e.g., \"the Court finds it inadmissible because domestic remedies have not been exhausted\").\n    *   If the last argument is about the **definition of family life**, the correct answer will likely be the Court's confirmation that the specific relationship (e.g., \"the tie between the applicant and his son\") falls under Article 8.\n\n3.  **Verify Fact Consistency:** Ensure the chosen option matches the specific facts provided in the \"Facts\" section. \n    *   Check the number and gender of children (e.g., \"son\" vs. \"daughter\" vs. \"children\").\n    *   Check the specific names of parties or locations if mentioned in the options.\n    *   *Warning:* Do not select an option that contains correct legal language but refers to different facts (e.g., selecting an option about a \"daughter\" when the facts describe a \"son\").\n\n4.  **Distinguish between \"General Truths\" and \"Contextual Flow\":** \n    *   An option might be a legally sound statement but could be a \"distractor\" because it addresses a point that was already settled or is irrelevant to the immediate argument.\n    *   The correct answer usually addresses the most recent point of contention raised by the Government or the Applicant in the final paragraph of the \"Previous arguments\" section.\n\n### Domain-Specific Context\n*   **Article 8 of the Convention:** Refers to the right to respect for private and family life.\n*   **Hague Convention:** Often involves the international abduction of children and the legal requirements for their return.\n*   **Margin of Appreciation:** A principle where the Court allows member states some leeway in how they implement Convention rights.\n*   **Admissibility:** A procedural check. If the Court finds a complaint \"inadmissible,\" it means they will not hear the merits of the case because a procedural rule (like exhausting domestic remedies) was violated.",
+        "persona3": "Answer the legal multiple-choice question.",
+        "aggregator": "Read the original problem and the four proposed responses, including their reasoning and answers. Select the best answer to the original problem and explain it briefly."
+      },
+      "readout_status": "audited",
+      "readout": {
+        "audit_passed": true,
+        "plan_sha256": "ebb7100a57a0f1b0e86938f504b703d13366f7e7a7bb4906e7b0a4ffd85eaa12",
+        "winner_sha256": "bbff29b1248604b073db31a5c036d7540bf17c15655b421173f53ad05a650234",
+        "metrics": {
+          "DEV": {
+            "questions": 98,
+            "pooled_individual_accuracy": 0.38711734693877553,
+            "per_generator_accuracy": {
+              "persona0": 0.33418367346938777,
+              "persona1": 0.4260204081632653,
+              "persona2": 0.3647959183673469,
+              "persona3": 0.42346938775510207
+            },
+            "vote4": 0.3903061224489796,
+            "judge": 0.37755102040816324,
+            "invalid": 0,
+            "length_finishes": 0
+          },
+          "TEST": {
+            "questions": 150,
+            "pooled_individual_accuracy": 0.4429166666666667,
+            "per_generator_accuracy": {
+              "persona0": 0.39,
+              "persona1": 0.46166666666666667,
+              "persona2": 0.4483333333333333,
+              "persona3": 0.4716666666666667
+            },
+            "vote4": 0.4583333333333333,
+            "judge": 0.43333333333333335,
+            "invalid": 0,
+            "length_finishes": 0
+          }
+        },
+        "new_calls": 4960,
+        "full_four_reasonings_verified": true,
+        "reporting_only": true,
+        "no_TEST_tuning": true
+      }
+    },
+    "sara_entailment": {
+      "optimization_audit": {
+        "audit_passed": true,
+        "plan_sha256": "db1f0f0604bee4d274d703a2605bed8938fd74ebc87105fdf0f1d67e3fb4d5fc",
+        "student_calls": 3353,
+        "proposer_calls": 88,
+        "selected_index": 8,
+        "SELECT_accuracy": 0.75,
+        "changed_components": {
+          "persona0": true,
+          "persona1": true,
+          "persona2": true,
+          "persona3": true,
+          "aggregator": false
+        },
+        "winner_sha256": "eeda983a7a5165ad4de352ac010d86b24949db482e0e743d81f4ce3cd256b41b",
+        "full_four_reasonings_verified": true,
+        "no_DEV_TEST_in_optimization": true
+      },
+      "selected_program": {
+        "persona0": "Determine whether the statement is logically entailed by (follows from) or contradicted by the supplied statute, based on the provided facts (Description).\n\n### Task Overview\nYou are an expert legal analyst. Your goal is to perform a rigorous, high-precision verification of a statement against a specific statute and a set of facts. You must determine if the statement is an **Entailment** (the statement is a direct logical consequence of the statute when applied to the facts) or a **Contradiction** (the statement is mathematically incorrect, violates a specific condition, or describes a status that the statute explicitly excludes based on the provided facts).\n\n### Instructions\n\n#### 1. Statutory Parsing & Gatekeeper Identification\nBefore looking at the facts, analyze the statute to identify the governing rules. You must distinguish between different types of conditions:\n- **Gatekeeper Conditions**: These are prerequisite conditions that must be met before any other part of the section applies. Examples include \"files a separate return,\" \"is a surviving spouse,\" or \"is a head of household.\" If a person fails a gatekeeper condition, the entire section is inapplicable to them.\n- **Descriptive/Numerical Conditions**: These are the specific requirements that follow once the gatekeeper conditions are met (e.g., \"maintains a household,\" \"furnishes over one-half of the cost,\" \"income over $36,900\").\n- **Conditional Logic**: Carefully interpret \"except,\" \"unless,\" \"provided that,\" and \"notwithstanding.\" \n    - *Example*: \"Except... unless\" means a category is excluded unless a specific override condition is met.\n- **Timeframes**: Identify specific date windows (e.g., \"during the calendar year,\" \"within two years\"). Note whether a rule applies to the *calendar year* or the *taxable year*.\n\n#### 2. Fact Mapping\nExtract every relevant data point from the \"Description.\" Create a literal map of:\n- **Identities and Relationships**: Who are the parties? What are their legal connections (e.g., parent/child, spouse)?\n- **Filing Status/Legal Status**: Note specific statuses like \"joint return,\" \"separate return,\" \"surviving spouse,\" etc.\n- **Dates**: When did specific events occur (e.g., marriage, death, residency)?\n- **Values**: What are the specific financial figures (e.g., taxable income, payments)?\n\n#### 3. Logical Derivation (The Checklist Method)\nPerform a systematic verification using a checklist approach. For every section of the statute mentioned in the statement:\n- **Verification of All Conditions**: Check **every single condition** listed in the statute against the facts. \n    - **Crucial Rule**: If a person fails even one condition (e.g., the statute requires a \"separate return\" but the facts state they file a \"joint return\"), the statement regarding the applicability of that section is a **Contradiction**.\n- **Date Validation**: Verify that dates fall within the legally required windows.\n- **Calculations**: If the statement involves a numerical value:\n    - Identify the correct bracket or formula based on the facts.\n    - Show your work: (Base Amount) + (Rate $\\times$ Excess).\n    - *Rounding*: If your calculation is very close to the statement's value (minor rounding differences), but the logic and bracket selection are correct, it is an Entailment. If there is a significant mathematical discrepancy, it is a Contradiction.\n\n#### 4. Determining the Answer\n- **Entailment**: The statement is a direct, logical consequence of the statute. All conditions (gatekeepers and descriptive) are met, and the math is correct (allowing for minor rounding).\n- **Contradiction**: The statement is a Contradiction if:\n    - It is mathematically incorrect (significant discrepancy).\n    - It applies a section of the statute to a person who fails even one eligibility criterion (e.g., they are married but the statute requires them to be unmarried, or they file a joint return but the statute requires a separate return).\n    - It describes a status that the statute explicitly excludes based on the provided facts.\n\n### Output Format\n**Reasoning**: Provide a step-by-step breakdown of your logic.\n1. **Statute Reference**: Cite the specific sections/subsections governing the issue.\n2. **Fact Application**: List the relevant facts from the description, specifically highlighting how they meet or fail to meet each statutory condition.\n3. **Step-by-Step Logic**: Show the verification of every condition (Gatekeeper and Descriptive) or the mathematical steps taken.\n4. **Conclusion**: Explain clearly why the final result leads to Entailment or Contradiction (e.g., \"Because the facts state [X] and the statute requires [Y], the statement is a Contradiction\").\n\n**Answer**: Conclude with either \"Entailment\" or \"Contradiction\".",
+        "persona1": "# Task Overview\nYou are an expert legal analyst. Your goal is to perform a rigorous, high-precision verification of a statement against a specific statute and a set of facts. You must determine if the statement is an **Entailment** (the statement is a direct logical consequence of the statute when applied to the facts) or a **Contradiction** (the statement is mathematically incorrect, violates a specific statutory condition, or applies a section of the statute to a person who does not meet the eligibility criteria).\n\n# Instructions\n\n### 1. Statutory Parsing & Gatekeeper Identification\nBefore analyzing the facts, parse the statute to identify the governing rules. You must distinguish between different types of conditions:\n- **Gatekeeper Conditions**: These are prerequisite conditions that must be met before any other part of the section applies (e.g., \"is a surviving spouse,\" \"files a separate return,\" or \"is a head of household\"). If a person fails a gatekeeper condition, the entire section is inapplicable to them.\n- **Descriptive/Numerical Conditions**: These are specific requirements that follow once the gatekeeper conditions are met (e.g., \"income over $36,900,\" \"bears a relationship,\" or \"lives in the same home for more than one-half of the year\").\n- **Conditional Logic**: Carefully interpret complex legal phrasing:\n    - **\"Except,\" \"Unless,\" \"Provided that,\" and \"Notwithstanding\"**: These words define exclusions and overrides. \n    - **\"Except... unless\"**: This typically means a category is excluded *unless* a specific override condition is met, in which case the exclusion is nullified.\n- **Timeframes**: Identify specific date windows (e.g., \"during the calendar year,\" \"within two years,\" \"at the close of the taxable year\"). Note whether a rule applies to the *calendar year* or the *taxable year*.\n\n### 2. Fact Mapping\nExtract every relevant data point from the \"Description.\" Create a literal map of:\n- **Identities and Relationships**: Who are the parties? What are their legal connections (e.g., parent/child, spouse)?\n- **Filing Status/Legal Status**: Note specific statuses like \"joint return,\" \"separate return,\" \"surviving spouse,\" etc.\n- **Dates**: When did specific events occur (e.g., marriage, death, residency, legal separation)?\n- **Values**: What are the specific financial figures (e.g., taxable income, payment amounts)?\n\n### 3. Logical Derivation (The Checklist Method)\nPerform a systematic verification using a checklist approach. For every section of the statute mentioned in the statement:\n\n- **Verification of Eligibility (Gatekeepers)**: Check if the person meets the primary eligibility for the section. If the statement claims a section applies to a person who fails even one eligibility criterion (e.g., the statement cites a section for \"unmarried individuals\" but the facts state the person is \"married\"), the statement is a **Contradiction**.\n- **Status Verification (Conjunctive Definitions)**: For definitions (e.g., \"Qualifying Child\"), an individual must meet **every** condition listed. If they fail even one condition (e.g., they meet the relationship and age requirements but fail the residency requirement), the statement regarding their status is a **Contradiction**.\n- **Date Validation**: Verify that dates fall within the legally required windows. Ensure the status claimed in the statement is valid for the specific year mentioned (e.g., a death in 2017 might affect status in 2018).\n- **Mathematical Calculations**: If the statement involves a numerical value:\n    - Identify the correct bracket or formula based on the facts.\n    - Show your work: (Base Amount) + (Rate $\\times$ Excess).\n    - **Precision**: If your calculation is very close to the statement's value (minor rounding differences), but the logic and bracket selection are correct, it is an Entailment. If there is a significant mathematical discrepancy, it is a Contradiction.\n- **Section Citation Accuracy**: If the statement claims a specific section applies (e.g., \"Section 1(a)(i) applies\"), you must verify that the facts actually place the individual under that specific subsection. If the facts place them under 1(a)(ii) but the statement claims 1(a)(i), it is a **Contradiction**.\n\n### 4. Determining the Answer\n- **Entailment**: The statement is a direct, logical consequence of the statute. All gatekeeper and descriptive conditions are met, the math is correct (allowing for minor rounding), and the correct statutory sections are cited.\n- **Contradiction**: The statement is a Contradiction if:\n    - It is mathematically incorrect (significant discrepancy).\n    - It applies a section of the statute to a person who fails an eligibility criterion.\n    - It cites the wrong subsection/paragraph for the provided facts.\n    - It describes a status that the statute explicitly excludes based on the provided facts.\n\n# Output Format\n**Reasoning**: Provide a step-by-step breakdown of your logic.\n1. **Statute Reference**: Cite the specific sections/subsections governing the issue.\n2. **Fact Application**: List the relevant facts from the description, specifically highlighting how they meet or fail to meet each statutory condition.\n3. **Step-by-Step Logic**: Show the verification of every condition (Gatekeeper and Descriptive) or the mathematical steps taken.\n4. **Conclusion**: Explain clearly why the final result leads to Entailment or Contradiction (e.g., \"Because the facts state [X] and the statute requires [Y], the statement is a Contradiction\").\n\n**Answer**: Conclude with either \"Entailment\" or \"Contradiction\".",
+        "persona2": "Determine whether the statement provided is logically entailed by (follows from) or contradicted by the supplied statute, based on the provided facts (Description).\n\n### Task Requirements:\n1. **Statutory Analysis**: Identify the specific sections, subsections, and paragraphs of the statute that govern the facts described. Pay close attention to:\n    - **Definitions**: Determine if the individuals or actions meet every specific criterion required by a definition (e.g., to be a \"head of household,\" a person must meet multiple conditions simultaneously, such as being \"not married,\" \"not a surviving spouse,\" and maintaining a specific type of household).\n    - **Numerical Thresholds**: Identify specific dollar amounts, percentages, or quantities.\n    - **Conditional Logic**: Carefully parse complex legal phrasing, specifically \"except,\" \"unless,\" \"provided that,\" and \"notwithstanding.\" For example, an \"except... unless\" construction typically means a category is excluded from a definition unless a specific condition is met, in which case the exclusion is overridden.\n    - **Timeframes**: Identify specific dates or periods (e.g., \"two years preceding,\" \"during the calendar year\").\n\n2. **Fact Mapping**: Extract all relevant data from the \"Description\" (e.g., names, dates of death, specific payment amounts, relationships, and locations).\n\n3. **Logical Derivation**:\n    - **Calculations**: If the statement involves a numerical value (like \"taxable income\"), perform the calculation exactly as prescribed by the statute. Ensure you include all applicable deductions, exemptions, or adjustments mentioned in the facts.\n    - **Status Verification**: Check every condition of a definition. If a person fails even one condition (e.g., they are technically a \"surviving spouse\" when the statute requires them to not be one), the statement regarding their status is a contradiction.\n    - **Date Validation**: Verify that dates fall within the legally required windows (e.g., checking if a spouse's death occurred within the two-year lookback period for \"surviving spouse\" status).\n\n4. **Determining the Answer**:\n    - **Entailment**: The statement is a direct, logical consequence of the statute when the facts are applied correctly.\n    - **Contradiction**: The statement is mathematically incorrect, violates a specific condition/exception in the statute, or describes a status that the statute explicitly excludes based on the provided facts.\n\n### Output Format:\n- **Reasoning**: Provide a step-by-step breakdown of your logic. Cite specific sections of the statute, list the relevant facts from the description, show any calculations performed, and explain how these lead to your conclusion.\n- **Answer**: Conclude with either \"Entailment\" or \"Contradiction\".",
+        "persona3": "### Task Overview\nYou are an expert legal analyst tasked with determining whether a specific statement is logically entailed by a provided statute when applied to a given set of facts. You must provide a rigorous, step-by-step derivation to justify your conclusion.\n\n### Input Structure\n- **Statute**: The legal text providing rules, definitions, and thresholds.\n- **Description**: The specific facts of a case (e.g., names, dates, ages, income amounts, relationships).\n- **Statement**: A claim regarding a person's status or a calculated value that must be verified.\n\n### Instructions\n\n#### 1. Statutory Analysis\nBefore looking at the facts, parse the statute to identify the governing rules:\n- **Definitions**: Identify every condition required to meet a status (e.g., \"Head of Household\" or \"Qualifying Child\"). Note that these are typically conjunctive\u2014an individual must meet **every** condition listed to qualify.\n- **Numerical Thresholds**: Extract all specific dollar amounts, percentages, and quantities.\n- **Conditional Logic**: Carefully interpret \"except,\" \"unless,\" \"provided that,\" and \"notwithstanding.\" \n    - *Example*: \"Except... unless\" means a category is excluded unless a specific override condition is met.\n- **Timeframes**: Identify specific date windows (e.g., \"within two years,\" \"during the calendar year\"). Pay close attention to whether a rule applies to the *calendar year* or the *taxable year*.\n\n#### 2. Fact Mapping\nExtract all relevant data points from the \"Description.\" Create a mental or literal map of:\n- **Identities**: Who are the parties involved?\n- **Relationships**: What are the legal connections (e.g., parent/child, spouse)?\n- **Dates**: When did specific events occur (e.g., marriage, death, residency)?\n- **Values**: What are the specific financial figures (e.g., taxable income, payments)?\n\n#### 3. Logical Derivation\nPerform a systematic verification:\n- **Status Verification**: For every definition, check every condition against the facts. If a person fails even one condition (e.g., they are a \"surviving spouse\" but the statute requires them to *not* be one), the statement regarding their status is a **Contradiction**.\n- **Date Validation**: Verify that dates fall within the legally required windows. For example, if a statement claims a status for 2019, ensure the facts support that status specifically for the 2019 taxable year.\n- **Calculations**: If the statement involves a numerical value:\n    - Perform the calculation exactly as prescribed by the statute.\n    - Identify the correct bracket or formula based on the facts.\n    - Show your work: (Base Amount) + (Rate $\\times$ Excess).\n    - *Note*: If your calculation is very close to the statement's value (minor rounding differences), but the logic and bracket selection are correct, the statement is likely an **Entailment**.\n\n#### 4. Determining the Answer\n- **Entailment**: The statement is a direct, logical consequence of the statute when the facts are applied correctly. Even if there is a minor mathematical discrepancy, if the logic and governing sections are correctly identified, it is generally an Entailment.\n- **Contradiction**: The statement is:\n    - Mathematically incorrect (significant discrepancy).\n    - Violates a specific condition or exception in the statute.\n    - Describes a status that the statute explicitly excludes based on the provided facts.\n    - Applies a section of the statute to a person who does not meet the eligibility criteria for that section.\n\n### Output Format\n**Reasoning**: Provide a step-by-step breakdown of your logic.\n1. **Statute Reference**: Cite the specific sections/subsections governing the issue.\n2. **Fact Application**: List the relevant facts from the description.\n3. **Step-by-Step Logic**: Show the verification of each condition or the mathematical steps taken.\n4. **Conclusion**: Explain why the final result leads to Entailment or Contradiction.\n\n**Answer**: Conclude with either \"Entailment\" or \"Contradiction\".",
+        "aggregator": "Read the original problem and the four proposed responses, including their reasoning and answers. Select the best answer to the original problem and explain it briefly."
+      },
+      "readout_status": "audited",
+      "readout": {
+        "audit_passed": true,
+        "plan_sha256": "39ead9cd1021f02eee685f026c85f988adf0e83f351dc4fbccb90d5e8c5ef8ab",
+        "winner_sha256": "eeda983a7a5165ad4de352ac010d86b24949db482e0e743d81f4ce3cd256b41b",
+        "metrics": {
+          "DEV": {
+            "questions": 50,
+            "pooled_individual_accuracy": 0.65375,
+            "per_generator_accuracy": {
+              "persona0": 0.675,
+              "persona1": 0.635,
+              "persona2": 0.63,
+              "persona3": 0.675
+            },
+            "vote4": 0.7,
+            "judge": 0.685,
+            "invalid": 1,
+            "length_finishes": 1
+          },
+          "TEST": {
+            "questions": 50,
+            "pooled_individual_accuracy": 0.64875,
+            "per_generator_accuracy": {
+              "persona0": 0.62,
+              "persona1": 0.65,
+              "persona2": 0.665,
+              "persona3": 0.66
+            },
+            "vote4": 0.665,
+            "judge": 0.645,
+            "invalid": 0,
+            "length_finishes": 0
+          }
+        },
+        "new_calls": 2000,
+        "full_four_reasonings_verified": true,
+        "reporting_only": true,
+        "no_TEST_tuning": true
+      }
+    },
+    "barexamqa_closed_book": {
+      "optimization_audit": {
+        "audit_passed": true,
+        "plan_sha256": "8f8e9f5d067b742f16e8908429d784ce10ecc1339dfc5a0ed3c83d0873697b35",
+        "student_calls": 5741,
+        "proposer_calls": 88,
+        "selected_index": 21,
+        "SELECT_accuracy": 0.515625,
+        "changed_components": {
+          "persona0": true,
+          "persona1": true,
+          "persona2": true,
+          "persona3": true,
+          "aggregator": false
+        },
+        "winner_sha256": "cc996f0d0a581eeaffe65485ac341cdc5461b22747d4ffe6cc88bf885c2fc574",
+        "audit_addendum": "Correctactorseedusesoriginalrequestsource_record_idwhenpresent;aggregatorusesframedrowID. Nogenerationchange.",
+        "full_four_reasonings_verified": true,
+        "no_DEV_TEST_in_optimization": true
+      },
+      "selected_program": {
+        "persona0": "Answer the legal multiple-choice question provided in the input. To ensure the highest level of accuracy, follow these guidelines:\n\n### 1. Core Task & Strategy\n- Analyze the legal scenario to identify the specific area of law (e.g., Torts, Evidence, Contracts).\n- Distinguish between closely related legal doctrines. Often, multiple options may seem plausible; you must identify the specific nuance that makes one correct over the others.\n- Provide a clear reasoning path that explains why the chosen answer is correct and why other plausible alternatives are incorrect based on specific legal principles.\n\n### 2. Domain-Specific Legal Rules\nIncorporate the following specific legal principles into your reasoning when they are applicable to the facts:\n\n**Tort Law - Indemnity vs. Contribution:**\n- When a negligent tortfeasor is held jointly and severally liable with an intentional tortfeasor, the negligent tortfeasor generally has a right to **full indemnity** from the intentional tortfeasor. \n- Do not default to \"proportionate contribution\" in these cases. The policy reason is to deter egregious (intentional) conduct by shifting the full responsibility to the intentional actor, rather than allowing the intentional actor to benefit from the negligence of the other party.\n\n**Tort Law - Strict Liability and \"Escape\":**\n- When a hazardous substance (like a chemical) leaks from a property onto an adjacent property, the doctrine of **\"escape\"** is a primary basis for liability. \n- Be careful to distinguish between \"strict product liability\" (which may require a defect) and \"strict liability for escape\" (which focuses on the fact that the substance left the defendant's land).\n\n**Evidence - Authentication of Signatures:**\n- Be precise regarding the requirements for authenticating signatures. Generally, the opinion of a **qualified expert** is required to establish the authenticity of a disputed signature.\n- A non-expert's testimony regarding the genuineness of a signature is often insufficient unless specific conditions are met (e.g., the signature is on a document that has existed for a long period in a consistent location with no suspicious circumstances).\n\n### 3. Output Format\nProvide your response in a JSON-like format containing two keys:\n- `\"reasoning\"`: A detailed explanation of the legal principles applied, the analysis of the facts, and a brief dismissal of the incorrect options.\n- `\"answer\"`: The letter of the correct multiple-choice option.",
+        "persona1": "Answer the legal multiple-choice question provided in the input. To ensure the highest level of accuracy, follow these guidelines:\n\n### 1. Core Task & Strategy\n- **Identify the Legal Domain:** Begin by determining the specific area of law (e.g., Torts, Evidence, Contracts, Property/Easements).\n- **Nuanced Analysis:** Legal questions often provide multiple \"plausible\" answers. You must identify the specific legal nuance that makes one option correct while the others are technically incorrect or less accurate. Look specifically for \"waivers,\" \"exceptions,\" or \"substantive tests\" that differentiate the options.\n- **Reasoning Path:** Provide a clear, step-by-step reasoning path. Explain the legal principle, apply it to the specific facts of the prompt, and briefly explain why the other options are incorrect (e.g., \"Option B is incorrect because it fails to account for the waiver of privilege by disclosure to a third party\").\n\n### 2. Domain-Specific Legal Nuances\nIncorporate the following specific legal principles into your reasoning when they are applicable to the facts:\n\n**Evidence - Attorney-Client Privilege & Waivers:**\n- The attorney-client privilege protects communications made in confidence for the purpose of seeking legal advice.\n- **Waiver:** This privilege is waived if the client voluntarily discloses the communication to a third party (e.g., a family member, a friend, or a business associate) who is not part of the privileged circle. If a client plays a privileged recording for a third party, the privilege is generally lost, and the tape may be subject to subpoena.\n\n**Property Law - Easements & Maintenance:**\n- **Servient vs. Dominant Tenement:** The \"servient tenement\" is the land burdened by the easement; the \"dominant tenement\" is the land that benefits from it.\n- **Duty of Maintenance:** The owner of the servient tenement has a duty to maintain the easement in a manner that avoids unreasonable interference with the use of their own land. \n- **Grantor Rights:** Generally, the grant of an easement does not preclude the grantor (owner of the servient tenement) from using the land in any manner which does not unreasonably interfere with the special use for which the easement was acquired.\n\n**Contracts - Breach of Contract:**\n- **Total vs. Partial Breach:** Distinguish between these based on the \"substantial impairment\" test.\n- **Total Breach:** A \"total breach\" is one that so substantially impairs the value of the contract to the injured party at the time of the breach that it is just in the circumstances to allow him to recover damages based on all his remaining rights to performance.\n- **Contingency of Breach:** The classification of a breach (total vs. partial) often depends on the extent of the other party's performance. For example, a refusal to pay may only be considered a total breach if the other party has fulfilled their primary obligations (e.g., completed the work properly or substantially).\n\n### 3. Output Format\nProvide your response in a JSON-like format containing two keys:\n- `\"reasoning\"`: A detailed explanation of the legal principles applied, the analysis of the facts, and a brief dismissal of the incorrect options.\n- `\"answer\"`: The letter of the correct multiple-choice option.",
+        "persona2": "Answer the legal multiple-choice question provided in the input. To ensure the highest level of accuracy, follow these guidelines:\n\n### 1. Core Task & Strategy\n- **Identify the Legal Domain:** Determine the specific area of law (e.g., Constitutional Law, Torts, Contracts, Evidence).\n- **Nuanced Analysis:** Legal questions often contain multiple \"plausible\" answers. You must identify the specific legal nuance (e.g., a specific exception, a standard of standing, or a specific calculation rule) that makes one option correct while the others are technically incorrect.\n- **Reasoning Path:** Provide a clear, step-by-step reasoning path. \n    1. State the relevant legal principle.\n    2. Apply that principle to the specific facts of the prompt.\n    3. Explicitly explain why the correct option is the best fit.\n    4. Briefly explain why the other plausible options are incorrect (e.g., \"Option X is incorrect because it fails to meet the 'adverse impact' requirement for standing\").\n\n### 2. Domain-Specific Legal Nuances\nIncorporate the following specific legal principles into your reasoning when applicable:\n\n**Constitutional Law - Standing:**\n- A party has standing to challenge the constitutionality of a statute **only insofar as it has an adverse impact on his own rights**. \n- An organization with a general interest in judicial invalidation or a taxpayer with a general financial interest may lack standing if they do not demonstrate a specific, personal adverse impact caused by the statute's enforcement.\n\n**Tort Law - Comparative Negligence & Joint and Several Liability:**\n- **Pure Comparative Negligence:** The fundamental purpose is to assign responsibility and liability for damage in direct proportion to the amount of negligence of each of the parties.\n- **Abolition of Joint and Several Liability:** If joint and several liability is abolished, a defendant is liable **only for their proportionate share** of the damages.\n- **Contribution:** Contribution generally occurs when a defendant is forced to pay more than their proportionate share of the damages. If joint and several liability is abolished, a defendant is only liable for their own percentage of fault; therefore, they would not be \"over-paying\" and would not be entitled to seek contribution from other tortfeasors.\n\n**Contracts - Unilateral Contracts & Reliance:**\n- A promise can be enforceable as a unilateral contract if the offeree performs an act in reasonable reliance on that promise. \n- Even if a promise was not initially bargained for as a specific exchange (which would be a bilateral contract), the act of performing in reliance on the promise can constitute valid consideration.\n\n### 3. Output Format\nProvide your response in a JSON-like format containing two keys:\n- `\"reasoning\"`: A detailed explanation of the legal principles applied, the analysis of the facts, and a brief dismissal of the incorrect options.\n- `\"answer\"`: The letter of the correct multiple-choice option.",
+        "persona3": "Answer the legal multiple-choice question provided in the input. To ensure the highest level of accuracy, follow these guidelines:\n\n### 1. Core Task & Strategy\n- **Identify the Legal Domain:** Begin by determining the specific area of law (e.g., Constitutional Law, Criminal Law, Torts, Evidence).\n- **Nuanced Analysis:** Legal questions often provide multiple \"plausible\" answers. You must identify the specific legal nuance that makes one option correct while the others are technically incorrect or less accurate.\n- **Reasoning Path:** Provide a clear, step-by-step reasoning path. Explain the legal principle, apply it to the specific facts of the prompt, and briefly explain why the other options are incorrect (e.g., \"Option B is incorrect because it sets an evidentiary standard that is too high for this specific privilege\").\n\n### 2. Domain-Specific Legal Nuances\nIncorporate these specific principles into your analysis when applicable:\n\n**Criminal Law - Murder and Malice:**\n- First-degree murder generally requires **premeditation and malice aforethought**. \n- **Malice** is not satisfied simply by an intentional or reckless mental state; it specifically requires committing the act without justification, excuse, or mitigation.\n- When comparing multiple premeditated acts, identify the one that demonstrates the highest degree of deliberation and \"cold-blooded\" planning (e.g., a calculated poisoning vs. a sudden strike during a confrontation).\n\n**Constitutional Law - Fifth Amendment (Self-Incrimination):**\n- The privilege against self-incrimination protects a witness from being compelled to testify if there is a **reasonable, real, and appreciable** fear of conviction.\n- The standard for the judge is a **\"reasonable possibility\"** of self-incrimination. \n- Do not confuse this with higher evidentiary standards like \"clear and convincing evidence\" or \"preponderance of evidence,\" nor should it be interpreted as requiring the judge's subjective \"conviction.\" It must not be \"remote and speculative.\"\n\n**Tort Law - Liability and Statutory Violations:**\n- Distinguish between a **violation of a statute** and a **basis for tort liability**. \n- A violation of a regulation (e.g., an expired driver's license) does not automatically create \"absolute liability,\" \"trespasser\" status, or \"unfitness\" as a determinative factor for liability unless the specific facts of the accident indicate otherwise. Liability is typically based on the standard of care and causation during the specific incident.\n\n**Tort Law - Indemnity vs. Contribution:**\n- When a negligent tortfeasor is held jointly and severally liable with an intentional tortfeasor, the negligent tortfeasor generally has a right to **full indemnity** from the intentional tortfeasor. \n- Do not default to \"proportionate contribution\" in these cases; the policy is to shift the full responsibility to the intentional actor.\n\n**Tort Law - Strict Liability and \"Escape\":**\n- For hazardous substances leaking from property, the doctrine of **\"escape\"** is the primary basis for liability. \n- Distinguish \"strict liability for escape\" (the substance left the land) from \"strict product liability\" (which focuses on a defect in the product itself).\n\n**Evidence - Authentication of Signatures:**\n- Generally, the opinion of a **qualified expert** is required to establish the authenticity of a disputed signature.\n- A non-expert's testimony is usually insufficient unless the document has existed for a long period in a consistent location with no suspicious circumstances.\n\n### 3. Output Format\nProvide your response in a JSON-like format containing two keys:\n- `\"reasoning\"`: A detailed explanation of the legal principles applied, the analysis of the facts, and a brief dismissal of the incorrect options.\n- `\"answer\"`: The letter of the correct multiple-choice option.",
+        "aggregator": "Read the original problem and the four proposed responses, including their reasoning and answers. Select the best answer to the original problem and explain it briefly."
+      },
+      "readout_status": "audited",
+      "readout": {
+        "audit_passed": true,
+        "plan_sha256": "7b4258eb258d5f222d6911f3e27146f26b1f7ba26ecea3bc79608e4de9c37293",
+        "winner_sha256": "cc996f0d0a581eeaffe65485ac341cdc5461b22747d4ffe6cc88bf885c2fc574",
+        "metrics": {
+          "DEV": {
+            "questions": 123,
+            "pooled_individual_accuracy": 0.4806910569105691,
+            "per_generator_accuracy": {
+              "persona0": 0.4796747967479675,
+              "persona1": 0.48577235772357724,
+              "persona2": 0.483739837398374,
+              "persona3": 0.4735772357723577
+            },
+            "vote4": 0.49390243902439024,
+            "judge": 0.49796747967479676,
+            "invalid": 0,
+            "length_finishes": 0
+          },
+          "TEST": {
+            "questions": 59,
+            "pooled_individual_accuracy": 0.3633474576271186,
+            "per_generator_accuracy": {
+              "persona0": 0.3644067796610169,
+              "persona1": 0.3474576271186441,
+              "persona2": 0.3601694915254237,
+              "persona3": 0.3813559322033898
+            },
+            "vote4": 0.4025423728813559,
+            "judge": 0.4067796610169492,
+            "invalid": 0,
+            "length_finishes": 0
+          }
+        },
+        "new_calls": 3640,
+        "full_four_reasonings_verified": true,
+        "reporting_only": true,
+        "no_TEST_tuning": true
+      }
+    },
+    "lexam": {
+      "optimization_audit": {
+        "audit_passed": true,
+        "plan_sha256": "8612c84e6108c9448873c1788f6eeec4dcbe673b72252b7c8db998ea5e953c63",
+        "student_calls": 4326,
+        "proposer_calls": 88,
+        "selected_index": 7,
+        "SELECT_accuracy": 0.296875,
+        "changed_components": {
+          "persona0": true,
+          "persona1": true,
+          "persona2": true,
+          "persona3": false,
+          "aggregator": false
+        },
+        "winner_sha256": "4a340b339afe2cc5f406e646c1245d8d02c70fa7e747f63f6e8feacff2b96771",
+        "audit_addendum": "Correctactorseedusesoriginalrequestsource_record_idwhenpresent;aggregatorusesframedrowID. Nogenerationchange.",
+        "full_four_reasonings_verified": true,
+        "no_DEV_TEST_in_optimization": true
+      },
+      "selected_program": {
+        "persona0": "Analyze the provided legal multiple-choice question by following these steps:\n\n1. **Identify the Jurisdiction**: Determine the specific legal system (e.g., Swiss Law, Chinese Business Law, International Law) to apply the correct legal doctrines.\n\n2. **Evaluate Statements Independently**: Break down each Roman numeral statement (i, ii, iii, etc.) and determine its truth value based on the specific jurisdiction. Pay close attention to the following domain-specific nuances:\n\n    *   **Swiss Law Nuances**:\n        *   **Inheritance**: Fianc\u00e9s (engaged persons) are NOT considered legal heirs.\n        *   **International Recognition**: Switzerland recognizes and enforces foreign judgments and foreign insolvency decrees irrespective of whether Swiss judgments/decrees would be recognized in the state of origin (principle of international reciprocity is not a prerequisite).\n        *   **Legal History (The Digest/Pandects)**: The \"Digest\" was compiled from works written by Roman legal experts between the 1st century BCE and the 3rd century CE.\n        *   **Civil Procedure**: The concept of *res judicata* is not \"very broad\"; it typically applies only to disputes that are similar in nature, not all subsequent disputes between parties.\n        *   **Property Law**: The validity of ownership transfer by means of possession *does* depend on the validity of the underlying contract.\n        *   **Commercial Law**: Swiss commercial law permits the registration of limited liability partnerships.\n        *   **Marital Property**: Under the statutory regime of \"participation in acquired property,\" \"acquired property\" specifically comprises assets acquired for \"valuable consideration\" during the marital property regime.\n\n    *   **Chinese Business Law Nuances**:\n        *   **Joint Ventures**: When a Chinese company (e.g., based in Shanghai) establishes a company in the PRC with foreign partners (e.g., from Hong Kong and Tokyo), the structure is often classified as an \"Equity Joint Venture\" or a \"hybrid Co-operative Joint Venture.\"\n\n3. **Match the Combination**: Once you have identified which individual statements are correct, find the numbered option that corresponds to that specific set of statements.\n\n4. **Reasoning**: Provide a brief explanation for why each statement is either correct or incorrect based on the legal principles identified above.",
+        "persona1": "Answer the legal multiple-choice question by following a rigorous multi-step analytical process to ensure accuracy in specific legal jurisdictions.\n\n### Task Instructions:\n\n1.  **Identify the Jurisdiction**: Determine the specific legal system (e.g., Swiss Law, Chinese Business Law, International Law) mentioned in the question.\n\n2.  **Evaluate Statements Independently**: Break down each Roman numeral statement (i, ii, iii, etc.) and determine its truth value based on the specific jurisdiction. You must cross-reference your evaluation with the following domain-specific nuances:\n\n    *   **Swiss Law Nuances**:\n        *   **Property Law**: The validity of ownership transfer by means of possession **does** depend on the validity of the underlying contract.\n        *   **Treasure Law**: In contemporary legal systems, treasure found on alien property typically belongs in halves to the finder and the landowner. (Note: Statements suggesting this is a departure from \"old Roman solutions\" are generally incorrect).\n        *   **Civil Procedure**: The concept of *res judicata* is **not** broad; it typically applies only to disputes that are similar in nature, not to all subsequent disputes between parties.\n        *   **Inheritance (Intestacy)**: If a person dies intestate, leaves no children, the mother has predeceased, and the survivors are the father and a brother, the father and the brother receive \u00bd of the estate each without taking any action.\n        *   **Inheritance (Heirs)**: Fianc\u00e9s (engaged persons) are **NOT** considered legal heirs.\n        *   **Public Prosecution**: A penal order **cannot** be issued by the public prosecutor for a custodial sentence of up to 12 months.\n        *   **Legal History**: Eugen Huber was appointed in 1892 to prepare the first draft of the Swiss Civil Code.\n        *   **Broadcasting**: The Swiss Broadcasting Corporation (SRG) is mainly financed by a levy required of all households in Switzerland.\n        *   **Marital Property**: Under the \"participation in acquired property\" regime, \"acquired property\" specifically comprises assets acquired for \"valuable consideration\" during the marriage.\n        *   **Commercial Law**: Swiss commercial law permits the registration of limited liability partnerships.\n        *   **International Recognition**: Switzerland recognizes and enforces foreign judgments and foreign insolvency decrees regardless of whether the state of origin would recognize Swiss judgments (international reciprocity is not a prerequisite).\n\n    *   **Legal Sociology Nuances**:\n        *   Legal sociologists typically **observe** societal phenomena before **prescribing** normative ends.\n        *   It is **not** recommended to use incompatible theories simultaneously that do not distinguish between \"is\" and \"ought.\"\n\n    *   **Animal Law**: Animals are **not** treated as a \"third category\" of legal entities in property law; they do not possess legal capacity like persons.\n\n    *   **Chinese Business Law Nuances**:\n        *   **Joint Ventures**: When a Chinese company establishes a company in the PRC with foreign partners, the structure is often classified as an \"Equity Joint Venture\" or a \"hybrid Co-operative Joint Venture.\"\n\n3.  **Match the Combination**: Identify which statements are correct and find the numbered option that corresponds exactly to that set of statements.\n\n4.  **Reasoning**: Provide a concise explanation for each statement, clearly stating whether it is correct or incorrect and why, based on the legal principles and nuances identified above.\n\n### Output Format:\nProvide your final response in the following JSON format:\n```json\n{\"reasoning\": \"Detailed breakdown of each statement...\", \"answer\": \"X\"}\n```\nwhere \"X\" is the number of the correct option.",
+        "persona2": "Answer the legal multiple-choice question by following a rigorous, multi-step analytical process designed to ensure high precision in specific legal jurisdictions, particularly Swiss Law.\n\n### Task Instructions:\n\n1.  **Identify the Jurisdiction**: Determine the specific legal system (e.g., Swiss Law, Chinese Business Law, International Law) mentioned in the question.\n\n2.  **Evaluate Statements Independently**: Break down each Roman numeral statement (i, ii, iii, etc.) and determine its truth value (Correct or Incorrect) based on the specific jurisdiction. You must cross-reference your evaluation with the following domain-specific nuances:\n\n    *   **Swiss Law Nuances**:\n        *   **Inheritance**: Fianc\u00e9s (engaged persons) are **NOT** considered legal heirs. If a person dies intestate, leaves no children, the mother has predeceased, and the survivors are the father and a brother, the father and the brother receive \u00bd of the estate each without taking any action.\n        *   **Property Law**: The validity of ownership transfer by means of possession **does** depend on the validity of the underlying contract.\n        *   **Treasure Law**: In contemporary legal systems, treasure found on alien property typically belongs in halves to the finder and the landowner. (Note: Statements suggesting this is a departure from \"old Roman solutions\" are generally incorrect).\n        *   **Civil Procedure**: The concept of *res judicata* is **not** broad; it typically applies only to disputes that are similar in nature, not to all subsequent disputes between parties.\n        *   **Public Prosecution**: A penal order **cannot** be issued by the public prosecutor for a custodial sentence of up to 12 months.\n        *   **Legal History**: Eugen Huber was appointed in 1892 to prepare the first draft of the Swiss Civil Code.\n        *   **Broadcasting**: The Swiss Broadcasting Corporation (SRG) is mainly financed by a levy required of all households in Switzerland.\n        *   **Marital Property**: Under the \"participation in acquired property\" regime, \"acquired property\" specifically comprises assets acquired for \"valuable consideration\" during the marriage.\n        *   **Commercial Law**: Swiss commercial law permits the registration of limited liability partnerships.\n        *   **International Recognition**: Switzerland recognizes and enforces foreign judgments and foreign insolvency decrees regardless of whether the state of origin would recognize Swiss judgments (international reciprocity is not a prerequisite).\n        *   **Rule of Law (Article 1)**: Article 1 of the Swiss Civil Code establishes the rule of law, which includes the prohibition of arbitrary decisions. It does **not** grant courts the freedom to decide as if they were the legislator, nor does it mandate exclusive reference to doctrine and tradition.\n        *   **Administrative Law**: Pay close attention to the specific hierarchy of appeals. While appeals from Cantonal Administrative Courts often involve the Swiss Federal Administrative Court, certain specific procedures may allow for direct appeal to the Swiss Federal Supreme Court. The Swiss Federal Supreme Court generally does not review whether the Cantonal Administrative Court correctly interpreted cantonal law.\n\n    *   **Chinese Business Law Nuances**:\n        *   **Joint Ventures**: When a Chinese company establishes a company in the PRC with foreign partners, the structure is often classified as an \"Equity Joint Venture\" or a \"hybrid Co-operative Joint Venture.\"\n\n    *   **Legal Sociology Nuances**:\n        *   Legal sociologists typically **observe** societal phenomena before **prescribing** normative ends.\n        *   It is **not** recommended to use incompatible theories simultaneously that do not distinguish between \"is\" and \"ought.\"\n\n    *   **Animal Law**: Animals are **not** treated as a \"third category\" of legal entities in property law; they do not possess legal capacity like persons.\n\n3.  **Check Question Framing**: Carefully read the question to determine if it asks for \"correct\" statements or \"incorrect\" statements. This is a common point of error; ensure your final selection reflects the specific requirement of the prompt.\n\n4.  **Match the Combination**: Identify which statements are correct/incorrect based on your analysis and find the numbered option that corresponds exactly to that specific set of statements.\n\n5.  **Reasoning**: Provide a concise explanation for each statement, clearly stating whether it is correct or incorrect and why, based on the legal principles and nuances identified above.\n\n### Output Format:\nProvide your final response in the following JSON format:\n```json\n{\"reasoning\": \"Detailed breakdown of each statement (e.g., i. Correct because... ii. Incorrect because...)\", \"answer\": \"X\"}\n```\nwhere \"X\" is the number of the correct option.",
+        "persona3": "Answer the legal multiple-choice question.",
+        "aggregator": "Read the original problem and the four proposed responses, including their reasoning and answers. Select the best answer to the original problem and explain it briefly."
+      },
+      "readout_status": "audited",
+      "readout": {
+        "audit_passed": true,
+        "plan_sha256": "0a4ad6713f71579ba8f372284760dc4974fd172325211f0572175f1a1874f4bd",
+        "winner_sha256": "4a340b339afe2cc5f406e646c1245d8d02c70fa7e747f63f6e8feacff2b96771",
+        "metrics": {
+          "DEV": {
+            "questions": 512,
+            "pooled_individual_accuracy": 0.24169921875,
+            "per_generator_accuracy": {
+              "persona0": 0.2373046875,
+              "persona1": 0.2529296875,
+              "persona2": 0.2587890625,
+              "persona3": 0.2177734375
+            },
+            "vote4": 0.25634765625,
+            "judge": 0.2412109375,
+            "invalid": 6,
+            "length_finishes": 6
+          },
+          "TEST": {
+            "questions": 512,
+            "pooled_individual_accuracy": 0.244384765625,
+            "per_generator_accuracy": {
+              "persona0": 0.2421875,
+              "persona1": 0.24951171875,
+              "persona2": 0.26904296875,
+              "persona3": 0.216796875
+            },
+            "vote4": 0.265625,
+            "judge": 0.2490234375,
+            "invalid": 4,
+            "length_finishes": 4
+          }
+        },
+        "new_calls": 20480,
+        "full_four_reasonings_verified": true,
+        "reporting_only": true,
+        "no_TEST_tuning": true
+      }
+    }
+  },
+  "complete": true
+}

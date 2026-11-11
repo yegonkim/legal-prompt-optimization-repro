@@ -1,0 +1,10 @@
+# Exact direct runtime versions observed in the research environment, Python3.11.17.
+gepa==0.1.4
+vllm==0.31.0
+transformers==5.17.0
+torch==2.13.0
+xgrammar==0.2.7
+datasets==3.6.0
+huggingface-hub==1.33.0
+numpy==2.3.5
+tokenizers==0.23.3
