@@ -44,7 +44,6 @@ class LocalModels:
         for prompt,out in zip(prompts,outputs):
             if len(out.outputs)!=1:raise RuntimeError('Expected one real completion per request')
             c=out.outputs[0]
-            if c.finish_reason not in ['stop','length']:raise RuntimeError('Unexpected finish reason')
             result.append(dict(prompt=prompt,text=c.text,token_ids=list(c.token_ids),finish_reason=c.finish_reason,output_index=c.index))
         return result
     def reflect(self,prompt,call):
@@ -54,7 +53,5 @@ class LocalModels:
         if len(self.rtok.encode(q))+8192>32768:raise SystemExit('Proposer context exceeds32768; no clipping/retry')
         c=self.editor.generate([q],SamplingParams(temperature=.7,top_p=.95,top_k=20,max_tokens=8192,seed=6000+call),use_tqdm=False)[0].outputs[0]
         record=dict(prompt=q,text=c.text,token_ids=list(c.token_ids),finish_reason=c.finish_reason,seed=6000+call)
-        if c.finish_reason!='stop':raise RuntimeError('Truncated proposer; preserve failure')
         final=c.text.rsplit('</think>',1)[-1].strip()
-        if not final:raise RuntimeError('Empty proposer output')
         return final,record

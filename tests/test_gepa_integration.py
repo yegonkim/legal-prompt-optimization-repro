@@ -28,3 +28,5 @@ class GEPAIntegration(unittest.TestCase):
                 self.assertEqual(max(f['val_scores']),1.0);self.assertGreater(f['best_idx'],0)
                 dump(out/'provenance.json',{'operation':'optimize','config':c,'data':{s:{'path':str(root/(s+'.jsonl')),'sha256':file_sha(root/(s+'.jsonl'))} for s in parts}});dump(out/'exit.json',{'exit_code':0})
                 self.assertTrue(audit_run(out,b.stok)['audit_passed'])
+                f['val_scores'][f['best_idx']]=0.5;dump(out/'winner.json',f)
+                with self.assertRaisesRegex(ValueError,'SELECT score'):audit_run(out,b.stok)

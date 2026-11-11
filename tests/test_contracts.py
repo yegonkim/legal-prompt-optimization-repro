@@ -70,7 +70,7 @@ class Contracts(unittest.TestCase):
             with self.subTest(mode=mode),tempfile.TemporaryDirectory() as t:
                 p=Path(t);data=p/'data.jsonl';data.write_text(json.dumps(row())+'\n');out=p/'run';out.mkdir();c=config(mode);b=Backend()
                 readout(c,{'dev':[row()]},b,out,program() if mode=='joint' else {'instruction':'Judge'},'Generator' if mode=='judge' else None)
-                dump(out/'provenance.json',{'operation':'evaluate','config':c,'data':{'dev':{'path':str(data),'sha256':file_sha(data)}}});dump(out/'exit.json',{'exit_code':0})
+                dump(out/'provenance.json',{'operation':'evaluate','config':c,'winner_program':program() if mode=='joint' else {'instruction':'Judge'},'generator_program':{'instruction':'Generator'},'data':{'dev':{'path':str(data),'sha256':file_sha(data)}}});dump(out/'exit.json',{'exit_code':0})
                 self.assertTrue(audit_run(out,b.stok)['audit_passed'])
                 records=rows(out/'responses.jsonl');records[-1]['prompt_sha256']='corrupt';(out/'responses.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in records))
                 with self.assertRaises(ValueError):audit_run(out,b.stok)
@@ -80,7 +80,7 @@ class Contracts(unittest.TestCase):
             p=Path(t);r=row('fit');s=row('select')
             for k,value in [('fit',r),('select',s)]: (p/(k+'.jsonl')).write_text(json.dumps(value)+'\n')
             (p/'test.jsonl').write_text('INVALID DELIBERATE TEST POISON')
-            m={'splits':{k:[{'metadata':{'record_id':v['record_id']},'input_sha256':input_digest(v)}] for k,v in [('fit',r),('select',s)]}}
+            m={'dataset':'ledgar','splits':{k:[{'metadata':{'record_id':v['record_id']},'input_sha256':input_digest(v)}] for k,v in [('fit',r),('select',s)]}}
             m['splits']['test']=[{'metadata':{'record_id':'test'},'input_sha256':'poison'}];dump(p/'manifest.json',m)
             c=read(Path(__file__).parents[1]/'configs/ledgar/response.json');dump(p/'config.json',c)
             main(['validate','--config',str(p/'config.json'),'--data',str(p)])

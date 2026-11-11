@@ -40,7 +40,7 @@
   },
   "row_hash_contract": "record_id/question/answer/public_labels/source_record_id/reference_feedback where present",
   "CPU_tests": {
-    "tests": 13,
+    "tests": 21,
     "all_passed": true,
     "actual_GEPA_integration_modes": [
       "response",
@@ -48,7 +48,17 @@
       "joint"
     ],
     "uses_GPU": false,
-    "uses_model_downloads": false
+    "uses_model_downloads": false,
+    "regressions": [
+      "matched ordinary/optimized baseline table",
+      "identical-instruction bank reuse",
+      "frozen instruction binding",
+      "recomputed metric and SELECT-score integrity",
+      "recursive runtime-hook provenance",
+      "unsupported config rejection",
+      "truncated proposer/student-batch evidence retention",
+      "automatic checks with advanced audit optional"
+    ]
   },
   "GPU_validation_of_portable_package": "not performed; archived scores belong to original audited research code"
 }

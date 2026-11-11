@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "legal-prompt-optimization-repro"
-version = "0.1.0"
+version = "0.2.0"
 description = "Frozen Phi response, full-reasoning judge, and joint GEPA optimization"
 requires-python = ">=3.11,<3.12"
 

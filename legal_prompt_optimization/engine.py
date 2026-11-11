@@ -18,7 +18,7 @@ class Adapter:
     def request(self,row,stage,instruction,trial=0,draw=None):
         joint=self.mode=='joint';sampled=stage!='aggregator';draw=(4*trial+(int(stage[-1]) if sampled and joint else 0)) if draw is None else draw
         rid=row.get('source_record_id',row['record_id']) if joint else row['record_id']
-        key=(stage,rid,trial,instruction,digest(row['question']) if not sampled else '')
+        key=(stage,row['record_id'],trial,instruction,digest(row['question']))
         return dict(row=row,stage=stage,instruction=instruction,trial=trial,draw=draw,seed=seed_for(rid,draw),
             sampled=sampled,joint=joint,cap=self.config['actor_max_tokens'] if sampled else self.config['judge_max_tokens'],key=key)
     def generate(self,requests,cache=False):
@@ -34,12 +34,12 @@ class Adapter:
                 self.calls+=1;self.search_calls+=self.phase=='search'
                 item=dict(call_id=self.calls,record_id=req['row']['record_id'],source_record_id=req['row'].get('source_record_id'),
                     trial=req['trial'],draw=req['draw'],stage=req['stage'],instruction=req['instruction'],seed=req['seed'],
-                    joint=req['joint'],sampled=req['sampled'],cap=req['cap'],phase=self.phase,
+                    joint=req['joint'],sampled=req['sampled'],cap=req['cap'],phase=self.phase,condition=req.get('condition'),
                     prompt_sha256=digest(out['prompt']),text=out['text'],token_ids=out['token_ids'],
                     finish_reason=out['finish_reason'],output_index=out.get('output_index',0),**grade(out['text'],req['row']))
-                if len(item['token_ids'])>req['cap'] or item['finish_reason'] not in ['stop','length']:raise RuntimeError('Invalid decoder record')
                 self.record('responses.jsonl',item);fresh.append(item)
                 if cache:self.cache[req['key']]=item
+            if any(len(r['token_ids'])>r['cap'] or r['finish_reason'] not in ['stop','length'] for r in fresh[-len(chunk):]):raise RuntimeError('Invalid decoder record; raw batch preserved')
             print(json.dumps(dict(stage=self.mode,phase=self.phase,student_calls=self.calls,proposer_calls=self.reflections)),flush=True)
         return [self.cache[r['key']] for r in requests] if cache else fresh
     def program(self,data,candidate,trials=(0,)):
@@ -88,7 +88,10 @@ class Adapter:
         if self.reflections>=self.config['proposer_call_cap']:raise BudgetExceeded('Frozen proposer cap')
         self.reflections+=1
         final,record=self.backend.reflect(prompt,self.reflections)
-        self.record('reflector_calls.jsonl',dict(call=self.reflections,**record));return final
+        self.record('reflector_calls.jsonl',dict(call=self.reflections,**record))
+        if record['finish_reason']!='stop':raise RuntimeError('Truncated proposer; raw completion preserved')
+        if not final:raise RuntimeError('Empty proposer output; raw completion preserved')
+        return final
 
 def frozen_bank(adapter,parts,generator):
     adapter.phase='bank';frames={}
@@ -122,30 +125,56 @@ def optimize(config,parts,backend,out,generator=None):
         generator_prefix=generator,selected_on='SELECT only')
     dump(Path(out)/'winner.json',freeze);return freeze
 
-def readout(config,parts,backend,out,winner,generator=None):
-    joint=config['mode']=='joint';cap=sum(map(len,parts.values()))*20
+def summarize_trials(data,traces,judges,ordinary=None,baseline_alias=False):
+    """Metrics from the same four-response groups used by the judge."""
+    individual=[r for t in traces for r in t['actors']];n=len(data)
+    observed=individual+judges+(ordinary if ordinary is not None and not baseline_alias else [])
+    result=dict(questions=n,individual=sum(r['correct'] for r in individual)/(16*n),
+        per_generator={k:sum(t['actors'][i]['correct'] for t in traces)/(4*n) for i,k in enumerate(ACTORS)},
+        vote4=sum(vote([r['answer'] for r in t['actors']])==t['row']['answer'] for t in traces)/(4*n),
+        judge=sum(j['correct'] for j in judges)/(4*n),invalid=sum(not r['valid'] for r in observed),
+        length_finishes=sum(r['finish_reason']=='length' for r in observed))
+    if ordinary is not None:
+        bank={(r['record_id'],r['draw']):r for r in ordinary}
+        result.update(ordinary_pass1=sum(r['correct'] for r in ordinary)/(16*n),
+            ordinary_vote4=sum(vote([bank[row['record_id'],4*t+i]['answer'] for i in range(4)])==row['answer'] for row in data for t in range(4))/(4*n),
+            optimized_pass1=result['individual'],optimized_vote4=result['vote4'],optimized_judge=result['judge'])
+    return result
+
+def baseline_table_text(metrics):
+    lines=['| Split | Ordinary pass@1 | Ordinary vote@4 | Optimized pass@1 | Optimized vote@4 | Optimized + judge |','|---|---:|---:|---:|---:|---:|']
+    for split,m in metrics.items():lines.append('| '+split+' | '+' | '.join(f"{100*m[k]:.2f}%" for k in ['ordinary_pass1','ordinary_vote4','optimized_pass1','optimized_vote4','optimized_judge'])+' |')
+    return '\n'.join(lines)+'\n'
+
+def readout(config,parts,backend,out,winner,generator=None,baselines=False):
+    joint=config['mode']=='joint'
+    if joint and baselines:raise ValueError('--baselines applies to response + judge evaluation')
+    alias=baselines and generator==config.get('ordinary_instruction',ORDINARY)
+    cap=sum(map(len,parts.values()))*(36 if baselines and not alias else 20)
     a=Adapter(config,backend,out,mode='joint' if joint else 'response',call_cap=cap);a.phase='readout';metrics={}
+    def actor_bank(data,instruction,condition):
+        requests=[a.request(row,'response',instruction,draw=d) for row in data for d in range(16)]
+        for req in requests:
+            req['seed']=seed_for(req['row'].get('source_record_id',req['row']['record_id']),req['draw']);req['condition']=condition
+        return a.generate(requests)
     for split,data in parts.items():
+        ordinary=None
         if joint:judges,traces=a.program(data,winner,range(4))
         else:
             if not generator:raise ValueError('Sequential readout requires generator and judge winners')
-            actor_requests=[a.request(row,'response',generator,draw=d) for row in data for d in range(16)]
-            for request in actor_requests:request['seed']=seed_for(request['row'].get('source_record_id',request['row']['record_id']),request['draw'])
-            actors=a.generate(actor_requests)
+            if baselines:ordinary=actor_bank(data,config.get('ordinary_instruction',ORDINARY),'ordinary')
+            actors=ordinary if alias else actor_bank(data,generator,'optimized')
             requests=[];traces=[]
             for i,row in enumerate(data):
                 for t in range(4):
                     rs=[dict(r,draw=4*t+j) for j,r in enumerate(actors[16*i+4*t:16*i+4*t+4])];f=frame(row,t,rs)
                     req=a.request(f,'aggregator',generator+'\n\n'+winner['instruction'],t,draw=860000+t)
-                    # Historical sequential readout uses original source ID for the greedy judge seed.
-                    req['seed']=seed_for(f['source_record_id'],860000+t);requests.append(req);traces.append(dict(row=row,trial=t,actors=rs,frame=f))
+                    req['seed']=seed_for(f['source_record_id'],860000+t);req['condition']='judge';requests.append(req);traces.append(dict(row=row,trial=t,actors=rs,frame=f))
             judges=a.generate(requests)
             for t,j in zip(traces,judges):t['output']=j
-        individual=[r for t in traces for r in t['actors']];n=len(data)
-        metrics[split]=dict(questions=n,individual=sum(r['correct'] for r in individual)/(16*n),
-            per_generator={k:sum(t['actors'][i]['correct'] for t in traces)/(4*n) for i,k in enumerate(ACTORS)},
-            vote4=sum(vote([r['answer'] for r in t['actors']])==t['row']['answer'] for t in traces)/(4*n),
-            judge=sum(j['correct'] for j in judges)/(4*n),invalid=sum(not r['valid'] for r in individual+judges),
-            length_finishes=sum(r['finish_reason']=='length' for r in individual+judges))
-    result=dict(metrics=metrics,new_calls=a.calls,full_four_reasonings=True,reporting_only=True)
-    dump(Path(out)/'metrics.json',result);return result
+        metrics[split]=summarize_trials(data,traces,judges,ordinary,alias)
+    if a.calls!=cap:raise RuntimeError('Incomplete readout: expected all real candidate and judge calls')
+    result=dict(metrics=metrics,new_calls=a.calls,full_four_reasonings=True,reporting_only=True,baseline_table=baselines,ordinary_equals_optimized=bool(alias))
+    dump(Path(out)/'metrics.json',result)
+    if baselines:(Path(out)/'table.md').write_text(baseline_table_text(metrics))
+    return result
