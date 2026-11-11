@@ -1,0 +1,114 @@
+{
+  "status": "ready_for_root_controlled_GPU_smoke_not_GPU_validated",
+  "utc": "2026-11-11T14:17:05.216862+00:00",
+  "python": "/workspace/msv_legal/outputs/environments/vllm033-compat-20261111-v1/bin/python",
+  "environment_path": "/workspace/msv_legal/outputs/environments/vllm033-compat-20261111-v1",
+  "models": "reuse /workspace/.hf_home offline, no model weights downloaded",
+  "new_packages": {
+    "vllm": {
+      "version": "0.33.0",
+      "wheel_sha256": "4b6bdec4ab269990bf70d45a3c1e94c3760a27064513760193b26d6f0da883aa"
+    },
+    "torch": {
+      "version": "2.14.0",
+      "wheel_sha256": "8d9e232b6376c62f3090237889fb1cb6887c0ece9f73e6c1052e80fc1481f999"
+    },
+    "xgrammar": {
+      "version": "0.2.8",
+      "wheel_sha256": "885d7468636a8ca829513b9740fef21cbb438239fa3f91cce06e95e31973b8c6"
+    },
+    "torchvision": {
+      "version": "0.29.0",
+      "wheel_sha256": "85fa54bec1f7d9227b5e4e201ed4bac92247ee10fb19148d92f9836e3e91d5c3"
+    },
+    "flashinfer-python": {
+      "version": "0.7.2.post1",
+      "wheel_sha256": "bfdc18b9e1e4d8d0730fe4343dc0e284cd0c160086de80f99888bc4867922d49"
+    },
+    "nvidia-cutlass-dsl": {
+      "version": "4.8.0",
+      "wheel_sha256": "24f996e0e5fa88c8b417f4893e615af135bdfdfdbdbed7e239faf36a88df711b"
+    },
+    "tokenspeed-mla": {
+      "version": "2.0.3",
+      "wheel_sha256": "576ce91e861598347f09c429fe41269863d351bf3de8410a845dae39fa172e4a"
+    },
+    "humming-kernels": {
+      "version": "0.1.19",
+      "wheel_sha256": "16ad0c8e9c2d5a8db739bdb97bcc510cedc9dc4c4c111098cbb2d7ac9c1dd973"
+    },
+    "nvidia-cudnn-cu13": {
+      "version": "9.24.0.43",
+      "wheel_sha256": "71f181cd810e90f9b6023b01186fe82d13d65f0ec098581ee201d39fad769e4b"
+    },
+    "nvidia-nccl-cu13": {
+      "version": "2.30.7",
+      "wheel_sha256": "cefa7fdb9710efd0f39c5f1be1d61ff6fc9a996c451265bd7fbdcf9455ed4b50"
+    },
+    "triton": {
+      "version": "3.8.0",
+      "wheel_sha256": "68988ac85d5e7086baeda0ddc175af9667db7529b3c5e11a5c0601b8bef2200a"
+    },
+    "orjson": {
+      "version": "3.13.0",
+      "wheel_sha256": "89bcf2d4bc6c9a7e1763c8cf534f38712e66b76a0fefda7fb7785462f0d635e4"
+    },
+    "nvidia-cutlass-dsl-libs-base": {
+      "version": "4.8.0",
+      "wheel_sha256": "ce3aec4c37b68880e85a7f3f763f8fe4d0503f49516cc855c80012e0fadf92e0"
+    },
+    "nvidia-cutlass-dsl-libs-cu12": {
+      "version": "4.8.0",
+      "wheel_sha256": "5dac7aef97fc51df882b68620e1c430e7b4362d0aca17d220727da7681f061df"
+    },
+    "nvidia-cutlass-dsl-libs-cu13": {
+      "version": "4.8.0",
+      "wheel_sha256": "1866559c8da5c3c0815047a1fb414e1745f47069b14bac5168885785b8553dc2"
+    },
+    "nvidia-cutlass-dsl-libs-core": {
+      "version": "4.8.0",
+      "wheel_sha256": "b32716d2ed10c185cdbbb6b5c6fca26a3113a60e6e2fe4e2f0cb15966422b621"
+    }
+  },
+  "dependency_closure_count": 198,
+  "pip_check": "No broken requirements found.",
+  "base_metadata_fingerprints_unchanged": 210,
+  "import_check": {
+    "torch": "2.14.0+cu130",
+    "cuda_built_for": "13.0",
+    "xgrammar": "0.2.8",
+    "torch_module": "/workspace/msv_legal/outputs/environments/vllm033-compat-20261111-v1/lib/python3.11/site-packages/torch/__init__.py",
+    "xgrammar_module": "/workspace/msv_legal/outputs/environments/vllm033-compat-20261111-v1/lib/python3.11/site-packages/xgrammar/__init__.py",
+    "tokenizer_info_method_module": "xgrammar.tokenizer_info",
+    "cuda_initialized_before": false,
+    "vllm": "0.33.0",
+    "vllm_module": "/workspace/msv_legal/outputs/environments/vllm033-compat-20261111-v1/lib/python3.11/site-packages/vllm/__init__.py",
+    "vllm_LLM_import": true,
+    "structured_grammar_parameter": true,
+    "cuda_initialized_after": false,
+    "import_check_passed": true
+  },
+  "cpu_shared_library_check": {
+    "cudnn_version": 92400,
+    "nccl_version": [
+      2,
+      30,
+      7
+    ],
+    "cuda_initialized_before": false,
+    "cuda_initialized_after": false
+  },
+  "no_GPU_launch": true,
+  "no_workaround": "TokenizerInfo methodmodule=xgrammar.tokenizer_info; EOS alignment flags unset",
+  "comparison_runner": "/workspace/msv_legal/outputs/environments/vllm033-compat-20261111-v1/comparison/run_comparison.py",
+  "comparison_runner_sha256": "86bd5513e75197394dc62b51a137a93d5c4ab1ec5601856caff87f36456feb84",
+  "comparison_CPU_test": "passed:15syntheticcalls, controlled1difference, wrongseedrejected",
+  "files_sha256": {
+    "build_provenance.json": "b4a0282dd56dae8f9c94a2fb9647e9560517702a6aa982a804fa357af2b24400",
+    "dependency_report.json": "6afaef23a9ee3ef1dfc4b9a0d1736aa282ca85c68015067e7c9e39048c2209f4",
+    "import_report.json": "90b963dea5cb198f36d76d8cbb01defded96d8a03840aca616ed831d8ef04de0",
+    "check_dependencies.py": "cc419a4acbacc866225c4a187bce00570e2a673ef779b3b105ffd8591f72eea4",
+    "check_imports.py": "d682e845c1621cfcee9b3e2ec471c30e439b98ff20154f0eef3dc4febf0ec52b",
+    "comparison/run_comparison.py": "86bd5513e75197394dc62b51a137a93d5c4ab1ec5601856caff87f36456feb84"
+  }
+}

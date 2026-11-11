@@ -100,3 +100,7 @@ python -m unittest discover -s tests -v
 CPU tests cover split isolation, source-ID seeds, full reasoning/prefix handling, baseline tables, failure evidence and actual GEPA integration with synthetic models. No models or GPU are used by the tests. [Advanced verification](ADVANCED.md) is available for debugging or archival work; it is not part of the normal workflow.
 
 Runs never overwrite or silently resume existing directories. Only physical GPU0/1 are accepted; use a free GPU. Use the same `--lock-dir` across concurrent checkouts/processes to coordinate them. Partial outputs are retained after failures. Data, run logs, caches, generations and model weights stay outside Git.
+
+## Current research checkpoint
+
+Later all-component results, failures and interruptions are archived in [RESULTS.md](RESULTS.md). Experiments and schedulers are paused by user request. See [MACHINE_HANDOFF.md](MACHINE_HANDOFF.md) before continuing on another machine; do not silently resume interrupted attempts.

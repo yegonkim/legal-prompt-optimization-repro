@@ -30,3 +30,9 @@ See `results/task3_all_five_changed_final_20261111_v1.json` and `results/task3_a
 ## Verify and extend
 
 `python -m legal_prompt_optimization verify-bundle` verifies shipped checksums, not hidden raw generations. The source study audits and source-file hashes are archived; rerun and audit the portable code locally for new evidence. Add future runs under new names with their actual exits/audits and no overwrite. Keep failures and partials locally; never silently resume an old budget.
+
+## Later all-component follow-up — paused2026-11-11
+
+See [checkpoint](results/all_component_followup_20261111/REPORT.md) and [exact curated records](results/all_component_followup_20261111/checkpoint.json). LEDGAR, CaseHOLD and BarExamQA have completed DEV/TEST readouts. LEXam has a completed selected program but interrupted readout. LAR failed context; SARA optimization was interrupted. All work is paused; partial runs are not final results. These numerical results originate from the original research runners, not a completed end-to-end GPU validation of this package.
+
+[Machine handoff](MACHINE_HANDOFF.md) records pending work and migration limits. CPU-only XGrammar compatibility tests passed for0.2.8/0.2.9; no GPU same-seed comparison or default dependency upgrade has been performed.
