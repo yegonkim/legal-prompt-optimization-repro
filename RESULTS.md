@@ -1,6 +1,6 @@
 # Sequential experiment results
 
-Reported experiment results. End-to-end GPU score reproduction with this runner is **not yet verified for all datasets**; CPU behavior and data preparation are tested. Only sequential results are published. Joint optimization remains available through config.
+Validated saved-prompt DEV/TEST readouts. Fresh GEPA optimization has not been independently reproduced. Only sequential results are published. Joint optimization remains available through config.
 
 All eight [configs](configs/experiments/suite.yaml), final prompts and metrics are indexed in the [catalog](results/sequential/catalog.json). Raw responses, checkpoints, datasets and logs are excluded.
 
@@ -13,7 +13,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 | [lar_echr](results/sequential/lar_echr/prompts.json) | DEV | accuracy | 43.69% | 45.92% | 43.69% | 45.92% | 43.37% |
 | [lar_echr](results/sequential/lar_echr/prompts.json) | TEST | accuracy | 46.04% | 48.17% | 46.04% | 48.17% | 49.67% |
 | [sara_entailment](results/sequential/sara_entailment/prompts.json) | DEV | accuracy | 66.62% | 68.50% | 66.00% | 67.00% | 66.00% |
-| [sara_entailment](results/sequential/sara_entailment/prompts.json) | TEST | accuracy | 66.38% | 68.50% | 66.38% | 68.00% | 60.50% |
+| [sara_entailment](results/sequential/sara_entailment/prompts.json) | TEST | accuracy | 64.88% | 66.00% | 66.25% | 72.00% | 66.00% |
 | [barexamqa_closed_book](results/sequential/barexamqa_closed_book/prompts.json) | DEV | accuracy | 49.34% | 50.41% | 49.34% | 50.41% | 46.34% |
 | [barexamqa_closed_book](results/sequential/barexamqa_closed_book/prompts.json) | TEST | accuracy | 35.49% | 37.71% | 35.49% | 37.71% | 38.56% |
 | [lexam](results/sequential/lexam/prompts.json) | DEV | accuracy | 21.20% | 22.56% | 25.45% | 27.64% | 25.39% |

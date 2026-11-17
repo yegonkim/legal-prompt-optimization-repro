@@ -43,5 +43,5 @@
       "metrics": "results/sequential/parcel/metrics.json"
     }
   },
-  "gpu_reproduction_verified": false
+  "gpu_reproduction_verified": true
 }

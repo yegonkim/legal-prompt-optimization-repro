@@ -74,7 +74,7 @@ See [the configuration reference](docs/configuration.md) for all settings and bu
 
 ## Saved prompts and results
 
-Final instructions are in `results/sequential/<dataset>/prompts.json`, under `program.response` and `program.judge`. The [catalog](results/sequential/catalog.json) links all eight configs, prompt pairs and metric tables. [RESULTS.md](RESULTS.md) explains evaluation coverage and limitations. Numerical score reproduction by this runner is not yet verified; tests validate CPU behavior and dataset reconstruction.
+Final instructions are in `results/sequential/<dataset>/prompts.json`, under `program.response` and `program.judge`. The [catalog](results/sequential/catalog.json) links all eight configs, prompt pairs and metric tables. [RESULTS.md](RESULTS.md) explains evaluation coverage and limitations. Saved-prompt DEV/TEST readouts have been validated for all eight datasets; fresh GEPA optimization has not been independently reproduced.
 
 Run selected datasets end to end, or evaluate the supplied prompts:
 
