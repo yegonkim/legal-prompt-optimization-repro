@@ -14,8 +14,8 @@ parcel,DEV,Baseline aggregate@4,512,512,0,1.0,,0.6328125,0.5283624736054412
 parcel,DEV,Optimized response pass@1,512,512,0,1.0,,0.66796875,0.5947830904702377
 parcel,DEV,Optimized response aggregate@4,512,512,0,1.0,,0.66796875,0.5877488679902473
 parcel,DEV,Optimized response + judge,512,512,0,1.0,,0.66796875,0.5748277576873806
-parcel,TEST,Baseline pass@1,512,512,0,1.0,,0.42578125,0.3565320976811331
-parcel,TEST,Baseline aggregate@4,512,512,0,1.0,,0.482421875,0.38755092946269415
-parcel,TEST,Optimized response pass@1,512,512,0,1.0,,0.33203125,0.3017258413739463
-parcel,TEST,Optimized response aggregate@4,512,512,0,1.0,,0.3671875,0.32402179767449224
-parcel,TEST,Optimized response + judge,512,512,0,1.0,,0.3125,0.2839156950567632
+parcel,TEST,Baseline pass@1,512,512,0,1.0,,0.60546875,0.5030102985151489
+parcel,TEST,Baseline aggregate@4,512,512,0,1.0,,0.62109375,0.5035835810387985
+parcel,TEST,Optimized response pass@1,512,512,0,1.0,,0.673828125,0.5917554563030677
+parcel,TEST,Optimized response aggregate@4,512,512,0,1.0,,0.703125,0.6150813653852941
+parcel,TEST,Optimized response + judge,512,512,0,1.0,,0.673828125,0.5661996271161668

@@ -8,6 +8,6 @@ ecthr_npd,TEST,judge,0,0,0,512
 parcel,DEV,ordinary,1,1,0,2048
 parcel,DEV,optimized,2,2,0,2048
 parcel,DEV,judge,0,0,0,512
-parcel,TEST,ordinary,358,358,0,2048
-parcel,TEST,optimized,240,240,0,2048
-parcel,TEST,judge,317,317,0,512
+parcel,TEST,ordinary,0,0,0,2048
+parcel,TEST,optimized,2,2,0,2048
+parcel,TEST,judge,0,0,0,512

@@ -78,66 +78,74 @@
       "ordinary": {
         "n": 512,
         "pass1": {
-          "primary": 0.3565320976811331,
-          "macro_f1": 0.3565320976811331,
-          "accuracy": 0.42578125,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.60546875,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.5030102985151489,
+          "n": 512,
+          "primary": 0.5030102985151489,
+          "valid": 512
         },
         "vote4": {
-          "primary": 0.38755092946269415,
-          "macro_f1": 0.38755092946269415,
-          "accuracy": 0.482421875,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.62109375,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.5035835810387985,
+          "n": 512,
+          "primary": 0.5035835810387985,
+          "valid": 512
         },
         "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
           "4": 512
-        }
+        },
+        "forcing_attempts": 0,
+        "forcing_recoveries": 0
       },
       "optimized_response": {
         "n": 512,
         "pass1": {
-          "primary": 0.3017258413739463,
-          "macro_f1": 0.3017258413739463,
-          "accuracy": 0.33203125,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.673828125,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.5917554563030677,
+          "n": 512,
+          "primary": 0.5917554563030677,
+          "valid": 512
         },
         "vote4": {
-          "primary": 0.3240217976744923,
-          "macro_f1": 0.3240217976744923,
-          "accuracy": 0.3671875,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.703125,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.6150813653852941,
+          "n": 512,
+          "primary": 0.6150813653852941,
+          "valid": 512
         },
         "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
           "4": 512
-        }
+        },
+        "forcing_attempts": 2,
+        "forcing_recoveries": 2
       },
       "optimized_response_and_judge": {
-        "primary": 0.2839156950567632,
-        "macro_f1": 0.2839156950567632,
-        "accuracy": 0.3125,
-        "n": 512,
-        "valid": 512,
+        "accuracy": 0.673828125,
+        "coverage": 1.0,
         "failed": 0,
-        "coverage": 1.0
-      }
+        "forcing_attempts": 0,
+        "forcing_recoveries": 0,
+        "macro_f1": 0.5661996271161668,
+        "n": 512,
+        "primary": 0.5661996271161668,
+        "valid": 512
+      },
+      "response_prompt_changed": true,
+      "judge_prompt_changed": true
     }
   },
   "notes": [
     "New TEST contains25 priorFIT,8 priorSELECT,70 priorDEV,81 priorTEST cases. All34 opinions shared between DEV and TEST. Not pristine."
   ],
-  "gpu_reproduction_verified": false
+  "gpu_reproduction_verified": true
 }

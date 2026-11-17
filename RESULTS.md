@@ -21,7 +21,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 | [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | DEV | mae | 6.14523e+12 | 633231 | 2.08768e+107 | 10491.8 | 12601.3 |
 | [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | TEST | mae | 4.53728e+14 | 1.17864e+09 | 2.23451e+202 | 8043.76 | 849967 |
 | [parcel](results/sequential/parcel/prompts.json) | DEV | macro_f1 | 50.69% | 52.84% | 59.48% | 58.77% | 57.48% |
-| [parcel](results/sequential/parcel/prompts.json) | TEST | macro_f1 | 35.65% | 38.76% | 30.17% | 32.40% | 28.39% |
+| [parcel](results/sequential/parcel/prompts.json) | TEST | macro_f1 | 50.30% | 50.36% | 59.18% | 61.51% | 56.62% |
 
 ## Interpretation and protocol differences
 
