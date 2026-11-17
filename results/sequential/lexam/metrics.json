@@ -44,17 +44,49 @@
       }
     },
     "TEST": {
-      "ordinary_pass1": 0.22314453125,
-      "ordinary_vote4": 0.2333984375,
-      "optimized_pass1": 0.249267578125,
-      "optimized_vote4": 0.26611328125,
-      "optimized_judge": 0.2548828125,
-      "questions": 512
+      "ordinary_pass1": 0.223388671875,
+      "ordinary_vote4": 0.23388671875,
+      "optimized_pass1": 0.2454833984375,
+      "optimized_vote4": 0.2666015625,
+      "optimized_judge": 0.2490234375,
+      "questions": 512,
+      "prediction_counts": {
+        "ordinary_pass1": {
+          "n": 8192,
+          "valid": 8191,
+          "failed": 1,
+          "coverage": 0.9998779296875
+        },
+        "ordinary_vote4": {
+          "n": 2048,
+          "valid": 2048,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_pass1": {
+          "n": 8192,
+          "valid": 8173,
+          "failed": 19,
+          "coverage": 0.9976806640625
+        },
+        "optimized_vote4": {
+          "n": 2048,
+          "valid": 2048,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_judge": {
+          "n": 2048,
+          "valid": 2044,
+          "failed": 4,
+          "coverage": 0.998046875
+        }
+      }
     }
   },
   "notes": [
     "Judge reflection batch size is4 to fit the proposer context limit.",
     "Reference DEV and TEST are halves derived from the source TEST partition."
   ],
-  "gpu_reproduction_verified": false
+  "gpu_reproduction_verified": true
 }
