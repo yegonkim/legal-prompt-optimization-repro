@@ -44,17 +44,49 @@
       }
     },
     "TEST": {
-      "ordinary_pass1": 0.558837890625,
-      "ordinary_vote4": 0.56103515625,
-      "optimized_pass1": 0.5693359375,
-      "optimized_vote4": 0.5732421875,
-      "optimized_judge": 0.5830078125,
-      "questions": 512
+      "ordinary_pass1": 0.56787109375,
+      "ordinary_vote4": 0.57421875,
+      "optimized_pass1": 0.572021484375,
+      "optimized_vote4": 0.58251953125,
+      "optimized_judge": 0.5849609375,
+      "questions": 512,
+      "prediction_counts": {
+        "ordinary_pass1": {
+          "n": 8192,
+          "valid": 8192,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "ordinary_vote4": {
+          "n": 2048,
+          "valid": 2048,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_pass1": {
+          "n": 8192,
+          "valid": 8192,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_vote4": {
+          "n": 2048,
+          "valid": 2048,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_judge": {
+          "n": 2048,
+          "valid": 2048,
+          "failed": 0,
+          "coverage": 1.0
+        }
+      }
     }
   },
   "notes": [
     "Judge reflection batch size is4 to fit the proposer context limit.",
     "DEV contains510 cases after removing two FIT-overlapping cases."
   ],
-  "gpu_reproduction_verified": false
+  "gpu_reproduction_verified": true
 }
