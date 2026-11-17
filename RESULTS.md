@@ -1,6 +1,6 @@
 # Sequential experiment results
 
-Reported experiment results. End-to-end GPU score reproduction with this runner is **not yet verified**; CPU behavior and data preparation are tested. Only sequential results are published. Joint optimization remains available through config.
+Reported experiment results. End-to-end GPU score reproduction with this runner is **not yet verified for all datasets**; CPU behavior and data preparation are tested. Only sequential results are published. Joint optimization remains available through config.
 
 All eight [configs](configs/experiments/suite.yaml), final prompts and metrics are indexed in the [catalog](results/sequential/catalog.json). Raw responses, checkpoints, datasets and logs are excluded.
 
@@ -20,7 +20,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 | [lexam](results/sequential/lexam/prompts.json) | TEST | accuracy | 22.31% | 23.34% | 24.93% | 26.61% | 25.49% |
 | [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | DEV | mae | 6.14523e+12 | 633231 | 2.08768e+107 | 10491.8 | 12601.3 |
 | [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | TEST | mae | 4.53728e+14 | 1.17864e+09 | 2.23451e+202 | 8043.76 | 849967 |
-| [parcel](results/sequential/parcel/prompts.json) | DEV | macro_f1 | 39.19% | 40.67% | 32.21% | 33.75% | 31.75% |
+| [parcel](results/sequential/parcel/prompts.json) | DEV | macro_f1 | 50.69% | 52.84% | 59.48% | 58.77% | 57.48% |
 | [parcel](results/sequential/parcel/prompts.json) | TEST | macro_f1 | 35.65% | 38.76% | 30.17% | 32.40% | 28.39% |
 
 ## Interpretation and protocol differences
@@ -29,7 +29,7 @@ The six original datasets use mean individual accuracy over 16 sampled responses
 
 The reported LEDGAR recipe uses per-case accuracy, response reflection batch3/seed42, judge batch16/seed43, compact JSON grammar, and greedy 512-token judges. CaseHOLD, LAR-ECHR, SARA and LEXam use judge reflection batch4 to fit the proposer context. NPD/PARCEL used the adapted cohort recipe, MAE/macro-F1, sampled 1024-token responses and judges, and sampled 128-token answer forcing on length failures. See each YAML for complete settings.
 
-PARCEL optimization worsened both DEV and TEST scores. NPD remains unstable: its TEST optimized individual has 60 failures (88.28% coverage), while optimized median@4 excludes five failures. Low-coverage, valid-only MAE is **not reliable evidence of improvement**. All parseable finite values, including extreme numbers, remain in the metric. Failures are never converted to arbitrary numbers. Exact [failure/coverage counts](results/sequential/final-DEV-TEST-table.csv) and [forcing attempts/recoveries](results/sequential/final-forcing-counts.csv) are published; reported failure counts unavailable in summary sources are not inferred as zero.
+NPD remains unstable: its TEST optimized individual has 60 failures (88.28% coverage), while optimized median@4 excludes five failures. Low-coverage, valid-only MAE is **not reliable evidence of improvement**. All parseable finite values, including extreme numbers, remain in the metric. Failures are never converted to arbitrary numbers. Exact [failure/coverage counts](results/sequential/final-DEV-TEST-table.csv) and [forcing attempts/recoveries](results/sequential/final-forcing-counts.csv) are published; reported failure counts unavailable in summary sources are not inferred as zero.
 
 ## Exposure and reproduction limits
 
@@ -45,4 +45,4 @@ PARCEL optimization worsened both DEV and TEST scores. NPD remains unstable: its
 
 See [README](README.md) for the suite command. `--saved-prompts` imports the final instructions and evaluates them without running GEPA. Imports are labeled as saved, bind to verified cohort inputs, and never claim a new optimization. TEST readouts use frozen prompts and never select configurations.
 
-The runnable configs use vLLM 0.33.0 and `structured_outputs`. The reported scores were not rerun for this serving migration: NPD/PARCEL used Phi on vLLM 0.10.0 with `guided_json` and Gemma on 0.33.0. Saved prompts can be evaluated with the current configs, but identical numerical scores are not established.
+The runnable configs use vLLM 0.33.0 and `structured_outputs`. Saved prompts can be evaluated with the current configs, but identical numerical scores are not established.

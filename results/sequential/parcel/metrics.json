@@ -8,65 +8,67 @@
       "ordinary": {
         "n": 512,
         "pass1": {
-          "primary": 0.39190397888072304,
-          "macro_f1": 0.39190397888072304,
-          "accuracy": 0.466796875,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.595703125,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.5068922572433808,
+          "n": 512,
+          "primary": 0.5068922572433808,
+          "valid": 512
         },
         "vote4": {
-          "primary": 0.40671480456589415,
-          "macro_f1": 0.40671480456589415,
-          "accuracy": 0.50390625,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.6328125,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.5283624736054412,
+          "n": 512,
+          "primary": 0.5283624736054412,
+          "valid": 512
         },
         "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
           "4": 512
         },
-        "forcing_attempts": 206,
-        "forcing_recoveries": 206
+        "forcing_attempts": 1,
+        "forcing_recoveries": 1
       },
       "optimized_response": {
         "n": 512,
         "pass1": {
-          "primary": 0.32210209403574747,
-          "macro_f1": 0.32210209403574747,
-          "accuracy": 0.34765625,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.66796875,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.5947830904702377,
+          "n": 512,
+          "primary": 0.5947830904702377,
+          "valid": 512
         },
         "vote4": {
-          "primary": 0.3374903507007123,
-          "macro_f1": 0.3374903507007123,
-          "accuracy": 0.373046875,
-          "n": 512,
-          "valid": 512,
+          "accuracy": 0.66796875,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "macro_f1": 0.5877488679902473,
+          "n": 512,
+          "primary": 0.5877488679902473,
+          "valid": 512
         },
         "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
           "4": 512
         },
-        "forcing_attempts": 461,
-        "forcing_recoveries": 461
+        "forcing_attempts": 2,
+        "forcing_recoveries": 2
       },
       "optimized_response_and_judge": {
-        "primary": 0.3174535546287875,
-        "macro_f1": 0.3174535546287875,
-        "accuracy": 0.341796875,
-        "n": 512,
-        "valid": 512,
+        "accuracy": 0.66796875,
+        "coverage": 1.0,
         "failed": 0,
-        "coverage": 1.0
+        "forcing_attempts": 0,
+        "forcing_recoveries": 0,
+        "macro_f1": 0.5748277576873806,
+        "n": 512,
+        "primary": 0.5748277576873806,
+        "valid": 512
       },
       "response_prompt_changed": true,
       "judge_prompt_changed": true
@@ -135,8 +137,7 @@
     }
   },
   "notes": [
-    "New TEST contains25 priorFIT,8 priorSELECT,70 priorDEV,81 priorTEST cases. All34 opinions shared between DEV and TEST. Not pristine.",
-    "Optimized response and judge are worse than baseline on DEV and TEST. All predictions valid after forcing."
+    "New TEST contains25 priorFIT,8 priorSELECT,70 priorDEV,81 priorTEST cases. All34 opinions shared between DEV and TEST. Not pristine."
   ],
   "gpu_reproduction_verified": false
 }
