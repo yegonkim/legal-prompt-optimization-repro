@@ -5,13 +5,17 @@ seed: 42
 task:
   metric: macro_f1
 data:
-  manifest: parcel
-  manifest_sha256: 5bc001ab114bdbc29e5395cbdb0642b20871127e6ac68f7df41cc5c574a71835
+  dataset: parcel
   expected_counts:
     fit: 128
     select: 64
     dev: 512
     test: 512
+  split_sha256:
+    fit: 1347b667ed9ab63d2654886073a7a9addc4bda60a456123f62de785cbe42b955
+    select: 429a9e423e7740d3068f43c9c38a39280768f555ca5d57a50d14c8cb37543049
+    dev: d97edfd50947f102f8dd32fbd49370edc9d634f7071ab35106d47ac0cc35055f
+    test: cadfb64f08fd25b2c471a59a5e5e45bda37709a79c306cae885ffaced33eadf0
 models:
   student:
     model: microsoft/Phi-4-mini-instruct

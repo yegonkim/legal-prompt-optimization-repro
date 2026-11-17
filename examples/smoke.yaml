@@ -1,4 +1,3 @@
-# Tiny integration run; requires model endpoints unless using the CPU test backend.
 version: 1
 mode: sequential
 seed: 42
@@ -89,3 +88,15 @@ runtime:
   max_physical_calls: 100000
   max_seconds: 172800
   offline: false
+data:
+  dataset: null
+  expected_counts:
+    fit: null
+    select: null
+    dev: null
+    test: null
+  split_sha256:
+    fit: null
+    select: null
+    dev: null
+    test: null

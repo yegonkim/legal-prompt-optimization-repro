@@ -27,10 +27,8 @@ def freeze_archived(data, config_path, prompt_path, out):
             raise ValueError("Archived prompt hash mismatch")
     if config["mode"] != "sequential":
         raise ValueError("Archived sequential prompts require mode: sequential")
-    if config["data"]["manifest"] != prompts["dataset"]:
-        raise ValueError(
-            "Archived evaluation requires the matching frozen dataset contract"
-        )
+    if config["data"]["dataset"] != prompts["dataset"]:
+        raise ValueError("Archived evaluation requires the matching dataset contract")
     result = {
         "version": 1,
         "program": prompts["program"],

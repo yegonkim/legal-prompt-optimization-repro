@@ -34,7 +34,7 @@ PARCEL optimization worsened both DEV and TEST scores. NPD remains unstable: its
 ## Exposure and reproduction limits
 
 - LEDGAR judge cap512 was chosen using a TEST comparison against cap1024; results are exploratory.
-- CaseHOLD archived DEV512 included two cases also in FIT. The public builder removes those cases (DEV510); a clean rerun is not the same DEV evaluation.
+- CaseHOLD archived DEV512 included two cases also in FIT. The explicit public recipe removes those cases (DEV510); a clean rerun is not the same DEV evaluation.
 - LAR-ECHR has 58/98 DEV questions overlapping FIT/SELECT; BarExamQA has 20/123.
 - SARA and LEXam retain historical DEV/TEST halves derived from source TEST.
 - NPD had earlier optimization exposure to official TEST through reshuffled partitions.

@@ -23,4 +23,4 @@ legal-simple-data = "legal_prompt_optimization.simple_data:main"
 include = ["legal_prompt_optimization*"]
 
 [tool.setuptools.package-data]
-legal_prompt_optimization = ["runtime/sitecustomize.py", "pipeline/manifests/*.json"]
+legal_prompt_optimization = ["runtime/sitecustomize.py"]

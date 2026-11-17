@@ -45,30 +45,25 @@ def docx(facts):
 
 
 class Preparation(unittest.TestCase):
-    def test_frozen_builder_retains_source_identity_and_feedback(self):
+    def test_historical_builder_retains_source_identity_and_feedback(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "data.jsonl"
-
-            def restore(name, entry, sources):
-                rid = entry["metadata"]["record_id"]
-                return {
-                    "record_id": rid,
-                    "source_record_id": "source:" + rid,
-                    "question": "Synthetic question",
-                    "answer": "A",
-                    "public_labels": ["A", "B"],
-                    "reference_feedback": "FIT feedback",
-                }
-
-            with (
-                patch(
-                    "legal_prompt_optimization.pipeline.prepare.frozen_sources",
-                    return_value={},
-                ),
-                patch(
-                    "legal_prompt_optimization.pipeline.prepare.historical.restore_entry",
-                    side_effect=restore,
-                ),
+            groups = {
+                split: [
+                    {
+                        "record_id": split,
+                        "source_record_id": "source:" + split,
+                        "question": "Synthetic question",
+                        "answer": "A",
+                        "public_labels": ["A", "B"],
+                        "reference_feedback": "FIT feedback",
+                    }
+                ]
+                for split in ["fit", "select", "dev", "test"]
+            }
+            with patch(
+                "legal_prompt_optimization.pipeline.recipes.build",
+                return_value=(groups, {"recipe": "historical_v1"}),
             ):
                 prepare(dataset="ledgar", out=out, offline=True)
             row = dataset(out)["fit"][0]

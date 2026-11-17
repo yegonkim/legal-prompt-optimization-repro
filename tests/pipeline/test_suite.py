@@ -62,8 +62,8 @@ class SuiteTests(unittest.TestCase):
             p = Path(tmp)
             data = Path("examples/toy.jsonl")
             cfg = load("examples/smoke.yaml")
-            cfg["data"]["manifest"] = "toy"
-            cfg["data"]["manifest_sha256"] = "0" * 64
+            cfg["data"]["dataset"] = "toy"
+            cfg["data"]["split_sha256"]["fit"] = "0" * 64
             cp = p / "config.yaml"
             cp.write_text(yaml.safe_dump(cfg))
             prompt = {

@@ -7,7 +7,6 @@ import json
 import random
 import re
 import sys
-import tarfile
 import time
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -207,67 +206,6 @@ def split_pool(rows, sizes, seed):
     return out
 
 
-def frozen_sources(name, manifest, cache, offline):
-    """Fetch pinned raw sources into the same resumable cache as fresh builders."""
-    if name == "sara_entailment":
-        return tarfile.open(
-            sources._download(historical.SARA_URL, cache, offline, historical.SARA_SHA)
-        )
-    repo, revision = historical.SOURCES[name]
-    get = lambda filename: sources._download(
-        f"https://huggingface.co/datasets/{repo}/resolve/{revision}/" + filename,
-        cache,
-        offline,
-    )
-    entries = [r for group in manifest["splits"].values() for r in group]
-    result = {}
-    if name == "lexam":
-        for config in {r["metadata"]["source_config"] for r in entries}:
-            result[config] = {
-                str(r["id"]): r
-                for r in sources._parquet(
-                    get(config + "/test-00000-of-00001.parquet")
-                ).to_pylist()
-            }
-        return result
-    for split in {r["metadata"].get("source_split", "test") for r in entries}:
-        if name == "ledgar":
-            table = sources._parquet(get(f"ledgar/{split}-00000-of-00001.parquet"))
-            labels = json.loads(table.schema.metadata[b"huggingface"])["info"][
-                "features"
-            ]["label"]["names"]
-            result[split] = (table.to_pylist(), labels)
-        elif name == "casehold":
-            with get(f"data/all/{'val' if split == 'validation' else split}.csv").open(
-                encoding="utf-8-sig", newline=""
-            ) as f:
-                reader = csv.reader(f)
-                next(reader)
-                rows = []
-                for r in reader:
-                    rows.append(
-                        dict(
-                            example_id=int(r[0]),
-                            citing_prompt=r[1],
-                            label=r[12],
-                            source_split=split,
-                            **{f"holding_{i}": r[i + 2] for i in range(5)},
-                        )
-                    )
-                result[split] = {str(r["example_id"]): r for r in rows}
-        else:
-            filename = f"{split}.csv" if name == "lar_echr" else f"data/qa/{split}.csv"
-            rows = sources._csv(get(filename))
-            result[split] = (
-                rows
-                if name == "lar_echr"
-                else {
-                    r["idx"]: r for r in rows if r["idx"] not in {"mbe_494", "mbe_1121"}
-                }
-            )
-    return result
-
-
 def prepare(
     dataset,
     out,
@@ -301,7 +239,7 @@ def prepare(
         if name == "ecthr_npd"
         else "random"
         if name == "parcel"
-        else "frozen"
+        else "historical"
     )
     sizes = {
         "fit": 128 if fit_size is None else fit_size,
@@ -318,41 +256,17 @@ def prepare(
         "sources": [],
         "exclusions": [],
     }
-    if policy == "frozen":
-        if name in ["parcel", "ecthr_npd"]:
-            raise ValueError(
-                "NPD/PARCEL use official/random preparation, not historical manifests"
-            )
-        if any(
+    if policy == "historical":
+        from .recipes import build
+
+        if seed != 42 or any(
             v is not None for v in [fit_size, select_size, dev_size, test_size, source]
         ):
             raise ValueError(
-                "Frozen cohorts fix membership/sizes. Use --split-policy random for custom sizes or --source."
+                "Historical recipes fix seed42, source pools and sizes. Use --split-policy random for a new research split."
             )
-        manifest = Path(__file__).parent / "manifests" / (name + ".json")
-        spec = read(manifest)
-        raw_sources = frozen_sources(name, spec, cache_dir, offline)
-        try:
-            groups = {
-                split: [
-                    historical.restore_entry(name, entry, raw_sources)
-                    for entry in entries
-                ]
-                for split, entries in spec["splits"].items()
-            }
-        finally:
-            if hasattr(raw_sources, "close"):
-                raw_sources.close()
-        provenance.update(
-            manifest_sha256=file_hash(manifest),
-            cohort_note=read(manifest)["selection"],
-            historical_cohorts=True,
-        )
-        provenance["sources"] = (
-            list(historical.SOURCES[name])
-            if name in historical.SOURCES
-            else [historical.SARA_URL, historical.SARA_SHA]
-        )
+        groups, details = build(name, cache_dir, offline)
+        provenance.update(details, historical_cohorts=True)
     elif name == "ecthr_npd":
         if policy != "official":
             raise ValueError(
@@ -551,7 +465,7 @@ def prepare(
     else:
         if policy != "random":
             raise ValueError(
-                "Use frozen historical cohorts or explicitly request random research splits"
+                "Use historical recipes or explicitly request random research splits"
             )
         rows = sources.load_rows(name, cache_dir, offline=offline, source_path=source)
         groups = split_pool(rows, sizes, seed)
@@ -594,8 +508,9 @@ def prepare(
     tmp.replace(out)
     provenance.update(
         counts={k: len(v) for k, v in groups.items()},
+        split_sha256={k: historical.cohort_digest(v) for k, v in groups.items()},
         dataset_sha256=file_hash(out),
-        prior_exposure_note="Historical manifests describe earlier research exposure. Fresh source preparation cannot establish absence of pretrained-model exposure.",
+        prior_exposure_note="Historical recipes retain earlier research exposure. Fresh source preparation cannot establish absence of pretrained-model exposure.",
     )
     write(out.with_suffix(out.suffix + ".provenance.json"), provenance)
     return {

@@ -5,13 +5,17 @@ seed: 42
 task:
   metric: accuracy
 data:
-  manifest: lexam
-  manifest_sha256: 873192b75c1bf35435b25b271a092972a0740aae2e6283efcb33ee058264ae9d
+  dataset: lexam
   expected_counts:
     fit: 128
     select: 64
     dev: 512
     test: 512
+  split_sha256:
+    fit: 8ad57fa5f0ed5c8f04764a8dad2cb162d776c0d50fbb49f7ca8cad810df7f336
+    select: a8eac0f0f49c4e756273c5720f57dcbaea69298761c10306bbd196878185270b
+    dev: 1dfa989b5c1a4d591734d6b867d34946d456ef4706c7bbc44e56d3fa6bd867f4
+    test: f397e63fe186acd79eb1a8ff3604e5f6581e8cf3b77012e75b1495146c70b231
 models:
   student:
     model: microsoft/Phi-4-mini-instruct

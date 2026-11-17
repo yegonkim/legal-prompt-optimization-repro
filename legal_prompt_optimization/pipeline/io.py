@@ -106,23 +106,10 @@ def validate_contract(groups, contract):
             raise ValueError(
                 f"{split}: expected {count} cases, got {len(groups[split])}"
             )
-    if contract["manifest"] is None:
-        return
-    from ..data import input_digest
+    from ..data import cohort_digest
 
-    path = Path(__file__).parent / "manifests" / (contract["manifest"] + ".json")
-    if file_hash(path) != contract["manifest_sha256"]:
-        raise ValueError("Packaged cohort manifest hash differs from reference config")
-    spec = read(path)
-    for split, entries in spec["splits"].items():
-        if [r["record_id"] for r in groups[split]] != [
-            r["metadata"]["record_id"] for r in entries
-        ]:
+    for split, expected in contract["split_sha256"].items():
+        if expected is not None and cohort_digest(groups[split]) != expected:
             raise ValueError(
-                f"{split}: ordered membership differs from reference manifest"
+                f"{split}: ordered cohort/input hash differs from reference config; re-prepare using the matching explicit recipe"
             )
-        for row, entry in zip(groups[split], entries):
-            if input_digest(row) != entry["input_sha256"]:
-                raise ValueError(
-                    f"Reference input/feedback mismatch for {row['record_id']}; re-prepare with the current frozen builder"
-                )

@@ -5,13 +5,17 @@ seed: 42
 task:
   metric: mae
 data:
-  manifest: ecthr_npd
-  manifest_sha256: 4c26d072b54ab0e2f118d46a387531a5cf2c9073cccc65f245c6a0c2b5979b9d
+  dataset: ecthr_npd
   expected_counts:
     fit: 128
     select: 64
     dev: 512
     test: 512
+  split_sha256:
+    fit: c0baac9615bb76c09648aaf0fee09da0470c50c6ffad3ab7f8584403351f3519
+    select: 2ee71b641b07f01e97989d9de1a20871a8b9f2a6e90538802e863f4535cfec13
+    dev: 8a8ed21a82f52f004af56ddd936bf0bb04ff0f75c8222ebfe8b697aecc9ff88c
+    test: 5420b853ed647b2f9d43c6d841de5ee042d35bf5722d8a28df21923d3900ca3b
 models:
   student:
     model: microsoft/Phi-4-mini-instruct

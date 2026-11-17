@@ -32,6 +32,13 @@ def main():
     ]
     for name in filter(None, paths):
         p = Path(name)
+        if "manifests" in p.parts:
+            errors.append(
+                (
+                    name,
+                    "saved dataset membership lists are not part of the public pipeline",
+                )
+            )
         if p.parts[0] in [
             "runs",
             "data",

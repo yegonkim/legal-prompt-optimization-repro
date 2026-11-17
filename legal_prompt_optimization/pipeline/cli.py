@@ -91,7 +91,7 @@ def main(argv=None, backend_factory=None):
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--cache-dir", type=Path, default=Path(".source-cache"))
     p.add_argument("--offline", action="store_true")
-    p.add_argument("--split-policy", choices=["frozen", "official", "random"])
+    p.add_argument("--split-policy", choices=["historical", "official", "random"])
     p.add_argument("--source", type=Path)
     p.add_argument("--opinions", type=Path)
     p.add_argument("--judgments-dir", type=Path)

@@ -27,6 +27,8 @@ legal-prompts prepare --dataset ledgar --out data/ledgar.jsonl
 python scripts/datasets/prepare_ledgar.py --out data/ledgar.jsonl
 ```
 
+Dataset builders select cases directly from pinned public sources using explicit filters and sampling rules—no saved cohort manifests. Historical experiment configs optionally verify the finished split hashes. See [the dataset rules](docs/datasets.md) for the exact algorithms and validation.
+
 Each line has an ID, explicit split, question, target and task type:
 
 ```json
@@ -130,7 +132,7 @@ Remove `--dry-run` to start a foreground server. This command does not install p
 
 ## Run the eight experiments
 
-The [sequential suite](configs/experiments/suite.yaml) connects each dataset to its optimization/evaluation config and saved prompts. See [results and limitations](RESULTS.md) before interpreting scores.
+The [sequential suite](configs/experiments/suite.yaml) connects each dataset to its optimization/evaluation config and saved prompts. Final instructions are in `results/sequential/<dataset>/prompts.json`, under `program.response` and `program.judge`; [the catalog](results/sequential/catalog.json) links all eight. See [results and limitations](RESULTS.md) before interpreting scores.
 
 ```bash
 # Review commands without downloading or generating anything:
@@ -146,7 +148,7 @@ python -m legal_prompt_optimization.pipeline.suite --datasets ledgar --archived-
 python -m legal_prompt_optimization.pipeline.suite --datasets parcel --stages dev test
 ```
 
-The suite runs datasets sequentially against your configured endpoints. Configure compatible model servers before inference; the suite does not allocate GPUs or change servers. The six historical configs require the `grammar` extra (`pip install -e '.[data,grammar]'`). Dataset downloads occur only during preparation. Repeated optimization/evaluation commands reuse matching completed outputs; changed configs require a new output directory. Preparation verifies pinned sources and cohort hashes. Frozen archived prompts are stored separately from newly optimized winners.
+The suite runs datasets sequentially against your configured endpoints. Configure compatible model servers before inference; the suite does not allocate GPUs or change servers. The six historical configs require the `grammar` extra (`pip install -e '.[data,grammar]'`). Dataset downloads occur only during preparation. Repeated optimization/evaluation commands reuse matching completed outputs; changed configs require a new output directory. Preparation verifies pinned sources and completed-split hashes. Frozen archived prompts are stored separately from newly optimized winners.
 
 For joint optimization, use `configs/pipeline/parcel_joint.yaml`, or set `mode: joint` in a `cohort_v1` config and edit `gepa.joint`. This optimizes four response instructions and one judge. Historical `legal_gepa_v1` profiles intentionally support sequential/response/judge only; do not change their mode to joint. No joint results are included in the published tables.
 
@@ -157,6 +159,6 @@ python -m unittest discover -s tests/pipeline -v
 python scripts/check_public_tree.py
 ```
 
-Tests exercise GEPA with synthetic backends, mocked endpoints, caching, answer forcing, split isolation, dataset preparation and suite orchestration. They require no GPU. Compatibility modules remain for the historical protocol; host-specific schedulers and local run artifacts are excluded from Git. A clean checkout contains source, tests, configs, source-reconstruction manifests, documentation, and curated sequential results/prompts.
+Tests exercise GEPA with synthetic backends, mocked endpoints, caching, answer forcing, split isolation, dataset preparation and suite orchestration. They require no GPU. Compatibility modules remain for the historical protocol; host-specific schedulers and local run artifacts are excluded from Git. A clean checkout contains source, tests, configs, explicit dataset recipes, documentation, and curated sequential results/prompts.
 
 The code is currently **unlicensed**. See [NOTICE](NOTICE); dataset and model access and license terms remain separate. No weights or dataset texts are shipped.

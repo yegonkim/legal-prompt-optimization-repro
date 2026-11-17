@@ -67,7 +67,8 @@ def main(argv=None):
     ap=argparse.ArgumentParser(description='Frozen Phi response/judge or joint GEPA optimization')
     sub=ap.add_subparsers(dest='command',required=True)
     for name in ['prepare','verify-data']:
-        a=sub.add_parser(name);a.add_argument('--manifest',required=True);a.add_argument('--data',required=True)
+        a=sub.add_parser(name);a.add_argument('--data',required=True)
+        if name=='prepare':a.add_argument('--dataset',required=True)
         if name=='prepare':a.add_argument('--cache',default='.source-cache');a.add_argument('--offline',action='store_true')
     a=sub.add_parser('verify-bundle');a.add_argument('--root',default='.')
     a=sub.add_parser('validate');a.add_argument('--config',required=True);a.add_argument('--data',required=True)
@@ -81,8 +82,8 @@ def main(argv=None):
             a.add_argument('--runtime-seconds',type=int,default=14400,help='Evaluation time cap, default4hours; optimization uses its config cap')
     a=sub.add_parser('audit');a.add_argument('--run',required=True);a.add_argument('--offline',action='store_true')
     args=ap.parse_args(argv)
-    if args.command=='prepare':print(json.dumps(prepare(args.manifest,args.data,args.cache,args.offline)));return
-    if args.command=='verify-data':print(json.dumps(verify(args.manifest,args.data)));return
+    if args.command=='prepare':print(json.dumps(prepare(args.dataset,args.data,args.cache,args.offline)));return
+    if args.command=='verify-data':print(json.dumps(verify(Path(args.data)/'dataset-receipt.json',args.data)));return
     if args.command=='verify-bundle':
         root=Path(args.root);checks=read(root/'CHECKSUMS.json')
         for f,h in checks.items():
@@ -100,10 +101,10 @@ def main(argv=None):
     parts={k:rows(Path(args.data)/(k+'.jsonl')) for k in names}
     for data in parts.values():validate_rows(data)
     if 'fit' in parts and {r['record_id'] for r in parts['fit']}&{r['record_id'] for r in parts['select']}:raise ValueError('FIT/SELECT overlap')
-    manifest=Path(args.data)/'manifest.json'
-    if manifest.exists():
-        if read(manifest)['dataset']!=config['dataset']:raise ValueError('Config dataset and manifest do not match')
-        verify(manifest,args.data,splits=names)
+    receipt=Path(args.data)/'dataset-receipt.json'
+    if receipt.exists():
+        if read(receipt)['dataset']!=config['dataset']:raise ValueError('Config dataset and receipt do not match')
+        verify(receipt,args.data,splits=names)
     if args.command=='validate':print(json.dumps({'config_valid':True,'rows':{k:len(v) for k,v in parts.items()},'model_calls':0}));return
     out=Path(args.out)
     if out.exists():raise FileExistsError('Never overwrite or silently resume an interrupted run')

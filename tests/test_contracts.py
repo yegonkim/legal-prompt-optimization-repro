@@ -4,7 +4,7 @@ from unittest.mock import patch
 from legal_prompt_optimization.core import *
 from legal_prompt_optimization.engine import Adapter,BudgetExceeded,frozen_bank,readout
 from legal_prompt_optimization.audit import audit_run
-from legal_prompt_optimization.data import input_digest,verify
+from legal_prompt_optimization.data import input_digest,cohort_digest,verify
 
 class Tokenizer:
     def apply_chat_template(self,messages,**kwargs):return json.dumps(messages,ensure_ascii=False)
@@ -59,9 +59,9 @@ class Contracts(unittest.TestCase):
             b=Backend();a=Adapter(config(),b,t,call_cap=3)
             with self.assertRaises(BudgetExceeded):a.program([row()],program())
             self.assertEqual(len(b.requests),0)
-    def test_manifest_detects_membership_and_content_change(self):
+    def test_receipt_detects_membership_and_content_change(self):
         with tempfile.TemporaryDirectory() as t:
-            p=Path(t);r=row();dump(p/'m.json',{'splits':{'fit':[{'metadata':{'record_id':'x'},'input_sha256':input_digest(r)}]}})
+            p=Path(t);r=row();dump(p/'m.json',{'splits':{'fit':{'count':1,'sha256':cohort_digest([r])}}})
             (p/'fit.jsonl').write_text(json.dumps(r)+'\n');self.assertEqual(verify(p/'m.json',p),{'fit':1})
             r['question']='Changed';(p/'fit.jsonl').write_text(json.dumps(r)+'\n')
             with self.assertRaises(ValueError):verify(p/'m.json',p)
@@ -80,8 +80,8 @@ class Contracts(unittest.TestCase):
             p=Path(t);r=row('fit');s=row('select')
             for k,value in [('fit',r),('select',s)]: (p/(k+'.jsonl')).write_text(json.dumps(value)+'\n')
             (p/'test.jsonl').write_text('INVALID DELIBERATE TEST POISON')
-            m={'dataset':'ledgar','splits':{k:[{'metadata':{'record_id':v['record_id']},'input_sha256':input_digest(v)}] for k,v in [('fit',r),('select',s)]}}
-            m['splits']['test']=[{'metadata':{'record_id':'test'},'input_sha256':'poison'}];dump(p/'manifest.json',m)
+            m={'dataset':'ledgar','splits':{k:{'count':1,'sha256':cohort_digest([v])} for k,v in [('fit',r),('select',s)]}}
+            m['splits']['test']={'count':1,'sha256':'poison'};dump(p/'dataset-receipt.json',m)
             c=read(Path(__file__).parents[1]/'configs/ledgar/response.json');dump(p/'config.json',c)
             main(['validate','--config',str(p/'config.json'),'--data',str(p)])
 

@@ -5,13 +5,17 @@ seed: 42
 task:
   metric: accuracy
 data:
-  manifest: lar_echr
-  manifest_sha256: 6c576187a16b1d80a6d5283b66cf75a24157c231dd23136674bd71c6fa14e4a9
+  dataset: lar_echr
   expected_counts:
     fit: 40
     select: 20
     dev: 98
     test: 150
+  split_sha256:
+    fit: 474432af6a047292fd40b2d2694d431a080a8d659ae758210b29f27de478bf0a
+    select: a03287543c98e04391a58da6efd795b66ee38d91e0ca0b66a5480873ded82696
+    dev: 64baba51fbec25014dbf0018b8ca1f7bc317ce8ae68e825252f5a4f1b9eb5085
+    test: 3d2d5a567a1718e61d32b5e56de15d2275932f6fdcc5aa1645d12091780ec999
 models:
   student:
     model: microsoft/Phi-4-mini-instruct

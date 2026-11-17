@@ -5,13 +5,17 @@ seed: 42
 task:
   metric: accuracy
 data:
-  manifest: ledgar
-  manifest_sha256: 7e07b24c06b5891d2f9a8f350df6e84f2efb237307489de3100990849d720930
+  dataset: ledgar
   expected_counts:
     fit: 128
     select: 64
     dev: 512
     test: 512
+  split_sha256:
+    fit: 02831c1afcb8cca6aa5bfc4bee7f78cf667f4f0c6a199de288fd0aab783daad4
+    select: 7899653e0c3b38a3761ccc7a55590608652fcdcde6dcd8b3ea1a8880560130b3
+    dev: 87ce54d9801093491130b2d8a9253251caf4d2eb9939687465824b46203d7e83
+    test: 252752199cb6dfd54ba86c9a616e4486ea918f9a205e93a8f57feb4b2419deb1
 models:
   student:
     model: microsoft/Phi-4-mini-instruct

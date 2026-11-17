@@ -16,8 +16,8 @@ DEFAULTS = {
     "seed": 42,
     "task": {"metric": "auto"},
     "data": {
-        "manifest": None,
-        "manifest_sha256": None,
+        "dataset": None,
+        "split_sha256": {"fit": None, "select": None, "dev": None, "test": None},
         "expected_counts": {"fit": None, "select": None, "dev": None, "test": None},
     },
     "models": {
@@ -173,17 +173,18 @@ def validate(c):
     for split, count in c["data"]["expected_counts"].items():
         if count is not None:
             integer(count, "data.expected_counts." + split, 0)
-    manifest = c["data"]["manifest"]
-    checksum = c["data"]["manifest_sha256"]
-    if manifest is not None:
-        import re
+    import re
 
-        if not isinstance(manifest, str) or not re.fullmatch(r"[a-z0-9_]+", manifest):
-            raise ValueError("Invalid data.manifest")
-        if not isinstance(checksum, str) or not re.fullmatch(r"[a-f0-9]{64}", checksum):
-            raise ValueError("data.manifest requires its SHA256")
-    elif checksum is not None:
-        raise ValueError("manifest_sha256 requires data.manifest")
+    name = c["data"]["dataset"]
+    if name is not None and (
+        not isinstance(name, str) or not re.fullmatch(r"[a-z0-9_]+", name)
+    ):
+        raise ValueError("Invalid data.dataset")
+    for split, checksum in c["data"]["split_sha256"].items():
+        if checksum is not None and (
+            not isinstance(checksum, str) or not re.fullmatch(r"[a-f0-9]{64}", checksum)
+        ):
+            raise ValueError("Invalid data.split_sha256." + split)
     if c["task"]["metric"] not in ["auto", "macro_f1", "accuracy", "mae", "brier"]:
         raise ValueError("Unsupported task.metric")
     for role, m in c["models"].items():

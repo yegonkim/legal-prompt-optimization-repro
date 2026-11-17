@@ -84,8 +84,8 @@ class HistoricalProtocol(unittest.TestCase):
             config = load(REFERENCE)
             config["models"]["student"]["tokenizer"] = None
             config["data"] = {
-                "manifest": None,
-                "manifest_sha256": None,
+                "dataset": None,
+                "split_sha256": dict.fromkeys(["fit", "select", "dev", "test"]),
                 "expected_counts": dict.fromkeys(["fit", "select", "dev", "test"]),
             }
             for stage in ["response", "judge"]:
