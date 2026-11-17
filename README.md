@@ -19,7 +19,7 @@ legal-prompts --help
 
 The `data` extra provides source readers and tokenizers. The `grammar` extra supports compact structured output in per-case profiles. Neither installs a vLLM server. `pip install -e .` suffices for custom JSONL and endpoints providing tokenization, when compact grammar is not required.
 
-Before running optimization, [install and start the pinned vLLM student and proposer environments](docs/serving.md#install), then verify real generation:
+Before running optimization, [install and start the shared vLLM 0.33.0 environment](docs/serving.md#install), then verify real generation:
 
 ```bash
 legal-prompts smoke --config configs/experiments/ledgar.yaml --out runs/smoke-ledgar
@@ -101,7 +101,7 @@ Run models with vLLM using the [serving instructions and launch helpers](docs/se
 
 ```bash
 legal-prompts serve --config configs/experiments/ledgar.yaml --role student \
-  --python .venv-student/bin/python --gpu 0 --dry-run
+  --python .venv-vllm/bin/python --gpu 0 --dry-run
 ```
 
 Remove `--dry-run` to launch a foreground server. Credentials are read from configured environment-variable names. Secret values are not written into configs or cache identities.

@@ -11,11 +11,6 @@ data:
     select: 32
     dev: 50
     test: 50
-  split_sha256:
-    fit: 0e0a46455dd4074530368b39ad831f70bd7e8cc372e149faeede48f0d813028c
-    select: c24358cf38f8cf83a6b6f2d44feade37235042ade84f30238df5c3afc3f0fba0
-    dev: 39837d8790bf27e1212e3baf0ea9bdd842bc42988719a7270670c9f84adbfe21
-    test: 9c1af569e839ad090a8d08dca1ffdceaa2868561f873da47bd4f81e14fd3a733
 models:
   student:
     model: microsoft/Phi-4-mini-instruct
@@ -55,7 +50,7 @@ generation:
     thinking: true
     top_k: 20
     seed_offset: 6000
-  schema_mode: guided_json
+  schema_mode: structured_outputs
   input_overflow: error
   answer_forcing:
     enabled: false

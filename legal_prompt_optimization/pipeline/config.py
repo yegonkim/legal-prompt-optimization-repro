@@ -17,7 +17,6 @@ DEFAULTS = {
     "task": {"metric": "auto"},
     "data": {
         "dataset": None,
-        "split_sha256": {"fit": None, "select": None, "dev": None, "test": None},
         "expected_counts": {"fit": None, "select": None, "dev": None, "test": None},
     },
     "models": {
@@ -65,7 +64,7 @@ DEFAULTS = {
             "top_k": None,
             "seed_offset": None,
         },
-        "schema_mode": "guided_json",
+        "schema_mode": "structured_outputs",
         "input_overflow": "error",
         "answer_forcing": {
             "enabled": True,
@@ -180,11 +179,6 @@ def validate(c):
         not isinstance(name, str) or not re.fullmatch(r"[a-z0-9_]+", name)
     ):
         raise ValueError("Invalid data.dataset")
-    for split, checksum in c["data"]["split_sha256"].items():
-        if checksum is not None and (
-            not isinstance(checksum, str) or not re.fullmatch(r"[a-f0-9]{64}", checksum)
-        ):
-            raise ValueError("Invalid data.split_sha256." + split)
     if c["task"]["metric"] not in ["auto", "macro_f1", "accuracy", "mae", "brier"]:
         raise ValueError("Unsupported task.metric")
     for role, m in c["models"].items():

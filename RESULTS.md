@@ -44,3 +44,5 @@ PARCEL optimization worsened both DEV and TEST scores. NPD remains unstable: its
 ## Run or evaluate
 
 See [README](README.md) for the suite command. `--saved-prompts` imports the final instructions and evaluates them without running GEPA. Imports are labeled as saved, bind to verified cohort inputs, and never claim a new optimization. TEST readouts use frozen prompts and never select configurations.
+
+The runnable configs use vLLM 0.33.0 and `structured_outputs`. The reported scores were not rerun for this serving migration: NPD/PARCEL used Phi on vLLM 0.10.0 with `guided_json` and Gemma on 0.33.0. Saved prompts can be evaluated with the current configs, but identical numerical scores are not established.

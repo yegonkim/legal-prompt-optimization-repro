@@ -85,7 +85,6 @@ class PerCaseProtocol(unittest.TestCase):
             config["models"]["student"]["tokenizer"] = None
             config["data"] = {
                 "dataset": None,
-                "split_sha256": dict.fromkeys(["fit", "select", "dev", "test"]),
                 "expected_counts": dict.fromkeys(["fit", "select", "dev", "test"]),
             }
             for stage in ["response", "judge"]:
@@ -237,7 +236,7 @@ class PerCaseProtocol(unittest.TestCase):
                     {"role": "user", "content": "original question"},
                 ],
             )
-            self.assertIn("guided_grammar", calls[0])
+            self.assertIn("grammar", calls[0]["structured_outputs"])
             self.assertNotIn("guided_json", calls[0])
             self.assertEqual(calls[0]["temperature"], 0)
             self.assertEqual(calls[0]["max_tokens"], 512)

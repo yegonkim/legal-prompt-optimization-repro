@@ -21,16 +21,15 @@ class Serving(unittest.TestCase):
 
     def test_api_version_mismatches_fail_before_model_start(self):
         c = copy.deepcopy(DEFAULTS)
-        compatible(c, "student", {"vllm": "0.10.0"})
-        with self.assertRaisesRegex(ValueError, "guided"):
-            compatible(c, "student", {"vllm": "0.33.0"})
-        with self.assertRaisesRegex(ValueError, "Gemma"):
-            compatible(c, "proposer", {"vllm": "0.10.0"})
-        compatible(c, "proposer", {"vllm": "0.33.0"})
-        c["generation"]["schema_mode"] = "structured_outputs"
         compatible(c, "student", {"vllm": "0.33.0"})
+        compatible(c, "proposer", {"vllm": "0.33.0"})
         with self.assertRaisesRegex(ValueError, "modern"):
             compatible(c, "student", {"vllm": "0.10.0"})
+        with self.assertRaisesRegex(ValueError, "Gemma"):
+            compatible(c, "proposer", {"vllm": "0.10.0"})
+        c["generation"]["schema_mode"] = "guided_json"
+        with self.assertRaisesRegex(ValueError, "guided"):
+            compatible(c, "student", {"vllm": "0.33.0"})
         with self.assertRaisesRegex(RuntimeError, "--python"):
             environment("/nonexistent/vllm/python")
 
@@ -49,7 +48,7 @@ class Serving(unittest.TestCase):
                 phi_eos_alignment=False,
             )
             cmd, env = command(args)
-            self.assertIn("--guided-decoding-backend", cmd)
+            self.assertIn("--structured-outputs-config", cmd)
             self.assertNotIn("--enforce-eager", cmd)
             self.assertEqual(env["CUDA_VISIBLE_DEVICES"], "0")
             args.role = "proposer"

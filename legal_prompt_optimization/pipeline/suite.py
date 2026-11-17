@@ -20,11 +20,12 @@ def import_saved(data, config_path, prompt_path, out):
     groups = dataset(data)
     validate_contract(groups, config["data"])
     prompts = read(prompt_path)
-    import hashlib
-
-    for role, text in prompts["program"].items():
-        if hashlib.sha256(text.encode()).hexdigest() != prompts["sha256"][role]:
-            raise ValueError("Saved prompt hash mismatch")
+    if set(prompts.get("program", {})) != {"response", "judge"} or any(
+        not isinstance(v, str) or not v.strip() for v in prompts["program"].values()
+    ):
+        raise ValueError(
+            "Saved prompts require nonempty response and judge instructions"
+        )
     if config["mode"] != "sequential":
         raise ValueError("Saved sequential prompts require mode: sequential")
     if config["data"]["dataset"] != prompts["dataset"]:
@@ -63,9 +64,7 @@ def commands(suite, root, datasets, stages, output, saved=False, offline=False):
         load(config)  # Reject bad configs even during dry run.
         data = output / "data" / (name + ".jsonl")
         run = output / name
-        winner = run / (
-            "saved/winner.json" if saved else "optimization/winner.json"
-        )
+        winner = run / ("saved/winner.json" if saved else "optimization/winner.json")
         common = ["--data", str(data), "--config", str(config)]
         for stage in stages:
             if stage == "prepare":

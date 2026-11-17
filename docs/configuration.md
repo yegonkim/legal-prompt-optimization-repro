@@ -36,7 +36,7 @@ The default `protocol: cohort_v1` uses whole-cohort scoring, first-draw pass@1 a
 Additional explicit config fields:
 
 - `data.dataset`: optional dataset name used when importing per-case prompts.
-- `data.expected_counts` and `data.split_sha256`: optional sizes and one canonical, order-sensitive SHA256 per FIT/SELECT/DEV/TEST split. These verify completed datasets before model requests; they never select rows or supply case IDs to preparation. Null values impose no extra constraints on custom datasets.
+- `data.expected_counts`: optional FIT/SELECT/DEV/TEST sizes checked before model requests. Null values impose no size constraint. No dataset checksum is required.
 - `gepa.<stage>.seed`: independent optimizer seed; null uses the top-level seed. In the per-case protocol, generation seeds remain record-ID based and independent of optimizer seed.
 - `gepa.<stage>.max_seconds`: optional per-stage deadline within the overall runtime limit. Checked at requests/reflections; an in-flight request remains subject to its HTTP timeout.
 - `generation.proposer.top_k`: optional explicit top-k; null leaves the endpoint default unchanged.

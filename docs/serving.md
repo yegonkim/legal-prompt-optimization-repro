@@ -1,54 +1,39 @@
 # vLLM model serving
 
-vLLM is the default backend. Run `legal-prompts` in a runner environment and the two model servers in separate serving environments. The supplied experiment configs use Phi for responses/judges and Gemma for reflection. Installing the runner does not install either server.
+vLLM is the default backend. Run `legal-prompts` in a runner environment and the two model servers in a shared serving environment. The supplied experiment configs use Phi for responses/judges and Gemma for reflection. Installing the runner does not install either server.
 
 ## Install
 
-Run these commands from the repository root on Linux with Python 3.11 and an NVIDIA GPU. First check `nvidia-smi`. The pinned student wheel uses CUDA 12.6; the proposer wheel uses CUDA 13.0. Your driver and GPU must support the selected wheels. BF16 requires an Ampere-or-newer GPU. Other hardware/wheel combinations require a separate validation; see the [official vLLM GPU installation guide](https://docs.vllm.ai/en/stable/getting_started/installation/gpu/). Do not install these two serving requirements into the same environment.
+Run these commands from the repository root on Linux with Python 3.11 and an NVIDIA GPU. Both Phi and Gemma use **vLLM 0.33.0 in one shared serving environment**. The runner stays separate. The pinned serving wheel uses CUDA 13.0; your driver and GPU must support it, and BF16 requires Ampere or newer. See the [official vLLM installation guide](https://docs.vllm.ai/en/stable/getting_started/installation/gpu/) for hardware-specific installation.
 
 ```bash
 python3.11 -m venv .venv-runner
 .venv-runner/bin/python -m pip install --upgrade pip
 .venv-runner/bin/python -m pip install -e '.[data,grammar]'
 
-python3.11 -m venv .venv-student
-.venv-student/bin/python -m pip install --upgrade pip
-.venv-student/bin/python -m pip install -r requirements/serve-student.txt
-.venv-student/bin/python -m pip check
-
-python3.11 -m venv .venv-proposer
-.venv-proposer/bin/python -m pip install --upgrade pip
-.venv-proposer/bin/python -m pip install -r requirements/serve-proposer.txt
-.venv-proposer/bin/python -m pip check
+python3.11 -m venv .venv-vllm
+.venv-vllm/bin/python -m pip install --upgrade pip
+.venv-vllm/bin/python -m pip install -r requirements/serve.txt
+.venv-vllm/bin/python -m pip check
+.venv-vllm/bin/python -c 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.get_device_name()); print(torch.ones(1, device="cuda") + 1)'
 
 source .venv-runner/bin/activate
 legal-prompts --help
 ```
 
-The serving files pin vLLM, PyTorch, Transformers and XGrammar. They are not complete transitive dependency locks.
-
-| Role | vLLM | PyTorch | Transformers | XGrammar | Student request API |
+| Models | vLLM | PyTorch | Transformers | XGrammar | Student request API |
 |---|---|---|---|---|---|
-| Phi, supplied experiment configs | 0.10.0 | 2.7.1 | 4.55.0 | 0.1.21 | `guided_json` |
-| Gemma reflection | 0.33.0 | 2.14.0 | 5.20.2 | 0.2.8 | Not applicable |
-| Student using the modern environment | 0.33.0 | 2.14.0 | 5.20.2 | 0.2.8 | `structured_outputs` |
+| Phi and Gemma | 0.33.0 | 2.14.0 | 5.20.2 | 0.2.8 | `structured_outputs` |
 
-The modern student path is supported by the client and tested with mock endpoints; the supplied experiment profiles retain their original API and settings. Changing `schema_mode` changes the inference signature and requires a new experiment directory. Modern vLLM removed the `guided_*` fields; see [structured outputs](https://docs.vllm.ai/en/stable/features/structured_outputs/). Do not change a saved experiment's config just to match an arbitrary server installation.
+The requirements pin the four core serving packages, not all transitive dependencies. All supplied configs use `structured_outputs`; JSON, compact grammar, and answer-forcing choice/regex constraints use this API. See [vLLM structured outputs](https://docs.vllm.ai/en/stable/features/structured_outputs/).
 
-Check that each serving environment can execute a GPU operation:
+For a gated model, obtain access on its Hugging Face model page, then authenticate:
 
 ```bash
-.venv-student/bin/python -c 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.get_device_name()); print(torch.ones(1, device="cuda") + 1)'
-.venv-proposer/bin/python -c 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.get_device_name()); print(torch.ones(1, device="cuda") + 1)'
+.venv-vllm/bin/hf auth login
 ```
 
-For a gated model, obtain access on its Hugging Face model page, then authenticate without putting a token in YAML or shell command arguments:
-
-```bash
-.venv-proposer/bin/hf auth login
-```
-
-The servers download the model revisions pinned in the config on first launch. Allow disk space and download time for both checkpoints. Set `HF_HOME` before launching if you want a shared cache. For unattended authentication, supply `HF_TOKEN` through your environment or secret manager.
+The servers download the model revisions pinned in the config on first launch. Allow disk space and download time for both checkpoints. Set `HF_HOME` before launching if you want a shared cache. For unattended authentication, supply `HF_TOKEN` through your environment or secret manager. Never put credentials in YAML.
 
 ## Launch
 
@@ -56,11 +41,11 @@ Choose the experiment config you intend to run and set its `models.student.endpo
 
 ```bash
 legal-prompts serve --config configs/experiments/ledgar.yaml --role student \
-  --python .venv-student/bin/python --gpu 0 \
+  --python .venv-vllm/bin/python --gpu 0 \
   --memory-fraction 0.85 --max-sequences 8
 
 legal-prompts serve --config configs/experiments/ledgar.yaml --role proposer \
-  --python .venv-proposer/bin/python --gpu 1 \
+  --python .venv-vllm/bin/python --gpu 1 \
   --memory-fraction 0.85 --max-sequences 1
 ```
 
@@ -96,8 +81,8 @@ legal-prompts evaluate --data examples/toy.jsonl --config examples/smoke.yaml \
 ## Troubleshooting and existing servers
 
 - Connection refused: wait for server startup, check its logs, and verify the configured port. Downloading weights and building CUDA graphs can take time.
-- Unknown `guided_json`, `guided_choice` or `guided_regex`: use the pinned student environment. For a new modern-server run, explicitly choose `structured_outputs` and run the smoke test.
-- Unknown Gemma architecture or `gemma4` parser: use the pinned proposer environment.
+- Unknown `guided_json`, `guided_choice` or `guided_regex`: use a current config with `schema_mode: structured_outputs`; these fields were removed from modern vLLM.
+- Unknown Gemma architecture or `gemma4` parser: use the pinned shared serving environment.
 - CUDA out of memory: check other GPU processes, model weights, context length and the combined memory reservations. The launcher does not manage GPU allocation across servers.
 - Missing final reflection text: check that thinking output is parsed separately and that the configured proposer output budget is sufficient. The runner rejects truncated/empty reflection output.
 - Context overflow: inputs are never silently clipped. Check the server's loaded context against the config and the full prompt plus output budget.

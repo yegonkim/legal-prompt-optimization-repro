@@ -45,7 +45,7 @@ class Endpoint(unittest.TestCase):
                     backend,
                     "_request",
                     side_effect=[
-                        {"version": "0.10.0"},
+                        {"version": "0.33.0"},
                         {
                             "data": [
                                 {
@@ -119,7 +119,9 @@ class Endpoint(unittest.TestCase):
                 self.assertEqual(calls[1]["temperature"], 0.7)
                 self.assertEqual(calls[1]["top_p"], 0.95)
                 self.assertFalse(calls[1]["add_generation_prompt"])
-                self.assertEqual(calls[1]["guided_choice"], ['"A"}', '"B"}'])
+                self.assertEqual(
+                    calls[1]["structured_outputs"]["choice"], ['"A"}', '"B"}']
+                )
                 stored = json.loads(Path(result["cache_record"]).read_text())
                 self.assertEqual(stored["original_output"]["finish_reason"], "length")
                 self.assertEqual(result, b.generate([row], "solve", [42])[0])

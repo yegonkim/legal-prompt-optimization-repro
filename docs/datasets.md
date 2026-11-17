@@ -32,7 +32,7 @@ The default `--split-policy reference` executes [`pipeline/recipes.py`](../legal
 | BarExamQA | Pool train+validation; exclude malformed `mbe_494` and `mbe_1121` before assigning positional IDs; sort/shuffle42; first128/next64 | DEV: shuffle123 official validation cases. TEST: shuffle official test pool, take its second half (59). Gold passages enter FIT feedback only. |
 | LEXam | All English rows from pinned4/8/16/32-choice configurations; stable-ID sort/shuffle42, first128/next64 | Exclude the first320-case reserved sample (FIT128+SELECT64+reserved128), reshuffle remaining1487 with seed42, halve743/744, take first512 of each half. Choice-count variants are preserved. |
 
-Source revisions and selection rules are executable code, not saved case lists. CaseHOLD preparation produces DEV510; the reported results use DEV512. See RESULTS.md for this comparison limit. Four optional `data.split_sha256` values in experiment configs verify completed outputs, including order and feedback. They never enter selection or download logic.
+Source revisions and selection rules are executable code, not saved case lists. CaseHOLD preparation produces DEV510; the reported results use DEV512. See RESULTS.md for this comparison limit.
 
 CaseHOLD downloads **tokenizer files only** for pinned Phi and Qwen2.5-1.5B. Both tokenizer identities/revisions are explicit in `recipes.py`; no model weights or inference are needed. `--offline` requires those tokenizers and the source files to be cached. No hidden fallback to saved IDs is available.
 
@@ -82,7 +82,7 @@ Create JSONL records with `id`, `split`, `question`, `answer`, and `task_type`. 
 legal-prompts validate --data my-dataset.jsonl --config configs/pipeline/ledgar.yaml
 ```
 
-Preparation provenance and reference exposure are separate concerns. Rebuilding public inputs does not prove the models have never seen them. Dataset files and source documents are excluded from Git; only preparation code, pinned source versions, and compact verification hashes are distributed.
+Preparation provenance and reference exposure are separate concerns. Rebuilding public inputs does not prove the models have never seen them. Dataset files and source documents are excluded from Git; preparation code and pinned source versions are distributed, without dataset membership manifests or checksums.
 
 CaseHOLD’s recipe computes the intersection of sampled DEV and FIT/SELECT IDs and removes those overlaps; it does not hardcode the two affected IDs. Its DEV cohort contains **510** cases. The reported DEV512 results use a different denominator.
 

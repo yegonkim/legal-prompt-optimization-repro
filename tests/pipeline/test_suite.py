@@ -1,4 +1,3 @@
-import hashlib
 import json
 import tempfile
 import unittest
@@ -56,23 +55,18 @@ class SuiteTests(unittest.TestCase):
             self.assertIn("validate", resumed[0])
             self.assertIn("--resume", resumed[1])
 
-    def test_saved_import_checks_hash_and_cohort(self):
+    def test_saved_import_checks_structure_and_refuses_overwrite(self):
         # No endpoint or optimizer: importing prompts must never generate predictions.
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp)
             data = Path("examples/toy.jsonl")
             cfg = load("examples/smoke.yaml")
             cfg["data"]["dataset"] = "toy"
-            cfg["data"]["split_sha256"]["fit"] = "0" * 64
             cp = p / "config.yaml"
             cp.write_text(yaml.safe_dump(cfg))
             prompt = {
                 "dataset": "toy",
                 "program": {"response": "r", "judge": "j"},
-                "sha256": {
-                    k: hashlib.sha256(v.encode()).hexdigest()
-                    for k, v in {"response": "r", "judge": "j"}.items()
-                },
             }
             pp = p / "prompts.json"
             pp.write_text(json.dumps(prompt))
@@ -90,7 +84,7 @@ class SuiteTests(unittest.TestCase):
                 )
                 prompt["program"]["response"] = "tampered"
                 pp.write_text(json.dumps(prompt))
-                with self.assertRaisesRegex(ValueError, "hash mismatch"):
+                with self.assertRaisesRegex(ValueError, "different frozen winner"):
                     import_saved(data, cp, pp, p / "winner.json")
             with self.assertRaises((ValueError, FileNotFoundError)):
                 import_saved(data, cp, pp, p / "winner.json")

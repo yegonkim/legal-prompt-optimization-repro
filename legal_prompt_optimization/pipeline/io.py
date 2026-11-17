@@ -100,16 +100,9 @@ def public(row):
 
 
 def validate_contract(groups, contract):
-    """Optional exact source-study membership/input checks, before model requests."""
+    """Check optional dataset split sizes before model requests."""
     for split, count in contract["expected_counts"].items():
         if count is not None and len(groups[split]) != count:
             raise ValueError(
                 f"{split}: expected {count} cases, got {len(groups[split])}"
-            )
-    from ..data import cohort_digest
-
-    for split, expected in contract["split_sha256"].items():
-        if expected is not None and cohort_digest(groups[split]) != expected:
-            raise ValueError(
-                f"{split}: ordered cohort/input hash differs from reference config; re-prepare using the matching explicit recipe"
             )

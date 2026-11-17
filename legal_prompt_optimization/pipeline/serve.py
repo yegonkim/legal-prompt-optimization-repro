@@ -31,8 +31,7 @@ def environment(python):
         return json.loads(result.stdout)
     except (OSError, subprocess.SubprocessError, ValueError) as error:
         raise RuntimeError(
-            "Cannot inspect the vLLM environment. Install requirements/serve-student.txt "
-            "or requirements/serve-proposer.txt in a separate environment and pass "
+            "Cannot inspect the vLLM environment. Install requirements/serve.txt in a separate environment and pass "
             "its interpreter with --python; see docs/serving.md."
         ) from error
 
@@ -48,8 +47,8 @@ def compatible(config, role, versions):
         )
         if uses_guided and version >= (0, 12):
             raise ValueError(
-                "This config sends guided_* fields. Use the pinned student environment "
-                "(vLLM 0.10.0), or explicitly select structured_outputs for a new run."
+                "This config sends obsolete guided_* fields. Use an appropriate server "
+                "or select structured_outputs for vLLM 0.33.0 in a new run."
             )
         if mode == "structured_outputs" and version < (0, 12):
             raise ValueError("structured_outputs requires the modern vLLM environment")
