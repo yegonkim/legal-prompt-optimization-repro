@@ -78,7 +78,7 @@ Failed draws remain recorded. Aggregation uses the remaining valid draws and fai
 
 ## Historical LEDGAR response → judge recipe
 
-[`configs/pipeline/ledgar_historical.yaml`](configs/pipeline/ledgar_historical.yaml) describes the effective `msv_legal` Task1 configuration behind the archived **62.06% DEV / 60.21% TEST judge accuracy**. Its [provenance file](results/sequential/ledgar/historical_recipe.json) records source hashes and the correction of stale batch-size text in the original JSON. This is a supported recipe, **not an already validated reproduction of those GPU scores**.
+[`configs/pipeline/ledgar_historical.yaml`](configs/pipeline/ledgar_historical.yaml) describes the effective `msv_legal` Task1 configuration behind the archived **62.06% DEV / 60.21% TEST judge accuracy**. It records the executed judge reflection batch of16, correcting stale batch-size text in the original configuration. This is a supported recipe, **not an already validated reproduction of those GPU scores**.
 
 ```bash
 pip install -e '.[data,grammar]'

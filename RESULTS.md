@@ -2,7 +2,7 @@
 
 Archived results from the original research runners. The cleaned public pipeline has CPU integration tests; these scores have **not** been reproduced by a new GPU run. Only sequential results are published. Joint optimization remains available through config.
 
-All eight [configs](configs/experiments/suite.yaml), final prompts, metrics, and source hashes are indexed in the [catalog](results/sequential/catalog.json). Raw responses, checkpoints, datasets and logs are excluded.
+All eight [configs](configs/experiments/suite.yaml), final prompts and metrics are indexed in the [catalog](results/sequential/catalog.json). Raw responses, checkpoints, datasets and logs are excluded.
 
 | Dataset | Split | Metric | Baseline individual | Baseline aggregate@4 | Optimized individual | Optimized aggregate@4 | Optimized + judge |
 |---|---|---|---:|---:|---:|---:|---:|
@@ -39,7 +39,7 @@ PARCEL optimization worsened both DEV and TEST scores. NPD remains unstable: its
 - SARA and LEXam retain historical DEV/TEST halves derived from source TEST.
 - NPD had earlier optimization exposure to official TEST through reshuffled partitions.
 - PARCEL TEST contains 25 earlier FIT, 8 SELECT, 70 DEV and 81 TEST cases. All 34 opinions overlap DEV/TEST.
-- New endpoint implementations, reflection-policy wording in the recent cohort recipe, inference kernels, and fresh optimization may change outcomes. The original LEDGAR judge bank was reused; a fresh run generates its own bank. Source hashes identify archived evidence; they do not certify new predictions.
+- New endpoint implementations, reflection-policy wording in the recent cohort recipe, inference kernels, and fresh optimization may change outcomes. The original LEDGAR judge bank was reused; a fresh run generates its own bank. Archived scores do not certify new predictions.
 
 ## Run or evaluate
 

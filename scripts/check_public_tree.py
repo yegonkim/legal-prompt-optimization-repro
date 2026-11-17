@@ -32,6 +32,22 @@ def main():
     ]
     for name in filter(None, paths):
         p = Path(name)
+        if p.name in {
+            "PROVENANCE.json",
+            "CHECKSUMS.json",
+            "provenance.json",
+        } or p.name.endswith(".provenance.json"):
+            errors.append((name, "generated audit metadata must stay local"))
+        if p.parts[0] == "results" and p.name not in {
+            "catalog.json",
+            "metrics.json",
+            "prompts.json",
+            "final-DEV-TEST-table.csv",
+            "final-forcing-counts.csv",
+        }:
+            errors.append(
+                (name, "only requested tables and final prompts belong in results")
+            )
         if "manifests" in p.parts:
             errors.append(
                 (

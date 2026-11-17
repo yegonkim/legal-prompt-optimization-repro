@@ -1,5 +1,5 @@
 Legal prompt optimization, derived from yegonkim/msv_legal.
-Source attribution and archived experiment hashes are recorded in PROVENANCE.json and results/sequential/.
+Original source repository: https://github.com/yegonkim/msv_legal.
 This code is currently unlicensed; no general redistribution license is granted.
 Third-party dependencies, datasets and model weights retain their own licenses and access terms.
 No model weights, dataset text, reference feedback passages, or raw model generations are distributed.

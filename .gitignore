@@ -47,3 +47,13 @@ runs/
 !/tests/test_simple_experiment.py
 
 /legal_prompt_optimization/matrix.py
+
+# Generated audit/provenance metadata stays local, including curated-run exports.
+/PROVENANCE.json
+/CHECKSUMS.json
+**/provenance.json
+*.provenance.json
+/results/sequential/**/*.json
+!/results/sequential/catalog.json
+!/results/sequential/*/metrics.json
+!/results/sequential/*/prompts.json

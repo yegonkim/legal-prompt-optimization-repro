@@ -1,4 +1,4 @@
-"""Small CLI; imports no GPU libraries for help, data checks or bundle verification."""
+"""Small CLI; imports no GPU libraries for help or data checks."""
 import argparse,contextlib,fcntl,importlib.metadata,json,os,signal,subprocess,sys,time
 from pathlib import Path
 from .core import ACTORS,digest,dump,file_sha,read,rows,validate_rows
@@ -70,7 +70,6 @@ def main(argv=None):
         a=sub.add_parser(name);a.add_argument('--data',required=True)
         if name=='prepare':a.add_argument('--dataset',required=True)
         if name=='prepare':a.add_argument('--cache',default='.source-cache');a.add_argument('--offline',action='store_true')
-    a=sub.add_parser('verify-bundle');a.add_argument('--root',default='.')
     a=sub.add_parser('validate');a.add_argument('--config',required=True);a.add_argument('--data',required=True)
     for command in ['optimize','evaluate']:
         a=sub.add_parser(command);a.add_argument('--config',required=True);a.add_argument('--data',required=True);a.add_argument('--out',required=True)
@@ -84,11 +83,6 @@ def main(argv=None):
     args=ap.parse_args(argv)
     if args.command=='prepare':print(json.dumps(prepare(args.dataset,args.data,args.cache,args.offline)));return
     if args.command=='verify-data':print(json.dumps(verify(Path(args.data)/'dataset-receipt.json',args.data)));return
-    if args.command=='verify-bundle':
-        root=Path(args.root);checks=read(root/'CHECKSUMS.json')
-        for f,h in checks.items():
-            if file_sha(root/f)!=h:raise ValueError(f'Bundle file changed: {f}')
-        print(json.dumps({'files_verified':len(checks)}));return
     if args.command=='audit':
         from transformers import AutoTokenizer
         from .audit import audit_run
