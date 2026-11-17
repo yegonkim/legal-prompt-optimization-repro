@@ -41,7 +41,7 @@ def validate_config(c):
     if type(c['dataset']) is not str or not c['dataset'].strip():raise ValueError('dataset must be a name')
 
 def check_run_outputs(operation,out,config,result):
-    """Cheap automatic checks; the optional advanced audit replays the full history."""
+    """Cheap automatic checks; the optional advanced audit replays the full trace."""
     if operation=='optimize':
         if result['best_candidate']!=result['candidates'][result['best_idx']] or result['val_scores'][result['best_idx']]!=max(result['val_scores']):raise RuntimeError('SELECT winner is inconsistent')
         if result['student_calls']>config['student_call_cap'] or result['proposer_calls']>config['proposer_call_cap']:raise RuntimeError('Budget exceeded')

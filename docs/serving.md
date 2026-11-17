@@ -8,7 +8,7 @@ The endpoint contract is `/health`, `/v1/models`, and `/v1/chat/completions`, pl
 
 ## Optional foreground launcher
 
-Install vLLM in a separate environment, following the requirements for your GPU and model. Historical Phi serving used vLLM0.10.0, Torch2.7.1, Transformers4.55.0 and XGrammar0.1.21; those are provenance, not runner dependencies. Gemma requires a newer vLLM with its architecture and thinking parser. The two servers may use different environments.
+Install vLLM in a separate environment, following the requirements for your GPU and model. Gemma requires a newer vLLM with its architecture and thinking parser. The two servers may use different environments.
 
 Preview the commands first:
 
@@ -26,7 +26,7 @@ Remove `--dry-run` to launch each foreground process, in separate terminals or y
 
 The launcher passes model/revision, context length, BF16, GPU-memory fraction and maximum sequences explicitly. Gemma thinking adds the Gemma4 reasoning parser and the thinking chat-template flag. For another thinking model, launch the server manually with its appropriate parser. Additional server-specific flags can likewise be supplied by launching vLLM directly from the printed command.
 
-Older Phi/XGrammar combinations used the repository's EOS-alignment workaround. `--phi-eos-alignment` explicitly enables that existing hook for Phi-4-mini-instruct; it is opt-in and should not be assumed necessary on newer servers. Server upgrades have not been established as numerically equivalent to the historical runs.
+`--phi-eos-alignment` explicitly enables that existing hook for Phi-4-mini-instruct; it is opt-in and should not be assumed necessary on newer servers. Server upgrades can change numerical results.
 
 ## Endpoint-only use
 

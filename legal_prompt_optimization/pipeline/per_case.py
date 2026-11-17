@@ -1,9 +1,4 @@
-"""Versioned per-case legal GEPA protocol behind the archived LEDGAR table.
-
-Uses the repository's existing row-level engine, public prompt contracts and
-seed function. Transport/caching comes from the portable endpoint backend.
-No dependency on the msv_legal checkout or its local artifacts is required.
-"""
+"""Per-case GEPA optimization and sixteen-draw classification evaluation."""
 
 import json
 import time
@@ -23,12 +18,12 @@ class EndpointAdapter(row_engine.Adapter):
     def generate(self, requests, cache=False):
         if cache:
             raise ValueError(
-                "Historical sequential protocol does not use joint cache scheduling"
+                "Reference sequential protocol does not use joint cache scheduling"
             )
         if self.calls + len(requests) > self.call_cap:
-            raise row_engine.BudgetExceeded("Historical student-call cap")
+            raise row_engine.BudgetExceeded("Reference student-call cap")
         if time.monotonic() >= getattr(self.backend, "deadline", float("inf")):
-            raise TimeoutError("Historical stage time budget exhausted")
+            raise TimeoutError("Reference stage time budget exhausted")
         records = []
         for offset in range(0, len(requests), 64):
             chunk = requests[offset : offset + 64]
@@ -74,7 +69,7 @@ class EndpointAdapter(row_engine.Adapter):
                     cache_record=output.get("cache_record"),
                     **grade(output["text"], req["row"]),
                 )
-                # Historical grading parses the public JSON, including length finishes.
+                # Reference grading parses the public JSON, including length finishes.
                 # Actual token IDs are not fabricated when an endpoint supplies only usage.
                 self.record("responses.jsonl", record)
                 records.append(record)
@@ -82,9 +77,9 @@ class EndpointAdapter(row_engine.Adapter):
 
     def reflect(self, prompt):
         if time.monotonic() >= getattr(self.backend, "deadline", float("inf")):
-            raise TimeoutError("Historical stage time budget exhausted")
+            raise TimeoutError("Reference stage time budget exhausted")
         if self.reflections >= self.config["proposer_call_cap"]:
-            raise row_engine.BudgetExceeded("Historical proposer-call cap")
+            raise row_engine.BudgetExceeded("Reference proposer-call cap")
         self.reflections += 1
         text = self.backend.reflect(prompt, call_number=self.reflections)
         self.record(
@@ -124,7 +119,7 @@ def validate_data(groups, task, config):
         raise ValueError("legal_gepa_v1 requires classification data")
     if any("reference_feedback" not in row for row in groups["fit"]):
         raise ValueError(
-            "Historical FIT reflection requires reference_feedback. Re-prepare the frozen dataset with the current builder."
+            "Reference FIT reflection requires reference_feedback. Re-prepare the frozen dataset with the current builder."
         )
 
 
@@ -173,7 +168,7 @@ def optimize(backend, groups, task, config, out, response_program=None):
 
 def evaluate(backend, rows, task, config, program, out):
     out = Path(out)
-    cached = out / "historical-readout.json"
+    cached = out / "per-case-readout.json"
     if cached.exists():
         raw = read(cached)
     else:
@@ -214,11 +209,11 @@ def evaluate(backend, rows, task, config, program, out):
             selected = [r for r in records if r["condition"] == "ordinary"]
         if len(selected) != 16 * len(rows):
             raise ValueError(
-                "Historical readout requires sixteen actual draws per problem"
+                "Reference readout requires sixteen actual draws per problem"
             )
         lookup = {(r["record_id"], r["draw"]): r for r in selected}
         if len(lookup) != len(selected):
-            raise ValueError("Repeated historical draw identity")
+            raise ValueError("Repeated reference draw identity")
         aggregates = []
         for row in rows:
             for trial in range(4):
@@ -248,7 +243,7 @@ def evaluate(backend, rows, task, config, program, out):
 
     judged = [r for r in records if r["condition"] == "judge"]
     if len(judged) != 4 * len(rows):
-        raise ValueError("Historical readout requires four judges per problem")
+        raise ValueError("Reference readout requires four judges per problem")
     result = {
         "n": len(rows),
         "baseline": bank("ordinary"),
@@ -260,6 +255,6 @@ def evaluate(backend, rows, task, config, program, out):
         "pass1_definition": "Mean correctness over all sixteen sampled responses per problem",
         "aggregation_definition": "Mean correctness over four groups of four; no vote16",
         "prediction_counts_unit": "Draws for pass1, four-response groups for vote4/judge",
-        "historical_gpu_score_reproduction_validated": False,
+        "gpu_score_reproduction_validated": False,
     }
     return result

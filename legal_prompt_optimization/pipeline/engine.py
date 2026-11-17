@@ -270,7 +270,7 @@ class Adapter(CohortAdapter):
         )
 
     def reflect(self, prompt):
-        # The historical profile passes the same explicit per-stage call number.
+        # The reference profile passes the same explicit per-stage call number.
         if (
             getattr(self.backend, "config", {})
             .get("generation", {})

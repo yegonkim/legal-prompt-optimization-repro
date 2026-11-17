@@ -29,20 +29,20 @@ Evaluation verifies the winner's integrity, dataset hash, inference signature an
 
 A single JSONL file includes all split tags, so validation reads the file. Optimization receives only FIT/SELECT rows and feedback. DEV/TEST are never forwarded to the optimizer or proposer. Use DEV for any human configuration comparison, then freeze your choice before running TEST. The CLI does not automatically search configurations or pick a winner from TEST scores.
 
-## Versioned historical protocol
+## Per-case protocol
 
-The default `protocol: cohort_v1` retains the original portable pipeline's whole-cohort scoring, first-draw pass@1 and four-draw readouts. `protocol: legal_gepa_v1` selects the archived per-case classification protocol: individual cases are GEPA items, the reflective minibatch contains individual FIT cases, per-case accuracy drives Pareto selection, default GEPA perfect-score skipping is retained, and the judge receives the selected response prefix. It uses the exact legal output instruction, public-label compact grammar, `legal_gepa_v1|record_id|draw` SHA256 seed formula, original four-response frame and historical reflection feedback fields. Valid public JSON is graded even when the server reports a length finish, matching the original grader. This protocol currently supports response/judge/sequential, not joint or answer forcing.
+The default `protocol: cohort_v1` uses whole-cohort scoring, first-draw pass@1 and four-draw readouts. `protocol: legal_gepa_v1` selects the per-case per-case classification protocol: individual cases are GEPA items, the reflective minibatch contains individual FIT cases, per-case accuracy drives Pareto selection, default GEPA perfect-score skipping is retained, and the judge receives the selected response prefix. It uses the exact legal output instruction, public-label compact grammar, `legal_gepa_v1|record_id|draw` SHA256 seed formula, four-response frame and per-case reflection feedback fields. Valid public JSON is graded even when the server reports a length finish, as defined by the grader. This protocol currently supports response/judge/sequential, not joint or answer forcing.
 
 Additional explicit config fields:
 
-- `data.dataset`: optional dataset name used when importing archived prompts.
-- `data.expected_counts` and `data.split_sha256`: optional sizes and one canonical, order-sensitive SHA256 per FIT/SELECT/DEV/TEST split. These verify completed datasets before model requests; they never select rows or supply case IDs to preparation. Null values impose no extra constraints on custom datasets. The former manifest fields are no longer supported.
-- `gepa.<stage>.seed`: independent optimizer seed; null uses the top-level seed. In the historical protocol, generation seeds remain record-ID based and independent of optimizer seed.
-- `gepa.<stage>.max_seconds`: optional per-stage deadline within the overall runtime limit. Checked at requests/reflections; an in-flight request remains subject to its HTTP timeout. This is not the historical process-level SIGALRM implementation.
+- `data.dataset`: optional dataset name used when importing per-case prompts.
+- `data.expected_counts` and `data.split_sha256`: optional sizes and one canonical, order-sensitive SHA256 per FIT/SELECT/DEV/TEST split. These verify completed datasets before model requests; they never select rows or supply case IDs to preparation. Null values impose no extra constraints on custom datasets.
+- `gepa.<stage>.seed`: independent optimizer seed; null uses the top-level seed. In the per-case protocol, generation seeds remain record-ID based and independent of optimizer seed.
+- `gepa.<stage>.max_seconds`: optional per-stage deadline within the overall runtime limit. Checked at requests/reflections; an in-flight request remains subject to its HTTP timeout.
 - `generation.proposer.top_k`: optional explicit top-k; null leaves the endpoint default unchanged.
-- `generation.proposer.seed_offset`: optional offset added to the stage's one-based reflection-call number. The historical config uses 6000.
-- `evaluation.pass1_mode`: `first_draw` for cohort_v1; `mean_draws` for legal_gepa_v1. Historical evaluation requires16 draws grouped four at a time. Its numeric-aggregation field is unused because the protocol requires classification.
+- `generation.proposer.seed_offset`: optional offset added to the stage's one-based reflection-call number. The per-case config uses 6000.
+- `evaluation.pass1_mode`: `first_draw` for cohort_v1; `mean_draws` for legal_gepa_v1. Per-case evaluation requires16 draws grouped four at a time. Its numeric-aggregation field is unused because the protocol requires classification.
 
-For historical judge optimization, `max_solver_calls` includes bank generation and `max_metric_calls` applies to search only. With FIT 128/SELECT 64, the 8,411 total ceiling leaves 7,643 search calls after 768 bank draws. The general cohort protocol retains its documented separate bank accounting. Settings of the inactive joint stage do not apply to historical sequential runs.
+For per-case judge optimization, `max_solver_calls` includes bank generation and `max_metric_calls` applies to search only. With FIT 128/SELECT 64, the 8,411 total ceiling leaves 7,643 search calls after 768 bank draws. The general cohort protocol retains its documented separate bank accounting. Settings of the inactive joint stage do not apply to per-case sequential runs.
 
-`legal_gepa_v1` needs the optional `grammar` extra to compile its compact JSON grammar. Backend rendering/seed/feedback contracts are versioned by the protocol; new-generation transports may differ numerically from the archived in-process vLLM runtime. Known TEST exposure is disclosed in RESULTS.md. A reference recipe is not proof of a successful GPU score reproduction.
+`legal_gepa_v1` needs the optional `grammar` extra to compile its compact JSON grammar. Backend rendering/seed/feedback contracts are versioned by the protocol; different inference transports may produce different numerical outcomes. Known TEST exposure is disclosed in RESULTS.md. A reference recipe is not proof of a successful GPU score reproduction.

@@ -21,8 +21,8 @@
     }
   },
   "notes": [
-    "Judge reflection batch4 follow-up after batch16 exceeded proposer context; other optimization settings held fixed.",
-    "58/98 archived DEV questions overlap FIT/SELECT."
+    "Judge reflection batch size is4 to fit the proposer context limit.",
+    "58/98 reported DEV questions overlap FIT/SELECT."
   ],
-  "new_pipeline_gpu_reproduction": false
+  "gpu_reproduction_verified": false
 }

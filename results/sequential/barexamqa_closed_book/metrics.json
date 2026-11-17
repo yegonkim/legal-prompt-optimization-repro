@@ -21,7 +21,7 @@
     }
   },
   "notes": [
-    "20/123 archived DEV questions overlap FIT/SELECT."
+    "20/123 reported DEV questions overlap FIT/SELECT."
   ],
-  "new_pipeline_gpu_reproduction": false
+  "gpu_reproduction_verified": false
 }

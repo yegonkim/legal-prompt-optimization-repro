@@ -21,8 +21,8 @@
     }
   },
   "notes": [
-    "Judge reflection batch4 follow-up after batch16 exceeded proposer context; other optimization settings held fixed.",
-    "Historical DEV and TEST are halves derived from the source TEST partition."
+    "Judge reflection batch size is4 to fit the proposer context limit.",
+    "Reference DEV and TEST are halves derived from the source TEST partition."
   ],
-  "new_pipeline_gpu_reproduction": false
+  "gpu_reproduction_verified": false
 }

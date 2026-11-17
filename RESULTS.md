@@ -1,6 +1,6 @@
 # Sequential experiment results
 
-Archived results from the original research runners. The cleaned public pipeline has CPU integration tests; these scores have **not** been reproduced by a new GPU run. Only sequential results are published. Joint optimization remains available through config.
+Reported experiment results. End-to-end GPU score reproduction with this runner is **not yet verified**; CPU behavior and data preparation are tested. Only sequential results are published. Joint optimization remains available through config.
 
 All eight [configs](configs/experiments/suite.yaml), final prompts and metrics are indexed in the [catalog](results/sequential/catalog.json). Raw responses, checkpoints, datasets and logs are excluded.
 
@@ -27,20 +27,20 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 
 The six original datasets use mean individual accuracy over 16 sampled responses per question; aggregate/judge scores average four groups of four. NPD/PARCEL use draw 0 as pass@1 and one group of four. Metrics and aggregation denominators are not interchangeable.
 
-The historical LEDGAR recipe uses per-case accuracy, response reflection batch3/seed42, judge batch16/seed43, compact JSON grammar, and greedy 512-token judges. CaseHOLD, LAR-ECHR, SARA and LEXam used an authorized batch4 judge follow-up after batch16 exceeded proposer context. NPD/PARCEL used the adapted cohort recipe, MAE/macro-F1, sampled 1024-token responses and judges, and sampled 128-token answer forcing on length failures. See each YAML for complete settings.
+The reported LEDGAR recipe uses per-case accuracy, response reflection batch3/seed42, judge batch16/seed43, compact JSON grammar, and greedy 512-token judges. CaseHOLD, LAR-ECHR, SARA and LEXam use judge reflection batch4 to fit the proposer context. NPD/PARCEL used the adapted cohort recipe, MAE/macro-F1, sampled 1024-token responses and judges, and sampled 128-token answer forcing on length failures. See each YAML for complete settings.
 
-PARCEL optimization worsened both DEV and TEST scores. NPD remains unstable: its TEST optimized individual has 60 failures (88.28% coverage), while optimized median@4 excludes five failures. Low-coverage, valid-only MAE is **not reliable evidence of improvement**. All parseable finite values, including extreme numbers, remain in the metric. Failures are never converted to arbitrary numbers. Exact [failure/coverage counts](results/sequential/final-DEV-TEST-table.csv) and [forcing attempts/recoveries](results/sequential/final-forcing-counts.csv) are published; historical failure counts unavailable in summary sources are not inferred as zero.
+PARCEL optimization worsened both DEV and TEST scores. NPD remains unstable: its TEST optimized individual has 60 failures (88.28% coverage), while optimized median@4 excludes five failures. Low-coverage, valid-only MAE is **not reliable evidence of improvement**. All parseable finite values, including extreme numbers, remain in the metric. Failures are never converted to arbitrary numbers. Exact [failure/coverage counts](results/sequential/final-DEV-TEST-table.csv) and [forcing attempts/recoveries](results/sequential/final-forcing-counts.csv) are published; reported failure counts unavailable in summary sources are not inferred as zero.
 
 ## Exposure and reproduction limits
 
 - LEDGAR judge cap512 was chosen using a TEST comparison against cap1024; results are exploratory.
-- CaseHOLD archived DEV512 included two cases also in FIT. The explicit public recipe removes those cases (DEV510); a clean rerun is not the same DEV evaluation.
+- CaseHOLD reported DEV512 included two cases also in FIT. The explicit public recipe removes those cases (DEV510); a clean rerun is not the same DEV evaluation.
 - LAR-ECHR has 58/98 DEV questions overlapping FIT/SELECT; BarExamQA has 20/123.
-- SARA and LEXam retain historical DEV/TEST halves derived from source TEST.
+- SARA and LEXam retain reported DEV/TEST halves derived from source TEST.
 - NPD had earlier optimization exposure to official TEST through reshuffled partitions.
 - PARCEL TEST contains 25 earlier FIT, 8 SELECT, 70 DEV and 81 TEST cases. All 34 opinions overlap DEV/TEST.
-- New endpoint implementations, reflection-policy wording in the recent cohort recipe, inference kernels, and fresh optimization may change outcomes. The original LEDGAR judge bank was reused; a fresh run generates its own bank. Archived scores do not certify new predictions.
+- Endpoint behavior, inference kernels and fresh optimization may change outcomes. A new run generates its own response banks; reported scores do not certify new predictions.
 
 ## Run or evaluate
 
-See [README](README.md) for the suite command. `--archived-prompts` imports the final instructions and evaluates them without running GEPA. Imports are labeled as archived, bind to verified cohort inputs, and never claim a new optimization. TEST readouts use frozen prompts and never select configurations.
+See [README](README.md) for the suite command. `--saved-prompts` imports the final instructions and evaluates them without running GEPA. Imports are labeled as saved, bind to verified cohort inputs, and never claim a new optimization. TEST readouts use frozen prompts and never select configurations.

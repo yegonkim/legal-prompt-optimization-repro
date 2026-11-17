@@ -136,8 +136,7 @@
   },
   "notes": [
     "New TEST contains25 priorFIT,8 priorSELECT,70 priorDEV,81 priorTEST cases. All34 opinions shared between DEV and TEST. Not pristine.",
-    "Optimized response and judge are worse than baseline on DEV and TEST. All predictions valid after forcing.",
-    "Portable cohort implementation of original-decoding answer-forcing recipe; not bit-identical to archived runner. Reflection-policy wording, cache layout and transport differ."
+    "Optimized response and judge are worse than baseline on DEV and TEST. All predictions valid after forcing."
   ],
-  "new_pipeline_gpu_reproduction": false
+  "gpu_reproduction_verified": false
 }

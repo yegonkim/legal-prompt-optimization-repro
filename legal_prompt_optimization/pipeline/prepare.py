@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
 from pathlib import Path
 
-from .. import data as historical
+from .. import data as source_data
 from .. import simple_data as sources
 from .io import dataset as validate_dataset
 from .io import dumps, file_hash, read, write
@@ -239,7 +239,7 @@ def prepare(
         if name == "ecthr_npd"
         else "random"
         if name == "parcel"
-        else "historical"
+        else "reference"
     )
     sizes = {
         "fit": 128 if fit_size is None else fit_size,
@@ -256,17 +256,17 @@ def prepare(
         "sources": [],
         "exclusions": [],
     }
-    if policy == "historical":
+    if policy == "reference":
         from .recipes import build
 
         if seed != 42 or any(
             v is not None for v in [fit_size, select_size, dev_size, test_size, source]
         ):
             raise ValueError(
-                "Historical recipes fix seed42, source pools and sizes. Use --split-policy random for a new research split."
+                "Reference recipes fix seed42, source pools and sizes. Use --split-policy random for a new research split."
             )
         groups, details = build(name, cache_dir, offline)
-        provenance.update(details, historical_cohorts=True)
+        provenance.update(details, reference_cohorts=True)
     elif name == "ecthr_npd":
         if policy != "official":
             raise ValueError(
@@ -465,17 +465,17 @@ def prepare(
     else:
         if policy != "random":
             raise ValueError(
-                "Use historical recipes or explicitly request random research splits"
+                "Use reference recipes or explicitly request random research splits"
             )
         rows = sources.load_rows(name, cache_dir, offline=offline, source_path=source)
         groups = split_pool(rows, sizes, seed)
         provenance["cohort_note"] = (
-            "New seed-based research partitions; official source partitions may be mixed. No historical-membership equivalence claimed."
+            "New seed-based research partitions; official source partitions may be mixed. No reference-membership equivalence claimed."
         )
         provenance["sources"] = (
-            list(historical.SOURCES[name])
-            if name in historical.SOURCES
-            else [historical.SARA_URL, historical.SARA_SHA]
+            list(source_data.SOURCES[name])
+            if name in source_data.SOURCES
+            else [source_data.SARA_URL, source_data.SARA_SHA]
         )
     records = []
     for split, rows in groups.items():
@@ -508,9 +508,9 @@ def prepare(
     tmp.replace(out)
     provenance.update(
         counts={k: len(v) for k, v in groups.items()},
-        split_sha256={k: historical.cohort_digest(v) for k, v in groups.items()},
+        split_sha256={k: source_data.cohort_digest(v) for k, v in groups.items()},
         dataset_sha256=file_hash(out),
-        prior_exposure_note="Historical recipes retain earlier research exposure. Fresh source preparation cannot establish absence of pretrained-model exposure.",
+        prior_exposure_note="Reference recipes retain earlier research exposure. Fresh source preparation cannot establish absence of pretrained-model exposure.",
     )
     write(out.with_suffix(out.suffix + ".provenance.json"), provenance)
     return {

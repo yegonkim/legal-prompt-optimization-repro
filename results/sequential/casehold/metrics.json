@@ -21,8 +21,8 @@
     }
   },
   "notes": [
-    "Judge reflection batch4 follow-up after batch16 exceeded proposer context; other optimization settings held fixed.",
-    "Archived DEV512 includes two FIT-overlapping cases. Public builder removes them: DEV510. Public rerun is not an exact reproduction of archived DEV scores."
+    "Judge reflection batch size is4 to fit the proposer context limit.",
+    "Reported DEV512 includes two FIT-overlapping cases. Public builder removes them: DEV510. Public rerun is not an exact reproduction of reported DEV scores."
   ],
-  "new_pipeline_gpu_reproduction": false
+  "gpu_reproduction_verified": false
 }

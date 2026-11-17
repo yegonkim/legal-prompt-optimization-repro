@@ -1,7 +1,5 @@
-# Data
+# Dataset preparation
 
-The public pipeline consumes a single JSONL file with explicit FIT/SELECT/DEV/TEST split tags.
+Use `legal-prompts prepare --dataset NAME --out data/NAME.jsonl`, or a script in `scripts/datasets/`.
 
-See [dataset preparation](docs/datasets.md) for the eight end-to-end builders, the custom-file schema, pinned sources, filtering, split policies and offline preparation.
-
-Historical cohort membership and exposure notes are preserved in [the archived data documentation](docs/legacy-data.md).
+[Dataset rules](docs/datasets.md) describe pinned sources, formatting, filtering, sampling, split sizes and cache options. [Evaluation limitations](RESULTS.md) disclose overlaps, coverage and denominator differences. Dataset text and generated preparation metadata stay outside Git.

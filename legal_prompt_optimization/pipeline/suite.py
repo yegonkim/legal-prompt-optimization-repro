@@ -14,7 +14,7 @@ from .engine import task_for
 from .io import dataset, digest, file_hash, read, validate_contract, write
 
 
-def freeze_archived(data, config_path, prompt_path, out):
+def import_saved(data, config_path, prompt_path, out):
     """Bind explicitly imported instructions to verified data, without optimization."""
     config = load(config_path)
     groups = dataset(data)
@@ -24,16 +24,16 @@ def freeze_archived(data, config_path, prompt_path, out):
 
     for role, text in prompts["program"].items():
         if hashlib.sha256(text.encode()).hexdigest() != prompts["sha256"][role]:
-            raise ValueError("Archived prompt hash mismatch")
+            raise ValueError("Saved prompt hash mismatch")
     if config["mode"] != "sequential":
-        raise ValueError("Archived sequential prompts require mode: sequential")
+        raise ValueError("Saved sequential prompts require mode: sequential")
     if config["data"]["dataset"] != prompts["dataset"]:
-        raise ValueError("Archived evaluation requires the matching dataset contract")
+        raise ValueError("Saved evaluation requires the matching dataset contract")
     result = {
         "version": 1,
         "program": prompts["program"],
         "task": asdict(task_for(groups)),
-        "selected_on": "archived SELECT; no new optimization",
+        "selected_on": "saved SELECT; no new optimization",
         "dataset_sha256": file_hash(data),
         "config_sha256": digest(config),
         "inference_signature": inference_signature(config),
@@ -52,7 +52,7 @@ def freeze_archived(data, config_path, prompt_path, out):
     return result
 
 
-def commands(suite, root, datasets, stages, output, archived=False, offline=False):
+def commands(suite, root, datasets, stages, output, saved=False, offline=False):
     entries = suite["datasets"]
     unknown = set(datasets) - set(entries)
     if unknown:
@@ -64,7 +64,7 @@ def commands(suite, root, datasets, stages, output, archived=False, offline=Fals
         data = output / "data" / (name + ".jsonl")
         run = output / name
         winner = run / (
-            "archived/winner.json" if archived else "optimization/winner.json"
+            "saved/winner.json" if saved else "optimization/winner.json"
         )
         common = ["--data", str(data), "--config", str(config)]
         for stage in stages:
@@ -90,12 +90,12 @@ def commands(suite, root, datasets, stages, output, archived=False, offline=Fals
                 if offline:
                     cmd += ["--offline"]
             elif stage == "optimize":
-                if archived:
+                if saved:
                     yield [
                         sys.executable,
                         "-m",
                         __name__,
-                        "freeze-archived",
+                        "import-saved",
                         *common,
                         "--prompts",
                         str(root / entry["prompts"]),
@@ -115,23 +115,23 @@ def commands(suite, root, datasets, stages, output, archived=False, offline=Fals
                     "--split",
                     stage,
                     "--out",
-                    str(run / ("archived-" + stage if archived else stage)),
+                    str(run / ("saved-" + stage if saved else stage)),
                 ]
-                if (run / ("archived-" + stage if archived else stage)).exists():
+                if (run / ("saved-" + stage if saved else stage)).exists():
                     cmd += ["--resume"]
             yield [sys.executable, "-m", "legal_prompt_optimization", *cmd]
 
 
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
-    if argv and argv[0] == "freeze-archived":
+    if argv and argv[0] == "import-saved":
         p = argparse.ArgumentParser(
-            description="Import archived prompts without optimization"
+            description="Import saved prompts without optimization"
         )
         for k in ["data", "config", "prompts", "out"]:
             p.add_argument("--" + k, required=True, type=Path)
         a = p.parse_args(argv[1:])
-        freeze_archived(a.data, a.config, a.prompts, a.out)
+        import_saved(a.data, a.config, a.prompts, a.out)
         return
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--suite", type=Path, default=Path("configs/experiments/suite.yaml"))
@@ -144,7 +144,7 @@ def main(argv=None):
     )
     p.add_argument("--out", type=Path, default=Path("runs/public-suite"))
     p.add_argument(
-        "--archived-prompts",
+        "--saved-prompts",
         action="store_true",
         help="Import saved sequential prompts instead of optimizing",
     )
@@ -165,7 +165,7 @@ def main(argv=None):
             "Stages must be unique and ordered prepare, optimize, dev, test"
         )
     for cmd in commands(
-        spec, root, names, a.stages, a.out.resolve(), a.archived_prompts, a.offline
+        spec, root, names, a.stages, a.out.resolve(), a.saved_prompts, a.offline
     ):
         print(shlex.join(cmd), flush=True)
         if not a.dry_run:

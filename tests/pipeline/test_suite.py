@@ -8,7 +8,7 @@ import yaml
 
 from legal_prompt_optimization.pipeline.config import load
 from legal_prompt_optimization.pipeline.io import digest
-from legal_prompt_optimization.pipeline.suite import commands, freeze_archived
+from legal_prompt_optimization.pipeline.suite import commands, import_saved
 
 
 class SuiteTests(unittest.TestCase):
@@ -37,7 +37,7 @@ class SuiteTests(unittest.TestCase):
                 suite, root, ["ledgar"], ["optimize"], Path("/tmp/unused-suite"), True
             )
         )
-        self.assertIn("freeze-archived", imports[0])
+        self.assertIn("import-saved", imports[0])
         self.assertNotIn("optimize", imports[0])
         self.assertEqual(load("configs/pipeline/parcel_joint.yaml")["mode"], "joint")
 
@@ -56,7 +56,7 @@ class SuiteTests(unittest.TestCase):
             self.assertIn("validate", resumed[0])
             self.assertIn("--resume", resumed[1])
 
-    def test_archived_import_checks_hash_and_cohort(self):
+    def test_saved_import_checks_hash_and_cohort(self):
         # No endpoint or optimizer: importing prompts must never generate predictions.
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp)
@@ -81,7 +81,7 @@ class SuiteTests(unittest.TestCase):
             with patch(
                 "legal_prompt_optimization.pipeline.suite.validate_contract"
             ) as validate:
-                result = freeze_archived(data, cp, pp, p / "winner.json")
+                result = import_saved(data, cp, pp, p / "winner.json")
                 validate.assert_called_once()
                 self.assertIn("no new optimization", result["selected_on"])
                 self.assertEqual(
@@ -91,6 +91,6 @@ class SuiteTests(unittest.TestCase):
                 prompt["program"]["response"] = "tampered"
                 pp.write_text(json.dumps(prompt))
                 with self.assertRaisesRegex(ValueError, "hash mismatch"):
-                    freeze_archived(data, cp, pp, p / "winner.json")
+                    import_saved(data, cp, pp, p / "winner.json")
             with self.assertRaises((ValueError, FileNotFoundError)):
-                freeze_archived(data, cp, pp, p / "winner.json")
+                import_saved(data, cp, pp, p / "winner.json")

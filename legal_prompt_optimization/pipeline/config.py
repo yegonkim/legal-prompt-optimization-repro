@@ -294,19 +294,19 @@ def validate(c):
         if c["task"]["metric"] != "accuracy":
             raise ValueError("legal_gepa_v1 requires per-case accuracy")
         if c["generation"]["answer_forcing"]["enabled"]:
-            raise ValueError("Historical legal_gepa_v1 has no answer forcing")
+            raise ValueError("Reference legal_gepa_v1 has no answer forcing")
         if c["generation"]["schema_mode"] not in ["guided_json", "structured_outputs"]:
             raise ValueError(
-                "Historical compact grammar requires a vLLM structured-output mode"
+                "Reference compact grammar requires a vLLM structured-output mode"
             )
         if c["generation"]["proposer"]["seed_offset"] is None:
-            raise ValueError("Historical proposer requires explicit seed_offset")
+            raise ValueError("Reference proposer requires explicit seed_offset")
         if any(
             c["gepa"][k]["candidate_selection"] != "pareto"
             or c["gepa"][k]["module_selector"] != "round_robin"
             for k in ["response", "judge"]
         ):
-            raise ValueError("Historical GEPA uses Pareto/round_robin")
+            raise ValueError("Reference GEPA uses Pareto/round_robin")
     if e != expected:
         raise ValueError(f"{c['protocol']} requires evaluation settings {expected}")
     for k in ["concurrency", "timeout_seconds", "max_physical_calls", "max_seconds"]:

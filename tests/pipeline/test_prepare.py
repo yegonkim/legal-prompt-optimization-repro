@@ -45,7 +45,7 @@ def docx(facts):
 
 
 class Preparation(unittest.TestCase):
-    def test_historical_builder_retains_source_identity_and_feedback(self):
+    def test_reference_builder_retains_source_identity_and_feedback(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "data.jsonl"
             groups = {
@@ -63,7 +63,7 @@ class Preparation(unittest.TestCase):
             }
             with patch(
                 "legal_prompt_optimization.pipeline.recipes.build",
-                return_value=(groups, {"recipe": "historical_v1"}),
+                return_value=(groups, {"recipe": "reference_v1"}),
             ):
                 prepare(dataset="ledgar", out=out, offline=True)
             row = dataset(out)["fit"][0]

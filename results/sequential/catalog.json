@@ -1,7 +1,6 @@
 {
   "version": 1,
   "scope": "sequential only",
-  "gpu_reproduction_by_public_pipeline": false,
   "datasets": {
     "ledgar": {
       "config": "configs/experiments/ledgar.yaml",
@@ -43,5 +42,6 @@
       "prompts": "results/sequential/parcel/prompts.json",
       "metrics": "results/sequential/parcel/metrics.json"
     }
-  }
+  },
+  "gpu_reproduction_verified": false
 }

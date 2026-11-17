@@ -167,8 +167,7 @@
   },
   "notes": [
     "Prior reshuffled official TEST optimization exposure; prior TEST readouts reported. Not pristine.",
-    "Extreme numeric outputs persist. TEST optimized pass1 has 60 failures (88.28% coverage); optimized median4 MAE8043.76 excludes5 cases. Do not describe valid-only MAE as a reliable overall improvement. Judge search retained the neutral seed prompt.",
-    "Portable cohort implementation of original-decoding answer-forcing recipe; not bit-identical to archived runner. Reflection-policy wording, cache layout and transport differ."
+    "Extreme numeric outputs persist. TEST optimized pass1 has 60 failures (88.28% coverage); optimized median4 MAE8043.76 excludes5 cases. Do not describe valid-only MAE as a reliable overall improvement. Judge search retained the neutral seed prompt."
   ],
-  "new_pipeline_gpu_reproduction": false
+  "gpu_reproduction_verified": false
 }

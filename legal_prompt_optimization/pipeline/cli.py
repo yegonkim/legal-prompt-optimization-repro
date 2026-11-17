@@ -91,7 +91,7 @@ def main(argv=None, backend_factory=None):
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--cache-dir", type=Path, default=Path(".source-cache"))
     p.add_argument("--offline", action="store_true")
-    p.add_argument("--split-policy", choices=["historical", "official", "random"])
+    p.add_argument("--split-policy", choices=["reference", "official", "random"])
     p.add_argument("--source", type=Path)
     p.add_argument("--opinions", type=Path)
     p.add_argument("--judgments-dir", type=Path)
@@ -143,10 +143,10 @@ def main(argv=None, backend_factory=None):
     task = task_for(groups)
     optimize_fn, evaluate_fn = optimize, evaluate
     if config["protocol"] == "legal_gepa_v1":
-        from . import historical
+        from . import per_case
 
-        historical.validate_data(groups, task, config)
-        optimize_fn, evaluate_fn = historical.optimize, historical.evaluate
+        per_case.validate_data(groups, task, config)
+        optimize_fn, evaluate_fn = per_case.optimize, per_case.evaluate
     # Check metric compatibility before any requests.
     sample = next(r for group in groups.values() for r in group)
     metric(task, [sample["answer"]], [sample["answer"]], config["task"]["metric"])

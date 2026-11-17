@@ -1,4 +1,4 @@
-"""Standalone finite experiments; no imports from the historical execution stack.
+"""Standalone finite experiments; no imports from the reference execution stack.
 
 Backend calls are aligned arrays (one completion per row). Public rows contain
 record_id, question, public_labels, and, for judges, four complete candidate

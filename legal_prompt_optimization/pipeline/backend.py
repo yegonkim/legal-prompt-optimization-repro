@@ -19,7 +19,7 @@ def compact_grammar(schema_json):
         import xgrammar
     except ImportError as error:
         raise RuntimeError(
-            "Historical compact grammar requires the optional grammar extra"
+            "Reference compact grammar requires the optional grammar extra"
         ) from error
     return str(
         xgrammar.Grammar.from_json_schema(
@@ -194,7 +194,7 @@ class Backend(SimpleBackend):
             ]
             count = self._count(messages)
             if count + cap > self.context_length:
-                raise ContextLimitError("Historical input exceeds context; no clipping")
+                raise ContextLimitError("Reference input exceeds context; no clipping")
             return (
                 messages,
                 schema(row["public_labels"]),

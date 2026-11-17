@@ -15,13 +15,12 @@ runs/
 
 /People ex rel. Ellis v Imperati (2025 NY Slip Op 03646).html
 /People ex rel. Ellis v Imperati (2025 NY Slip Op 03646)_files/
-/msv_legal/
 
 # Local transfer/download artifacts; never part of the distributable package.
 /downloads/
 /legal-repro-continuation-*.tar.gz
 
-# Local research history and host administration; preserve on disk only.
+# Local administrative files; preserve on disk only.
 /MACHINE_HANDOFF.md
 /ADVANCED.md
 /requirements-lock.txt
@@ -30,8 +29,6 @@ runs/
 /requirements-simple-student.txt
 /simple_proposer_server.py
 /configs/simple/
-/docs/legacy-*
-!/docs/legacy-data.md
 /results/*
 !/results/sequential/
 /scripts/*
@@ -57,3 +54,5 @@ runs/
 !/results/sequential/catalog.json
 !/results/sequential/*/metrics.json
 !/results/sequential/*/prompts.json
+
+/NOTICE

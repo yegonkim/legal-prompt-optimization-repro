@@ -41,7 +41,7 @@ class Recipes(unittest.TestCase):
         self.assertEqual((len(dev), len(test)), (50, 51))
         self.assertEqual(test[0], shuffled(small)[50])
 
-    def test_ledgar_protected_history_recreated_without_saved_ids(self):
+    def test_ledgar_exclusion_schedule_recreated_without_saved_ids(self):
         pool = rows(10000, "ledgar:test")
         protected = protected_ledgar_ids(pool)
         self.assertEqual(len(protected), 256)

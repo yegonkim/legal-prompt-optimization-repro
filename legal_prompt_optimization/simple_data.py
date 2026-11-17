@@ -1,4 +1,4 @@
-"""Manifest-free public data preparation (new splits, not historical reproduction).
+"""Manifest-free public data preparation (new splits, not reference reproduction).
 
 API: prepare(dataset, out, cache_dir='.source-cache', *, dev_size=512,
 test_size=512, select_size=None, seed=42, offline=False, source_path=None,

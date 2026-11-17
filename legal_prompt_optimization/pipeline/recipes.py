@@ -1,7 +1,7 @@
-"""Explicit source-to-cohort algorithms for the six historical studies.
+"""Explicit source-to-cohort algorithms for the six per-case experiment datasets.
 
 No selected-ID lists or run artifacts are read. Sources, stable IDs, token
-filters, random algorithms and the historical sequence of splits are explicit.
+filters, random algorithms and the reference sequence of splits are explicit.
 See docs/datasets.md for origin scripts, exposure and the CaseHOLD correction.
 """
 
@@ -21,7 +21,7 @@ from ..formatters import (
     format_lexam,
 )
 
-HISTORICAL = (
+REFERENCE_DATASETS = (
     "ledgar",
     "casehold",
     "lar_echr",
@@ -47,10 +47,11 @@ def reporting_halves(pool):
 
 
 def protected_ledgar_ids(test):
-    """Recreate the earlier256 baseline and protected256 cohort, not a saved list."""
-    earlier = {r["record_id"] for r in shuffled(test)[:256]}
+    """Recreate the 256-case baseline and protected256 cohort, not a saved list."""
+    baseline_ids = {r["record_id"] for r in shuffled(test)[:256]}
     eligible = sorted(
-        (r for r in test if r["record_id"] not in earlier), key=lambda r: r["record_id"]
+        (r for r in test if r["record_id"] not in baseline_ids),
+        key=lambda r: r["record_id"],
     )
     return {r["record_id"] for r in random.Random(20261029).sample(eligible, 256)}
 
@@ -130,7 +131,7 @@ def read_sources(name, cache, offline):
 
 
 def source_rows(name, raw, split, training=False):
-    """Preserve historical formatting and split-specific record-ID conventions."""
+    """Preserve reference formatting and split-specific record-ID conventions."""
     if name == "ledgar":
         data, labels = raw[split]
     else:
@@ -299,11 +300,11 @@ def casehold_eligible(rows, tokenizers, *, add_special_tokens):
 
 
 def build(name, cache, offline=False):
-    if name not in HISTORICAL:
-        raise ValueError("Unknown historical dataset")
+    if name not in REFERENCE_DATASETS:
+        raise ValueError("Unknown reference dataset")
     raw = read_sources(name, Path(cache), offline)
     details = {
-        "recipe": "historical_v1",
+        "recipe": "reference_v1",
         "seed": 42,
         "sampling": "stable record-ID sort, random.Random(42).shuffle; explicit source and phase rules",
         "sources": list(SOURCES[name]) if name in SOURCES else [SARA_URL, SARA_SHA],
@@ -393,7 +394,7 @@ def build(name, cache, offline=False):
         }[name]
         if tuple(len(groups[k]) for k in ("fit", "select", "dev", "test")) != expected:
             raise ValueError(
-                f"{name}: source/eligibility drift changed historical cohort sizes"
+                f"{name}: source/eligibility drift changed reference cohort sizes"
             )
         details["counts"] = {s: len(rows) for s, rows in groups.items()}
         return groups, details

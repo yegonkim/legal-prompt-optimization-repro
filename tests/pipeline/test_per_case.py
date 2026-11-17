@@ -12,9 +12,9 @@ from legal_prompt_optimization.core import OUTPUT_INSTRUCTION, seed_for
 from legal_prompt_optimization.pipeline.backend import Backend
 from legal_prompt_optimization.pipeline.cli import main
 from legal_prompt_optimization.pipeline.config import load
-from legal_prompt_optimization.pipeline.historical import stage_config
+from legal_prompt_optimization.pipeline.per_case import stage_config
 
-REFERENCE = Path("configs/pipeline/ledgar_historical.yaml")
+REFERENCE = Path("configs/experiments/ledgar.yaml")
 
 
 class FakeEndpoint:
@@ -55,7 +55,7 @@ class FakeEndpoint:
         return "```improved reusable instruction```"
 
 
-class HistoricalProtocol(unittest.TestCase):
+class PerCaseProtocol(unittest.TestCase):
     def test_effective_reference_settings(self):
         config = load(REFERENCE)
         self.assertEqual(config["gepa"]["judge"]["reflection_batch_size"], 16)
@@ -170,7 +170,7 @@ class HistoricalProtocol(unittest.TestCase):
             self.assertEqual(report["judge"]["n"], 8)
             self.assertEqual(report["baseline"]["pass1"]["accuracy"], 0.5)
             self.assertEqual(report["optimized_response"]["pass1"]["accuracy"], 1)
-            self.assertFalse(report["historical_gpu_score_reproduction_validated"])
+            self.assertFalse(report["gpu_score_reproduction_validated"])
 
     def test_reference_contract_rejects_wrong_cohort_before_generation(self):
         from legal_prompt_optimization.pipeline.io import dataset, validate_contract
@@ -179,7 +179,7 @@ class HistoricalProtocol(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "expected 128"):
             validate_contract(groups, load(REFERENCE)["data"])
 
-    def test_historical_protocol_rejects_forcing(self):
+    def test_reference_protocol_rejects_forcing(self):
         from legal_prompt_optimization.pipeline.config import validate
 
         config = load(REFERENCE)

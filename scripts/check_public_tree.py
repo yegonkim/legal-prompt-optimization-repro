@@ -1,6 +1,6 @@
 """Check the Git index for local artifacts and obvious credential material.
 
-Checks the proposed tracked tree, not ignored files or historical commits.
+Checks the proposed tracked tree, not ignored files or reference commits.
 Never prints matched credential values. This is not a full secret-audit guarantee.
 """
 
@@ -33,6 +33,7 @@ def main():
     for name in filter(None, paths):
         p = Path(name)
         if p.name in {
+            "NOTICE",
             "PROVENANCE.json",
             "CHECKSUMS.json",
             "provenance.json",
@@ -59,7 +60,6 @@ def main():
             "runs",
             "data",
             "downloads",
-            "msv_legal",
             ".source-cache",
             ".hf_home",
         ] or name in ["MACHINE_HANDOFF.md", "ADVANCED.md"]:
