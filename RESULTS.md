@@ -18,7 +18,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 | [barexamqa_closed_book](results/sequential/barexamqa_closed_book/prompts.json) | TEST | accuracy | 35.17% | 35.59% | 35.17% | 35.59% | 40.25% |
 | [lexam](results/sequential/lexam/prompts.json) | DEV | accuracy | 21.20% | 22.56% | 25.45% | 27.64% | 25.39% |
 | [lexam](results/sequential/lexam/prompts.json) | TEST | accuracy | 22.31% | 23.34% | 24.93% | 26.61% | 25.49% |
-| [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | DEV | mae | 6.14523e+12 | 633231 | 2.08768e+107 | 10491.8 | 12601.3 |
+| [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | DEV | mae | 27810.1 | 14681.9 | 11230.5 | 12223.1 | 13519.5 |
 | [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | TEST | mae | 4.53728e+14 | 1.17864e+09 | 2.23451e+202 | 8043.76 | 849967 |
 | [parcel](results/sequential/parcel/prompts.json) | DEV | macro_f1 | 50.69% | 52.84% | 59.48% | 58.77% | 57.48% |
 | [parcel](results/sequential/parcel/prompts.json) | TEST | macro_f1 | 50.30% | 50.36% | 59.18% | 61.51% | 56.62% |

@@ -1,7 +1,7 @@
 dataset,split,role,attempted,recovered,failed_draws,draws
-ecthr_npd,DEV,ordinary,604,592,12,2048
-ecthr_npd,DEV,optimized,2048,1899,149,2048
-ecthr_npd,DEV,judge,3,2,1,512
+ecthr_npd,DEV,ordinary,1,1,0,2048
+ecthr_npd,DEV,optimized,2,2,0,2048
+ecthr_npd,DEV,judge,0,0,0,512
 ecthr_npd,TEST,ordinary,677,659,18,2048
 ecthr_npd,TEST,optimized,2032,1821,211,2048
 ecthr_npd,TEST,judge,0,0,0,512

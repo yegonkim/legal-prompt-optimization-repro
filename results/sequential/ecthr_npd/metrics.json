@@ -8,79 +8,72 @@
       "ordinary": {
         "n": 512,
         "pass1": {
-          "mae": 6145225948366.785,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -6145225948366.785,
+          "coverage": 1.0,
+          "failed": 0,
+          "mae": 27810.12470396172,
           "n": 512,
-          "valid": 511,
-          "failed": 1,
-          "coverage": 0.998046875
+          "primary": -27810.12470396172,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
         "median4": {
-          "mae": 633230.8109499395,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -633230.8109499395,
-          "n": 512,
-          "valid": 512,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "mae": 14681.919489257813,
+          "n": 512,
+          "primary": -14681.919489257813,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
-        "failed_actor_draws": 12,
+        "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
-          "4": 500,
-          "3": 12
+          "4": 512
         },
-        "forcing_attempts": 604,
-        "forcing_recoveries": 592
+        "forcing_attempts": 1,
+        "forcing_recoveries": 1
       },
       "optimized_response": {
         "n": 512,
         "pass1": {
-          "mae": 2.0876826724425887e+107,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -2.0876826724425887e+107,
+          "coverage": 1.0,
+          "failed": 0,
+          "mae": 11230.487787109376,
           "n": 512,
-          "valid": 479,
-          "failed": 33,
-          "coverage": 0.935546875
+          "primary": -11230.487787109376,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
         "median4": {
-          "mae": 10491.822970694175,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -10491.822970694175,
-          "n": 512,
-          "valid": 512,
+          "coverage": 1.0,
           "failed": 0,
-          "coverage": 1.0
+          "mae": 12223.12904422433,
+          "n": 512,
+          "primary": -12223.12904422433,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
-        "failed_actor_draws": 149,
+        "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
-          "3": 98,
-          "4": 390,
-          "2": 21,
-          "1": 3
+          "4": 512
         },
-        "forcing_attempts": 2048,
-        "forcing_recoveries": 1899
+        "forcing_attempts": 2,
+        "forcing_recoveries": 2
       },
       "optimized_response_and_judge": {
-        "mae": 12601.309515591873,
-        "mae_scope": "valid predictions only",
-        "selection_objective": "minimize_mae",
-        "selection_eligible": true,
-        "primary": -12601.309515591873,
+        "coverage": 1.0,
+        "failed": 0,
+        "forcing_attempts": 0,
+        "forcing_recoveries": 0,
+        "mae": 13519.524583984374,
         "n": 512,
-        "valid": 511,
-        "failed": 1,
-        "coverage": 0.998046875
+        "primary": -13519.524583984374,
+        "scope": "valid predictions only",
+        "selection_eligible": true,
+        "valid": 512
       },
       "response_prompt_changed": true,
       "judge_prompt_changed": false
