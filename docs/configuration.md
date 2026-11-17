@@ -8,7 +8,7 @@ Use YAML or JSON. YAML is recommended because it supports comments. Complete exa
 | `mode` | `response`, `judge`, `sequential` or `joint`. |
 | `seed` | Seed for GEPA and stable per-ID/per-draw generation seeds. |
 | `task.metric` | `auto`, `macro_f1`, `accuracy`, `mae`, or `brier`. Auto chooses macro-F1/classification, MAE/regression, Brier/probability. |
-| `models.student`, `models.proposer` | Model name, pinned revision, endpoint, optional local/Hugging Face tokenizer, optional API-key environment-variable name, context limit. Endpoint preflight verifies served model names; the operator must ensure the server loaded the configured revision. |
+| `models.student`, `models.proposer` | Model name, pinned revision, endpoint, optional local/Hugging Face tokenizer, optional API-key environment-variable name, context limit. Automatic vLLM startup checks verify API compatibility, served model names and advertised context capacity; the operator must ensure the server loaded the configured revision. |
 | `generation.response`, `generation.judge` | Output cap, temperature, top-p, top-k, repetition penalty, presence penalty and frequency penalty. Student and judge use the same served model, but decoding parameters can differ. |
 | `generation.proposer` | Output cap, temperature, top-p, and `thinking`. The endpoint must support the requested chat-template flag and return final text separately from reasoning. |
 | `generation.schema_mode` | `guided_json` for older vLLM, `structured_outputs` for newer vLLM, `response_format` for JSON-schema-compatible endpoints, or `none` for prompt-only JSON. Parsing remains strict. Answer forcing additionally requires prefill and guided continuations. |
@@ -31,7 +31,7 @@ A single JSONL file includes all split tags, so validation reads the file. Optim
 
 ## Per-case protocol
 
-The default `protocol: cohort_v1` uses whole-cohort scoring, first-draw pass@1 and four-draw readouts. `protocol: legal_gepa_v1` selects the per-case per-case classification protocol: individual cases are GEPA items, the reflective minibatch contains individual FIT cases, per-case accuracy drives Pareto selection, default GEPA perfect-score skipping is retained, and the judge receives the selected response prefix. It uses the exact legal output instruction, public-label compact grammar, `legal_gepa_v1|record_id|draw` SHA256 seed formula, four-response frame and per-case reflection feedback fields. Valid public JSON is graded even when the server reports a length finish, as defined by the grader. This protocol currently supports response/judge/sequential, not joint or answer forcing.
+The default `protocol: cohort_v1` uses whole-cohort scoring, first-draw pass@1 and four-draw readouts. `protocol: legal_gepa_v1` selects the per-case classification protocol: individual cases are GEPA items, the reflective minibatch contains individual FIT cases, per-case accuracy drives Pareto selection, default GEPA perfect-score skipping is retained, and the judge receives the selected response prefix. It uses the exact legal output instruction, public-label compact grammar, `legal_gepa_v1|record_id|draw` SHA256 seed formula, four-response frame and per-case reflection feedback fields. Valid public JSON is graded even when the server reports a length finish, as defined by the grader. This protocol currently supports response/judge/sequential, not joint or answer forcing.
 
 Additional explicit config fields:
 

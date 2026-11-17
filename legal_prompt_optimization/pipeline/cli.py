@@ -69,11 +69,14 @@ def table(metrics, configured_metric="auto"):
 def main(argv=None, backend_factory=None):
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    for name in ["validate", "preflight", "optimize", "evaluate"]:
+    for name in ["validate", "preflight", "smoke", "optimize", "evaluate"]:
         p = commands.add_parser(name)
         p.add_argument("--config", type=Path, required=True)
-        if name != "preflight":
+        if name not in ["preflight", "smoke"]:
             p.add_argument("--data", type=Path, required=True)
+        if name == "smoke":
+            p.add_argument("--out", type=Path, required=True)
+            p.add_argument("--student-only", action="store_true")
         if name in ["optimize", "evaluate"]:
             p.add_argument("--out", type=Path, required=True)
             p.add_argument("--resume", action="store_true")
@@ -131,6 +134,12 @@ def main(argv=None, backend_factory=None):
         from .backend import Backend
 
         backend_factory = Backend
+    if args.command == "smoke":
+        from .smoke import smoke
+
+        result = smoke(config, args.out, backend_factory, not args.student_only)
+        print(json.dumps(result))
+        return result
     if args.command == "preflight":
         import tempfile
 

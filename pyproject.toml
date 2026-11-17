@@ -15,9 +15,6 @@ data = ["huggingface-hub>=0.30,<2", "pyarrow>=14,<27", "transformers>=4.49,<6", 
 
 [project.scripts]
 legal-prompts = "legal_prompt_optimization.pipeline.cli:entrypoint"
-legal-prompts-local = "legal_prompt_optimization.cli:main"
-legal-simple = "legal_prompt_optimization.simple_cli:main"
-legal-simple-data = "legal_prompt_optimization.simple_data:main"
 
 [tool.setuptools.packages.find]
 include = ["legal_prompt_optimization*"]

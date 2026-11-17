@@ -1,0 +1,5 @@
+# Phi serving for the supplied guided_json experiment profiles. Python 3.11.
+vllm==0.10.0
+torch==2.7.1
+transformers==4.55.0
+xgrammar==0.1.21

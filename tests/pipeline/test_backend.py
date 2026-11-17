@@ -5,12 +5,61 @@ import threading
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from unittest.mock import patch
 
 from legal_prompt_optimization.pipeline.backend import Backend
 from legal_prompt_optimization.pipeline.config import DEFAULTS
+from legal_prompt_optimization.simple_backend import SimpleBackend
 
 
 class Endpoint(unittest.TestCase):
+    def test_modern_json_choice_and_regex_transport(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            c = copy.deepcopy(DEFAULTS)
+            c["generation"]["schema_mode"] = "structured_outputs"
+            backend = Backend(c, tmp)
+            for key, value, expected in [
+                ("guided_json", {"type": "object"}, "json"),
+                ("guided_choice", ['"A"}'], "choice"),
+                ("guided_regex", r"[0-9]+\}", "regex"),
+            ]:
+                backend.local.role = "response" if key == "guided_json" else "forcing"
+                with patch.object(
+                    SimpleBackend, "_request", return_value={}
+                ) as request:
+                    backend._request(
+                        backend.student_endpoint, "/v1/chat/completions", {key: value}
+                    )
+                    payload = request.call_args.args[2]
+                    self.assertEqual(payload["structured_outputs"], {expected: value})
+                    self.assertNotIn(key, payload)
+                    self.assertEqual(payload["temperature"], 0.7)
+
+    def test_preflight_detects_context_mismatch(self):
+        c = copy.deepcopy(DEFAULTS)
+        with tempfile.TemporaryDirectory() as tmp:
+            backend = Backend(c, tmp)
+            with (
+                patch.object(SimpleBackend, "preflight", return_value={"student": {}}),
+                patch.object(
+                    backend,
+                    "_request",
+                    side_effect=[
+                        {"version": "0.10.0"},
+                        {
+                            "data": [
+                                {
+                                    "id": c["models"]["student"]["model"],
+                                    "max_model_len": 4096,
+                                }
+                            ]
+                        },
+                    ],
+                ),
+                self.assertRaisesRegex(ValueError, "server context"),
+            ):
+                backend.preflight(include_proposer=False)
+
     def test_forcing_is_sampled_cached_and_optional_without_resampling(self):
         calls = []
 

@@ -109,6 +109,30 @@ class Backend(SimpleBackend):
             bounded_numeric_output=False,
         )
 
+    def preflight(self, include_proposer=True):
+        from .serve import compatible
+
+        result = super().preflight(include_proposer=include_proposer)
+        for role in (["student", "proposer"] if include_proposer else ["student"]):
+            proposer = role == "proposer"
+            endpoint = self.proposer_endpoint if proposer else self.student_endpoint
+            versions = self._request(endpoint, "/version", proposer=proposer)
+            version = versions.get("version")
+            if not isinstance(version, str):
+                raise TypeError(f"{role}: expected a vLLM /version response")
+            compatible(self.config, role, {"vllm": version})
+            spec = self.config["models"][role]
+            models = self._request(endpoint, "/v1/models", proposer=proposer)["data"]
+            served = next(m for m in models if m["id"] == spec["model"])
+            limit = served.get("max_model_len")
+            if isinstance(limit, int) and limit < spec["context_tokens"]:
+                raise ValueError(
+                    f"{role}: server context {limit} is smaller than configured "
+                    f"{spec['context_tokens']}; restart the server with the matching config"
+                )
+            result[role].update(vllm_version=version, server_context_tokens=limit)
+        return result
+
     def _request(self, endpoint, path, payload=None, *, proposer=False):
         if path != "/v1/chat/completions":
             return super()._request(endpoint, path, payload, proposer=proposer)

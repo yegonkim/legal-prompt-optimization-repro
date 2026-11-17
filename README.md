@@ -15,7 +15,17 @@ pip install -e '.[data,grammar]'
 legal-prompts --help
 ```
 
+`legal-prompts` is the only installed command. For an existing installation, reinstall with `pip install -e '.[data,grammar]'` to remove superseded console entry points.
+
 The `data` extra provides source readers and tokenizers. The `grammar` extra supports compact structured output in per-case profiles. Neither installs a vLLM server. `pip install -e .` suffices for custom JSONL and endpoints providing tokenization, when compact grammar is not required.
+
+Before running optimization, [install and start the pinned vLLM student and proposer environments](docs/serving.md#install), then verify real generation:
+
+```bash
+legal-prompts smoke --config configs/experiments/ledgar.yaml --out runs/smoke-ledgar
+```
+
+The smoke test uses synthetic problems and exercises four responses, the judge and reflection, plus sampled answer forcing when enabled. No dataset preparation is needed for this check.
 
 ## Prepare data
 
@@ -51,7 +61,7 @@ legal-prompts evaluate --data data/ledgar.jsonl --config configs/experiments/led
 
 The same YAML controls optimization and evaluation. GEPA uses FIT for reflection and SELECT for prompt selection. DEV supports configuration assessment; freeze choices before TEST. Optimization never passes DEV/TEST examples to GEPA or the proposer.
 
-Optimization and evaluation automatically check server health, model names and tokenization before generation. The separate `legal-prompts preflight --config CONFIG.yaml` command is an optional diagnostic; it does not test generation or answer-forcing support.
+Optimization and evaluation automatically check server health, vLLM API compatibility, model names, context capacity and tokenization before generation. The separate `legal-prompts preflight --config CONFIG.yaml` command is an optional diagnostic; it does not test generation or answer-forcing support.
 
 `mode: sequential` optimizes a response prompt, generates fixed four-response FIT/SELECT banks, then optimizes a judge. Use `mode: joint` with `protocol: cohort_v1` to optimize four response instructions and one judge together; [`parcel_joint.yaml`](configs/pipeline/parcel_joint.yaml) is an example. Judge-only mode requires `--response PATH/TO/RESPONSE_WINNER.json`.
 
@@ -91,7 +101,7 @@ Run models with vLLM using the [serving instructions and launch helpers](docs/se
 
 ```bash
 legal-prompts serve --config configs/experiments/ledgar.yaml --role student \
-  --python /path/to/student-env/bin/python --gpu 0 --dry-run
+  --python .venv-student/bin/python --gpu 0 --dry-run
 ```
 
 Remove `--dry-run` to launch a foreground server. Credentials are read from configured environment-variable names. Secret values are not written into configs or cache identities.
