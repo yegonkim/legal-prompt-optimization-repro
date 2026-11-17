@@ -4,15 +4,23 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "legal-prompt-optimization-repro"
-version = "0.2.0"
-description = "Frozen Phi response, full-reasoning judge, and joint GEPA optimization"
-requires-python = ">=3.11,<3.12"
+version = "0.3.0"
+description = "Config-driven GEPA prompt optimization and evaluation for legal datasets"
+requires-python = ">=3.11,<3.13"
+dependencies = ["PyYAML>=6.0,<7", "gepa==0.1.4"]
+
+[project.optional-dependencies]
+grammar = ["xgrammar>=0.1.21,<0.3"]
+data = ["huggingface-hub>=0.30,<2", "pyarrow>=14,<27", "transformers>=4.49,<6", "datasets>=3.6,<4"]
 
 [project.scripts]
-legal-prompts = "legal_prompt_optimization.cli:main"
+legal-prompts = "legal_prompt_optimization.pipeline.cli:entrypoint"
+legal-prompts-legacy = "legal_prompt_optimization.cli:main"
+legal-simple = "legal_prompt_optimization.simple_cli:main"
+legal-simple-data = "legal_prompt_optimization.simple_data:main"
 
 [tool.setuptools.packages.find]
 include = ["legal_prompt_optimization*"]
 
 [tool.setuptools.package-data]
-legal_prompt_optimization = ["runtime/sitecustomize.py"]
+legal_prompt_optimization = ["runtime/sitecustomize.py", "pipeline/manifests/*.json"]

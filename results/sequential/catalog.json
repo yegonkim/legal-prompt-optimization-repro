@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "scope": "sequential only",
+  "gpu_reproduction_by_public_pipeline": false,
+  "datasets": {
+    "ledgar": {
+      "config": "configs/experiments/ledgar.yaml",
+      "prompts": "results/sequential/ledgar/prompts.json",
+      "metrics": "results/sequential/ledgar/metrics.json",
+      "provenance": "results/sequential/ledgar/provenance.json"
+    },
+    "casehold": {
+      "config": "configs/experiments/casehold.yaml",
+      "prompts": "results/sequential/casehold/prompts.json",
+      "metrics": "results/sequential/casehold/metrics.json",
+      "provenance": "results/sequential/casehold/provenance.json"
+    },
+    "lar_echr": {
+      "config": "configs/experiments/lar_echr.yaml",
+      "prompts": "results/sequential/lar_echr/prompts.json",
+      "metrics": "results/sequential/lar_echr/metrics.json",
+      "provenance": "results/sequential/lar_echr/provenance.json"
+    },
+    "sara_entailment": {
+      "config": "configs/experiments/sara_entailment.yaml",
+      "prompts": "results/sequential/sara_entailment/prompts.json",
+      "metrics": "results/sequential/sara_entailment/metrics.json",
+      "provenance": "results/sequential/sara_entailment/provenance.json"
+    },
+    "barexamqa_closed_book": {
+      "config": "configs/experiments/barexamqa_closed_book.yaml",
+      "prompts": "results/sequential/barexamqa_closed_book/prompts.json",
+      "metrics": "results/sequential/barexamqa_closed_book/metrics.json",
+      "provenance": "results/sequential/barexamqa_closed_book/provenance.json"
+    },
+    "lexam": {
+      "config": "configs/experiments/lexam.yaml",
+      "prompts": "results/sequential/lexam/prompts.json",
+      "metrics": "results/sequential/lexam/metrics.json",
+      "provenance": "results/sequential/lexam/provenance.json"
+    },
+    "ecthr_npd": {
+      "config": "configs/experiments/ecthr_npd.yaml",
+      "prompts": "results/sequential/ecthr_npd/prompts.json",
+      "metrics": "results/sequential/ecthr_npd/metrics.json",
+      "provenance": "results/sequential/ecthr_npd/provenance.json"
+    },
+    "parcel": {
+      "config": "configs/experiments/parcel.yaml",
+      "prompts": "results/sequential/parcel/prompts.json",
+      "metrics": "results/sequential/parcel/metrics.json",
+      "provenance": "results/sequential/parcel/provenance.json"
+    }
+  }
+}

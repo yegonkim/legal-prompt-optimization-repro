@@ -15,7 +15,7 @@ SARA_SHA='e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c'
 
 def input_digest(row):
     # Used for reconstruction instead of file-byte equality (metadata/JSON whitespace may differ).
-    fields={k:row[k] for k in ['record_id','question','answer','public_labels']}
+    fields={k:row[k] for k in ['record_id','question','answer','public_labels'] if k in row}
     if 'source_record_id' in row:fields['source_record_id']=row['source_record_id']
     if 'reference_feedback' in row:fields['reference_feedback']=row['reference_feedback']
     return digest(json.dumps(fields,ensure_ascii=False,sort_keys=True,separators=(',',':')))

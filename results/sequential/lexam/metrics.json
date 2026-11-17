@@ -1,0 +1,28 @@
+{
+  "dataset": "lexam",
+  "metric": "accuracy",
+  "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
+  "splits": {
+    "DEV": {
+      "ordinary_pass1": 0.2127685546875,
+      "ordinary_vote4": 0.21875,
+      "optimized_pass1": 0.2589111328125,
+      "optimized_vote4": 0.28369140625,
+      "optimized_judge": 0.2646484375,
+      "questions": 512
+    },
+    "TEST": {
+      "ordinary_pass1": 0.22314453125,
+      "ordinary_vote4": 0.2333984375,
+      "optimized_pass1": 0.249267578125,
+      "optimized_vote4": 0.26611328125,
+      "optimized_judge": 0.2548828125,
+      "questions": 512
+    }
+  },
+  "notes": [
+    "Judge reflection batch4 follow-up after batch16 exceeded proposer context; other optimization settings held fixed.",
+    "Historical DEV and TEST are halves derived from the source TEST partition."
+  ],
+  "new_pipeline_gpu_reproduction": false
+}

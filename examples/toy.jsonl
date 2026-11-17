@@ -1,0 +1,8 @@
+{"id": "fit0", "split": "fit", "task_type": "classification", "question": "For this synthetic smoke test, select A", "answer": "A", "public_labels": ["A", "B"]}
+{"id": "fit1", "split": "fit", "task_type": "classification", "question": "For this synthetic smoke test, select B", "answer": "B", "public_labels": ["A", "B"]}
+{"id": "select0", "split": "select", "task_type": "classification", "question": "For this synthetic smoke test, select A", "answer": "A", "public_labels": ["A", "B"]}
+{"id": "select1", "split": "select", "task_type": "classification", "question": "For this synthetic smoke test, select B", "answer": "B", "public_labels": ["A", "B"]}
+{"id": "dev0", "split": "dev", "task_type": "classification", "question": "For this synthetic smoke test, select A", "answer": "A", "public_labels": ["A", "B"]}
+{"id": "dev1", "split": "dev", "task_type": "classification", "question": "For this synthetic smoke test, select B", "answer": "B", "public_labels": ["A", "B"]}
+{"id": "test0", "split": "test", "task_type": "classification", "question": "For this synthetic smoke test, select A", "answer": "A", "public_labels": ["A", "B"]}
+{"id": "test1", "split": "test", "task_type": "classification", "question": "For this synthetic smoke test, select B", "answer": "B", "public_labels": ["A", "B"]}

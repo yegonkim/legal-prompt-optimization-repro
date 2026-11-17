@@ -1,8 +1,0 @@
-{
-  "best_candidate": {
-    "instruction": "Answer the legal multiple-choice question."
-  },
-  "selected_on": "SELECT only",
-  "source_path": "outputs/blind_transfer_lar_echr_response42_20261108_v1/attempt1/generator/winner_freeze.json",
-  "source_sha256": "0f27c9d15ef347b3c48b4884502fb1d4c12b53b424c5ea8e673b9a768b52f212"
-}

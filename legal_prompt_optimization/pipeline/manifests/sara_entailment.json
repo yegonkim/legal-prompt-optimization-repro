@@ -1,0 +1,2272 @@
+{
+  "dataset": "sara_entailment",
+  "selection": "Exact frozen ordered IDs from audited source studies; no resplitting, grouping or new exclusions. Official validation for DEV where available; prior exposure retained.",
+  "split_input_file_sha256": {
+    "fit": "5d761a5a2b505b378c04959873a86131b56ec390d7e8239b60b284fb5402edf8",
+    "select": "0d91ba349cfd59c053305f896c2d1ba50f40d1828243b11537210be8be02b7bc",
+    "dev": "a02ed6cb7f801fc3e31b38285a8110fd5aa99eacb08a9eb7200fbfe768f70333",
+    "test": "123b465f829014d19f6d47d5c3f41f4cef3db22af4af301f3aaaaf01ada0f89b"
+  },
+  "splits": {
+    "fit": [
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_6_A_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_6_A_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "db8e24e428b408bc70cde70845c2ba3b3e35c50e4f9b0b7c67a102b827a522d0"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_1_i_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_1_i_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "6ce51c4ccaaedd8bebe9aa251950fbd5abc7039b31d2ade5f69311c622ab7935"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_1_B_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_1_B_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "1e08b4ee75316d0473e0694b6f11efc740de94c17e9e7486b70dcec8dbe08734"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_1_A_i_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_1_A_i_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "40ad36f741231922e67241afd755f3e6e1a4289b3253af6b9bca22dd108aa4e9"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_b_2_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_b_2_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "41e91a75251d47de7c0524a08d166dfbc628826576a7478ea9a01f09e1a37a19"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_d_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_d_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "f38ad1ca4bdb504c796f2c4e3ff3cfd16a9d6f1cdcb8c1b2443b64a9462edb0f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_21_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_21_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "c1d96e20665aba91a0ba68c94b0fdab21155b57dbf5d328c091fe4f38a05d667"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_10_A_ii_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_10_A_ii_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "75bdfd00cde32123954cf4124028ed569e71c09da35cfe0502128e93e4fb873e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_2_B_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_a_2_B_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "b0c07f94a7e6a7b95067225bb4d579184ebe25fa5d4022d697684b5c387b417f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_1_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_1_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "e1b817224084690c5f3753a6af98ecd3ba27bb5f0d7c294df45fcc524364c90e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_2_B_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_a_2_B_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "8d3cec3b719a6e1c666604af94f9c51795af55ad64f5dd8a056fd3badcf0deeb"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_1_iv_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_1_iv_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "cb4d6152bb28cffbbdf8662edb9fa69cc86595d145c3f8c033669bee78e56b4f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_3_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_3_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "a73c7a38df6e57cb7ef416550e2736a3aaf23754f9483f68946ccddeac227608"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_b_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s151_b_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "036bd4e08218939a2687550d002bfdf6d25225f1cca3d355585e23c90f6bdfe8"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_2_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_b_2_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "3c6eb5a5235b6b02c00667303eeb3f709607c997ae923fd635cad2afc0b4348a"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_5_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_5_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "8e790ae80f3fb1fde0f1abd90035af8a0e6535d351e8267dae3b377d746338a4"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_d_2_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_d_2_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "4d06ec716e21d2716417b12ec611a6d20c2c8ab41d3af1ef5123f199c65a3bff"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_f_1_B_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_f_1_B_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "eac1ad84382d67c857c958cdc0c1f19913d095806aee87f88a6ff7de255567e7"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_b_1_D_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s68_b_1_D_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "de7ab1f634d017e9dd742f11508581092c3bd0e1f407e95be14deab70c703509"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_iii_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_2_iii_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "995d3021a2f1643cce8f27f89f948cc7a33c48ce2f3c617376fb8de8d7f6b44e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_a_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_a_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "3340f93fca9275df1206a0e76c6d7caf50befaf2bcbb9a5d5bba3e369dd00a97"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_2_C_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_2_C_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "54060517cbc5877e2796f427d2eabab5d4c97c24171fcfaa1357c95cc41246d7"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_1_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_1_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "739d406cca6c7d0226beaa9c07c2d3845084de30a1dd07f54689b05694b563c2"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_D_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_d_2_D_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "1aa31e09c3b1fd4213059e79ac8c88afed1f680edc3c3a22cad3f7b58a57e788"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_iii_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_2_iii_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "ed56c8e5ecd0d40a34f914caba7997242906a10baee5023a96ef5af20273333e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_b_v_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_b_v_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "dfa8b079136d9f680dd8902c406e3685e4550fddd6857652357ca0f1862c3075"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_b_1_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s7703_b_1_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "e95ef28ef39f89c1c8b5fa183e64874981eac8099f6ccce08076fb5612631b77"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_a_2_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s7703_a_2_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "b69fba18162ae7a8c08507f7ada456ed62cf7759beda57e8dc1e4b18a4e9ac19"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_i_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_2_i_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "adb3a199ccb619850cbde6ba0bc9f35e4b17625a0ccf97246a8a571319d4062e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_b_v_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_b_v_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "3e506265ed0e32d5ced502ac56f0456c72bc449028206d158963b1c8c2022c5c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_a_2_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s7703_a_2_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "01f51b92fd6c5c7e57230153ac2a16ded17a2a8ad5048cbff7cae848b55bb790"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_b_1_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s68_b_1_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "7313fd7118f3a9566f7ac5bfa785729d1b29888bb0e61e8313a1eba75f00db4f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_v_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_c_v_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "4bfb4c1fca89e3eb25e54b7a2bfb9bbd2b8646fa404ea9e33019ab928e4c4888"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_10_A_i_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_10_A_i_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "22af66f920a6caad5cdb225fa3ec9d18d150fae46368f2e53515a649d44f83ad"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_3_B_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_b_3_B_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "b51f4909f8dcdcd6cec543de6a3a67f56af8f359b86ed215458a2568c3681c39"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_A_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_A_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "d5f4dda0754d47c5f5ba48dceb6a6fa3a9f376101910cf33e5889267ae2161f4"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_a_2_A_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_a_2_A_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "b9b82766aa0851b32b28f3f124217cefde9ec32ee99eb794685363cf71393b6c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_ii_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_c_ii_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "c0d534c88bf3bbfbca19e8b4aceda4da3169804e511f1d3af03998466d504e09"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_a_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s151_a_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "0ac10a298484dac5fa3a42f32bf98a05482fe8d428f6e0e09907d645c7f50cb3"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_15_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_b_15_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "8c69b48a22542bc8118aa80aac6db309b81115808aa643a570c9d7cf1ee8963b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_1_E_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_1_E_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "aa3b0abd651f6e31ca713f72416ec53898989d28f148609c8bae677a460eef8f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_ii_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_c_ii_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "22f6d2a18d12862330aa4c2cdc0f7bc9fcf08400179056d8567f042d2238e685"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_10_A_i_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_10_A_i_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "f8fd7e37d072d951337503ab6c94c6dda60382a3730a04599a03f9caa99dcdaf"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_10_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_b_10_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "2fda34ddeb79856e324c38766e6368f56fdb58aeaba4eceddfe8b67d9d1464cb"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_10_A_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_b_10_A_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "a5a0a9500c14263618c3118747fa77ea815da8ba060eff99c1fef42041a9085c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_1_A_i_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_1_A_i_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "297a0f3044f1c4657e335c74b0729e62e5f3ed162d42bec358ddf75079f5541e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_1_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_a_1_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "278a3c64672b880f996c41a75cc47d95717e69f9eb28de6ab77f092ed21c2ec6"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_1_ii_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_1_ii_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "40bdf03a9a31955181ab6034e00d17d9be95a443c03e72553aa8badebc294423"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_1_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_1_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "b62bc58ad48d17efa5935e81968c0912a6ee09b41becda0282af6d504afd04d3"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_1_iv_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_1_iv_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "db5fea577b569d5c0970c10ca657fbb89b97cea9630fe89c72547e94c58b909d"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_2_B_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_2_B_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "15c6a44ade07f8b936b8d4641ceffaf7741364ebcdfed5c36bf45934aaa7a4ee"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_5_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_5_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "49f655048068d9d7514a396c08814cae589081a133f48fa6f936d8081d1e4833"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_v_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_d_v_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "8c0a7da74d1f3eaae6d8185607e1bef47ab92fd25b1ae92d7c03d73a1feaa45d"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_1_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_1_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "26f811bb18d4db6c60bf26bba5a5e36305624006a7d2024c21dcfe94d772ccd6"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_b_1_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "3d75d006e9676b8d719b0c7e00800aa0836473984ccadda487673bb9cccc8f9c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_b_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s151_b_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "e54862ecd60e28d147f98f16cde4fd08d648a12769ba705437035d960e9cf8e6"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_2_A_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_a_2_A_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "b380ca8a6168f710d46b636cba19e0cb6a0d38acf3bd76f0bf6f4d24489a2a19"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_13_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_13_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "503e2afcc35b8d9c61a1a4f493d3544882fc6f8496e3375db2fc415651cf9ce8"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_iv_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_c_iv_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "6a12a2e47e7e49a57b6dd1e3b320af13471c93c3731352758e628599e0c0def7"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_E_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_d_2_E_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "04668cd36d39bbd63077209a85777d9d1f8a192ed32960a4d1fa19934a27b874"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_2_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_2_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "13a7cec2963739460f1c007af6aea1082cf822009af81d188f2d3917a1c3cd31"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_1_B_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_1_B_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "89ae5b1c9b6d1eee57bb39bfd7688a4e634c14bffc067c9476b37c1172b84d18"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_d_2_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_d_2_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "6a88813c37c18f3d1d589ff7975542f8e0351be928bb639253177ecdd86f1bca"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_a_2_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_a_2_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "f0b4557f9735a3c1a25c0615403f895ea036846766c2c3c4ba43d18a7ffa2ec1"
+      }
+    ],
+    "select": [
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_b_ii_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_b_ii_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "2976e04ec6686214c66fdddaecaae49ddd18c1306d283a196c77c7ed2849700f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_2_C_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_b_2_C_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "f9e5bb0816ff193cc9ec217e8307657c83598ffd50a4d74bbef446f769b74cae"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_1_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_1_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "9d759d0fb6d4606357de67b4a3b208b111ea4afbd7ff0e15adaabb2c70026d95"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_1_E_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_1_E_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "fd857cc220811f8d29d9b9353a6fa9a7ee00795b7bc9bcc1ed7333f1764575f9"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_E_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_d_2_E_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "7bc0d7b2ea6c4e60c76031f05abc2f5480f44055caa4d6d63d781343b5edc555"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_1_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_1_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "5a3ec6600510a6dc4173fc8acc0fc1041ecf8e4eaee0cada1baf1b80be609809"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_7_ii_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_7_ii_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "3e2dc08d14262811163bf0f9a82bd9ee90e1a42b265793b3e189a5330162716c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_f_1_B_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_f_1_B_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "9c472890b0901f95c326f8b609794896e35c5a73690c308bf2f86919e3a3f972"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_i_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_c_i_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "6175d940f9bcdc484c104efe7ac755020d91455cccea7ea22931303a82dbf42f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_a_1_A_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_a_1_A_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "16dbd4b0dd1cc483d7aa902d91e5c5f28b875193d66aaddcbf6b6a8baf281587"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_a_2_B_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_a_2_B_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "d08b100934d5a04f3ff4670a8d5a37b09134414559ebf6ab5dc7ef27dfab3339"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_iv_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_d_iv_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "8caed5e1535667ccf76dabb69ee7337f4dfe66b577418659af0553d3c5777a76"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_1_B_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_d_1_B_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "e328bb8eee502b3fb70b4bca823fa95460105f60bf3f0a607c6712a3a81ebdec"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_13_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_13_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "de9f0e16cce227fd160cd0ad5e57aef62bb43174189705d8d4ff36132f11a48c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "d6abfdb2b5e9f431423fc5e779171cbd7952396ea486a4a441facef75cf9ed93"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_ii_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_2_ii_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "4d7c7e9c8c8ccef64a7d35869b01f77bcd71d75809e2350d8c336abf790dec4f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_5_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_5_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "3404e3fc9964fbe5954f3709b81e916a3ddd53655d9b137f88e073bc2f745693"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_c_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s151_c_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "24c6b8f707a02a855b59f885b5b9d91db12bb975f2759a921d56baf59aa4a3fb"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_7_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_b_7_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "49938a5c5e471ee9e7d5c291fbe8dc905fc63441cfcf8771aad890cbedbd2fe4"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_a_1_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s68_a_1_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "946de17858758843ffb10b9c68dac794ff6247af74b04a3a8796806ca4cb89a9"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_1_iii_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_a_1_iii_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "66fc4b232d16947f2640b9810a47e879a9aac1184a3b6f45fba7770feee35065"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_b_3_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s7703_b_3_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "a1bc46bfc50786f15f11c3e12785ced71aa66402d07dd6cf9bb750b7ff1db225"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_3_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_3_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "2bb7db2d4b9d7dc8aea09d7406e9d4c904965b75210bda51936a37e1cbc8255b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_3_B_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s2_b_3_B_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "20ab3a3cc22c1c9c8d961b5b1a8b6907035c248bc9768a65d3d703c888b13a83"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_2_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_a_2_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "45f90ee208821431cd30522191d73efe95ba58e3803e02d84e37926e004dd61f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_2_A_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_b_2_A_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "840bc60038a6457b9df88c476a7fc0c6509a1efaab50501df2982a854d8ad11b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_f_2_A_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_f_2_A_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "fdf17f16a9ef5962ea691e23b6655ecf42b51caa76aedf43d69492be4314d62b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_5_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s63_c_5_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "4df3753fa626f20caa767d5a4d098a018358e804ee28a2225f9895a5ae5e39f7"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_2_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_c_2_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "c8201a73a60a0dff67a1a9482cd46171813c6f670ce6f80d16b93962079de0b3"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_v_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s1_c_v_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "7b6d0107c70b6ac5dd708ff187841befa9b2a0baf4532227700d69657ef7f625"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_2_B_pos",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s152_c_2_B_pos"
+        },
+        "has_feedback": true,
+        "input_sha256": "b2bd190fb4d9b59fd1c34e75d7f5b2722d7a2e49f202482c89081ae5bbf21a25"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_neg",
+          "source_split": "train",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "source_config": "sara_entailment",
+          "original_source_case_id": "s3306_b_neg"
+        },
+        "has_feedback": true,
+        "input_sha256": "d0b9b7896fee8b06441696f49b8e1830816626f353d3c575f2409d2e66bee041"
+      }
+    ],
+    "dev": [
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_i_II_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_i_II_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "0c9a4810e302e9fb82c1c3b123dd321c2669b4ec993a11c5d873a01d7eb3ccab"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_a_1_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_a_1_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "14dce2356185c57719861291abdd1302c4e9a2607b3a8dc2d0c14640def6a117"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_a_2_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s68_a_2_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "6c8a9acd67d4715a61841c2af99adcaf57214e57128103f70ad836ad6b4cd746"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_2_A_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_c_2_A_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "771bc888dd003acfd2198f5c42c869ec3afa6601770f1a29f0368b1cdd437a68"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_16_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_16_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "9cb6f7e4eb49c16820a86cb7a4d700ff980b1c39dbcab0be93824ba3c05f89f7"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_3_A_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_3_A_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "cf44c7d7c369de40ed02e38fd35123c26af4051a7f48905f2f04d589e9407be1"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_d_1_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s151_d_1_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "02f106ae7e16b1591f0de863a3a5414c941247eeeafe403a646eae210f512ec6"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_7_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_7_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "b58d0c26764b9198645801ec1cdaefda26b16c6f244060b154755de6d24ee004"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_C_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_C_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "7777bfa61e1b1217dde8a4675796f1e2e15c9e2b3d9163cdf2beab220f63f9d0"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_2_A_ii_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_2_A_ii_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "b07a3f3f9f76c0054f3bc32ce6585694df51e09f0240b04d2e6f502b73551dc5"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "5a41d814c62057538ed251bbb98cc2e8100ca8ac27512f779582a6812f388e32"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_1_D_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_1_D_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "3d12a2ccf65bb63b2204991a1f63679a4b816a1f417b571134571f683d1569a2"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_1_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_a_1_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "85d9ef798c59a4f67b283a68d0f51543cd45681bf33c1ee6476c60b9be4ea301"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_3_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_a_3_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "0a9eb2c2485aff1ab79cfcfd5114c9593944ae67b2fefa96509dd8092ad6cc4d"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "d086d875c6dfce58103958108045b76b45013e761ef3d16909b9f156410c3df2"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_i_I_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_i_I_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "15adb0d186a57190ddeeca1a4dd4fb344d84b00df4b866ab0b654cc341779c6d"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_ii_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_ii_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "5ea70e56f8c57e3151a211e8313fb797dcc36b97cf7de715429080df6e10e67a"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_b_1_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s68_b_1_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "b6446646016a62f0158a09e01d80a445b544698cf8e3e1471084fe35aa339c23"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_2_A_i_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_2_A_i_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "dd5d8a9f3cc4616912ae1c61643cd791bfa3601b4bc63a29116b013006fbfbcd"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_ii_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_d_ii_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "25c99383a7143b1a9e6c6a72fdbe62a2b5c7f9b1d0d8f75258c83488d1e53a4a"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_iii_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_c_iii_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "4d418773dc3fa5dc65368055548addab90fdfba122652590cb28bc580261035a"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_iv_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_a_2_iv_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "05ce041513547898beca1ba1ac9d37c311de142c1d54742fca979f792bfbabd0"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_c_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "24eb56351fe7f5f26ca4c2422f0a6e0d102ebf87c2fb45e8bb567a21de79520f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_a_1_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s7703_a_1_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "d1a95dfa029133c736a5c3d1b8e230a2b3d76eb1e83a92a9e4b6532efcb9385e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_6_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_6_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "7e1c68513f643ded0a4ad6c9dc318a8de36015f56cd62e2bdf3f36d91056756b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_ii_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_ii_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "8d61b57f651bd16020698530164995e211a40a8e9f48856cc24933c5ca002108"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_6_D_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_6_D_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "88d3dc09abe63d1e8fe2ffbda5d2b7aa2313d51f3188a5ba36991698694ba606"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_b_i_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_b_i_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "a5fc4238b81c3310ff9755ddc060c1b2567db8b19fa356d0f753709556620e08"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_f_1_A_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_f_1_A_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "d5c99b8ac61afff176901472a8de001ddcc2627f81d039c5ca6ea5c8a9e6e4b7"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_c_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "3a651b6f8b1803bb7e8da13f812010d9fe3e512d40117740285092463665088f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_c_2_A_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_c_2_A_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "9cfb55224dd1f8df40645dc8c7bab3675415975bdc37d67527292484776b0da8"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_i_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_i_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "310a34f5a7d84efedfcfe2fc4182b95693ab5727d32b122bd2dbab73e618e577"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_2_C_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_b_2_C_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "8e92bbda6c0bf51d321013fd6b47fd1e66c32c5e12e554b93e00f198a1fc55d4"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_11_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_11_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "1596be6262e75cab8a70bb055c245e2ae2e09fe52909e805f0b5f13b54a022ee"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_b_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_b_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "96298beccc11b053961c3d86870ba2b3f7d1a50fd23322a460354d7dfabe51d4"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_i_I_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_i_I_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "36f304285bfff0a39e96c2ef88a538d83607d1ea0cef33fd2867f85c426e760e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_b_2_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s7703_b_2_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "3db4003ec7c1be11be82576d957e845b24f1fe65359e832ad8bd3a4d65294acf"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3301_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3301_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "04180a397f6195d146e9d3f3711fc69745c92219ad457dca22e9ffc1349c7a8b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_7_i_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_7_i_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "a5194f7b7d39d17d879da92afba2035067a142a3930237d214903440a09c83e3"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_A_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_A_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "60fade2dae1aa154a7d3261c623880c76ac49905324188787f2a10f3b32b3273"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_ii_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_d_ii_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "87fc3209fd8a858808ac2eb1a3b880c84fcac5b209ff88c676f263f5196a2a2b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_a_2_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "28206d99a5ac9793fdaef28264bb5f9d0f1499b4c387a964e6b271170e7da1a7"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_d_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "a728c6d1edb09e1ea912da58bbb1433dc3feaadc05c59c7e34527a9ac45434ec"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_a_1_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_a_1_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "eb7d388480da708221d885bd38f1ea977c77f6fa3a1ae378c7a384b9a1f25edb"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_H_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_H_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "14aec5044d5a2108476483c83258b98627fb20ee461da6646d985300ae13b9f6"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_1_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_1_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "5d2bc393fe42e11e697543a9c6269c7b94c0bc8712d1188a95983d0bdbbbfa75"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_10_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_10_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "a15500bbfbd31a980d1ade2eae8056c8add65e1573cd1374d08f92f8c8a899da"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_10_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_10_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "8a38881f69eb2a60b8c8e2332c79182c3ea29009dd499660c636c4cb43f9ffc6"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_a_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_a_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "61d51c6854568dcd3fb722695eb4e532e4097b9fd2a77a193935ba9228eefa5f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_i_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_d_i_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "4937d3afe5c48c200a2defcc85207bee395faef4819bb8227a36b4033cdcaf4b"
+      }
+    ],
+    "test": [
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_b_2_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s7703_b_2_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "36f0888e4900a5781fe69a0b3efd555ded7db2cb4fb9169e05cabf4084d98ba5"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_i_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_i_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "9535c0e2035315fc7a05814976836d9651257273539daa61b127e29a7fd95ccc"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_d_3_A_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s151_d_3_A_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "8213a3c2cd493758d17eb20efee6be53a7cba65510b21b532b7291cd82d7067a"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_3_A_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_3_A_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "cadb5b8933719fdca37fb702cb8fd45f2813be91bd4713ce45d363d01867866c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_G_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_G_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "2cd5c1f6ed3464ed15292be9122b5d38c693dead3537ad3343c0de2714828e97"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_d_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "27d07d01fce896410708a712f64dcca3464350cb22c2cddbab3ad5b6c678b238"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_b_2_C_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_b_2_C_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "b82a3709d68b78ef26de3e9d2e00944e720b9b0518fa94016a7972ded911a6bc"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_6_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_6_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "9d9352df1a2685b38f28847950f99620b480feafdeaaa6c9245d6d7b4b057e9e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_a_2_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "edfca47e6b746e462dad84c194c7e90040c60b7be355698c0946821786bb6f0d"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_11_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_11_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "0b3e67332fb1d8aab1513fc01ac3fd95cb6cbe94cf1c676ce6503967fd77d46d"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_v_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_a_2_v_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "995dd115ac8aac88e843aa0c158d0edd504c82556a3d9e90980a0dbf207d2a6d"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_d_5_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s151_d_5_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "925f5c4bed8d87679d6da0c8b8c370568fc04ff1653e8d918ecd4564452005b9"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_a_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_a_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "fe8930f8d54ec8372a8f9ce1c22928c0c3528235122b6ebf6fe7fc2475b03aac"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_1_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_1_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "063d1566de4554daae935f4ebdf19cfcfe05f9cbdeb2e0ed6f19592ad9d852b1"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_6_D_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_6_D_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "d92744a52ea39ac6909fb7a8d0b0129c9f0ccf7780efaa3ba0a2385d1089ff45"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_H_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_H_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "41b8b64018bd5c8188e39415e60bde4e2533a785a35f0cb23fcdeef92f7523a3"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_2_A_ii_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_2_A_ii_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "db97f68d6888043a11de35fd0da8c02f7bec6cf625c31443f1338e7fa8f69b94"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s2_b_1_A_i_II_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s2_b_1_A_i_II_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "8c45ed4c7662c066c006b30f2a892ec1141437734af0b752e0d21762c50fe212"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_a_2_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s68_a_2_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "59accf466c23db494c469e41cc3a73c920aaab4cee65c34b71ad4b09ec2d5dae"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_iv_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_a_2_iv_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "97f7ec3e3b33d4c62f743d561693e31654af203d2a968aad308764176dd2d9e2"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_d_1_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s151_d_1_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "0d52908bd3b54d55c83220866a718d9f5f0aba217410de9fe0afbb980f1b9b25"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_b_1_C_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s68_b_1_C_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "eb4b52aa1541a544d4616a979840d5e31f6b4b65a3bcc05a8624455747096034"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_3_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_a_3_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "f0cb0dba520f1f3b1ec5e769fa90db22ff71ba446663820fb682dd2a377f5994"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_b_1_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s68_b_1_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "244af26e88a7e6883b68932c2ce6248ef001906fce4c35df4646a0a7acd7688f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3301_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3301_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "76a2cf85a78e71ccd0d562d221c3f8febf2494d542bf4a00269db00ee919c95b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_f_2_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_f_2_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "a03ba537b3e8b0047069256f9018edd41aeaa3cf25a5c1c78db3a9fbdec37237"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_a_2_v_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_a_2_v_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "0324910c727665f475c71956571c2d84049cd9d67a295f964b0928a60abfbf7b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_7_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_7_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "426ac75d96a539a92e6ce61f6c97248515a5d4beb664d756a75c0ac1b978d815"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_7_i_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_7_i_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "e8ca0fe8586665f096cd57115d2f84ab17e623bec8901d3de93367cfbe149cfa"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_2_A_i_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_2_A_i_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "c9e7679a7b7f0d168614119b07dea1a234f6d359dbeb992330a5d39d9ae05bf0"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_16_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_16_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "2686e06eb889136b90dc9bbc8ed646e4361195fd6d4466eec03ccfa026c3ae3e"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_b_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_b_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "3dd8c48d0e0d4efb9e4e4882b070b62753d0831e3a891b48be560ec2342e39b4"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_b_i_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_b_i_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "52e93e91e275c32f189c77aac42dea135244fbd3d0d40d1af1fb3a21d8893cff"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_f_2_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_f_2_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "8ab3eea63437e854b9df4b064cab2b59278c1bc828adaa39add36c34d683f7e6"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s7703_a_1_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s7703_a_1_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "2d2a31b627342dd0b145071c4a95be333909d597241c3728bc65355ae5ebc53f"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_d_5_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s151_d_5_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "7f84dbeae7839c46c8ec3184b45991b1fc9d4e1eaeb240884501b940be881e09"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_a_1_B_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_a_1_B_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "bb776399f90d64f141341db573f2a48d6b6ce1373a56e5ffd7ef82e20d94bb12"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_b_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_b_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "4e31bd08b24745cdf0da0c2208ecf1c46c8ee871beb37e7061e6f7a4d39e13bc"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_1_D_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_1_D_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "4511297c31b6ff6506ed28cbbf9d456556d32bd3e51537981a4033ed1484d01c"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s3306_c_6_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s3306_c_6_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "ca18ae2a2c858424a90fd2b7e3405933ac7f5d94e0404860680451a1abcd04ac"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_f_1_A_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_f_1_A_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "fb561646fe2184baeb14ed24d45e773e738b588937f6dcd754310abf2c1fef70"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_A_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_A_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "24a9d8da4bdd0dba5c56b868d8b93a9a5cd43c96ff3da60bd832abfb636335c8"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_G_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_G_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "34453d9575c450aef4a9484048209fbaf3a7fa35dfc81e39cf16cea0a0b8eca4"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_b_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_b_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "46ae6c070ba7d24154219aafd1913022ed1a78d120146ab536153199a6fdd536"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_c_iii_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_c_iii_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "23e670b563d9803b4a9c8292366650c02d3ed11b0c3622a20d65ea3e963a4178"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s1_d_i_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s1_d_i_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "f3b66da1a3a7b52d1dfb329a705606169b9f33e43c9bd098d5a8197e76434468"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s68_b_1_C_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s68_b_1_C_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "5d6faad2e9d1770a9ad4b764eccd47570c2170f74439a6101b87fa4d3622770b"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s151_d_3_A_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s151_d_3_A_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "2abd1f57ea68cb001f209415286a265e7410c93375871dd8867bb35a2e54cb85"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s152_d_2_C_neg",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s152_d_2_C_neg"
+        },
+        "has_feedback": false,
+        "input_sha256": "a5645d61f273160cd295fbc423c7e8d1a7590dbd503ee5d9ca64f30091377aad"
+      },
+      {
+        "metadata": {
+          "record_id": "sara_entailment:s63_c_6_B_pos",
+          "source_split": "test",
+          "source_dataset": "official SARA authors archive",
+          "source_revision": "e4f1b845016fc38b95b702bbbb27a5c9af3eadfa856ba585662b8b2cd71c187c",
+          "original_source_case_id": "s63_c_6_B_pos"
+        },
+        "has_feedback": false,
+        "input_sha256": "881793e9196774fb6f7d6e8c84c2029e3a6966a67cf43b44d3c588dd989eab86"
+      }
+    ]
+  }
+}

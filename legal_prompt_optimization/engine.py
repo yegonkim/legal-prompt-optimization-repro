@@ -100,9 +100,9 @@ def frozen_bank(adapter,parts,generator):
         frames[split]=[frame(row,0,bank[4*i:4*i+4]) for i,row in enumerate(data)]
     adapter.phase='search';return frames
 
-def optimize(config,parts,backend,out,generator=None):
+def optimize(config,parts,backend,out,generator=None,adapter_class=Adapter):
     import gepa
-    adapter=Adapter(config,backend,out,prefix=generator or '')
+    adapter=adapter_class(config,backend,out,prefix=generator or '')
     if config['mode']=='judge':
         if not generator:raise ValueError('Judge optimization requires a frozen generator winner')
         parts=frozen_bank(adapter,parts,generator)
@@ -115,6 +115,7 @@ def optimize(config,parts,backend,out,generator=None):
         return (adapter.reflections>=config['proposer_call_cap'] or adapter.calls+reserve>config['student_call_cap']
             or (config['mode']=='joint' and adapter.metrics+len(select)+6>config['student_call_cap']))
     metric_cap=config['student_call_cap']-(adapter.calls if config['mode']=='judge' else 0)
+    metric_cap=min(metric_cap,config.get('max_metric_calls',metric_cap))
     result=gepa.optimize(seed_candidate=seed,trainset=parts['fit'],valset=select,adapter=adapter,reflection_lm=adapter.reflect,
         candidate_selection_strategy='pareto',module_selector=config.get('module_selector','round_robin'),
         reflection_minibatch_size=config['reflection_minibatch_size'],max_metric_calls=metric_cap,stop_callbacks=stop,
@@ -146,12 +147,12 @@ def baseline_table_text(metrics):
     for split,m in metrics.items():lines.append('| '+split+' | '+' | '.join(f"{100*m[k]:.2f}%" for k in ['ordinary_pass1','ordinary_vote4','optimized_pass1','optimized_vote4','optimized_judge'])+' |')
     return '\n'.join(lines)+'\n'
 
-def readout(config,parts,backend,out,winner,generator=None,baselines=False):
+def readout(config,parts,backend,out,winner,generator=None,baselines=False,adapter_class=Adapter):
     joint=config['mode']=='joint'
     if joint and baselines:raise ValueError('--baselines applies to response + judge evaluation')
     alias=baselines and generator==config.get('ordinary_instruction',ORDINARY)
     cap=sum(map(len,parts.values()))*(36 if baselines and not alias else 20)
-    a=Adapter(config,backend,out,mode='joint' if joint else 'response',call_cap=cap);a.phase='readout';metrics={}
+    a=adapter_class(config,backend,out,mode='joint' if joint else 'response',call_cap=cap);a.phase='readout';metrics={}
     def actor_bank(data,instruction,condition):
         requests=[a.request(row,'response',instruction,draw=d) for row in data for d in range(16)]
         for req in requests:

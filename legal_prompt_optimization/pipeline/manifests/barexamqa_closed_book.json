@@ -1,0 +1,3829 @@
+{
+  "dataset": "barexamqa_closed_book",
+  "selection": "Exact frozen ordered IDs from audited source studies; no resplitting, grouping or new exclusions. Official validation for DEV where available; prior exposure retained.",
+  "split_input_file_sha256": {
+    "fit": "1c431970ce62c5ed7e3c2dc95db0d33cb9cedee2a2d97ffd7f2c62934c7c8ecf",
+    "select": "1639251ca5b26db4cccf1e2f456d534ff96c9c11dc6991c9acc781686c5275a2",
+    "dev": "d94bb41a7ad798615a2bfb28f30b529025005c41128d58d6044eeeef707b16ae",
+    "test": "f0f7af03d4cc1688d62108d71b835e935488172deba872b16d04a21dbf15ce73"
+  },
+  "splits": {
+    "fit": [
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:882:mbe_1127",
+          "source_record_id": "mbe_1127",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "57ff6b667d6f228a94c74e12ec0260798a42b7d3c3be209929500d30661f53bf"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:182:mbe_222",
+          "source_record_id": "mbe_222",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "62ba80fc618b61eb43cc971ab876440f725dd58d7bc3f34c96305a238f2ff78c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:428:mbe_537",
+          "source_record_id": "mbe_537",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "59460c39ff556444b31a9a190599d2dc8712d7ba0c28eab9efa2d8eb7e87078c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:629:mbe_802",
+          "source_record_id": "mbe_802",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b8f15d08692bc9a9986b3b12f6673227608e40433d66b01f08100eff9aee67cf"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:632:mbe_806",
+          "source_record_id": "mbe_806",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "793a9f6537a39bd7c63d20477c6a0922d1d5e89aef91ed1ebc1ed06b10a407a1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:197:mbe_246",
+          "source_record_id": "mbe_246",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "72972b031868a252ad6561dd235b8ad9098d42493759d5be39e14a05201a9414"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:817:mbe_1045",
+          "source_record_id": "mbe_1045",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "0c0f0705764cadd7b0f6f22e0771446eae7ba8c3aab81878e9098a0084a1ac58"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:3:mbe_29",
+          "source_record_id": "mbe_29",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "4f4dec2ba20a0b340e0227ce885eccd336d3ba78b035be1922282b1b8ed1b8fb"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:564:mbe_711",
+          "source_record_id": "mbe_711",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "53d67bf9135891fc9f1db79cd978a8ff645889f4cb785368f264a8a46368782f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:854:mbe_1090",
+          "source_record_id": "mbe_1090",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f7b5634663b426b6b6914e5db06af4e2587d6a5383e81b7c1632390cab8a46d0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:929:mbe_1184",
+          "source_record_id": "mbe_1184",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fdfbedc79fb64db7a40caa95218feb042525e6b73bc7d2d4fe08207757be23a9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:268:mbe_335",
+          "source_record_id": "mbe_335",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "48b813ab0e070210a85ad2a4ce868014d9ef4320ef334a5fac329ce341f88a9d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:796:mbe_1013",
+          "source_record_id": "mbe_1013",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "cf84f83e2512bcb95104c987594256dbac2c7b469999f25fae74f084400de19b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:189:mbe_237",
+          "source_record_id": "mbe_237",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f4af65e5284606cba0d7fd9f593ddd44aaa678e3f6b63c0165aa30fdf2e3e1c0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:738:mbe_941",
+          "source_record_id": "mbe_941",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "164bacfe745dc32531de08ebbbc18fffae41782a22b92e9ed7a4a1daa20a1b2d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:96:mbe_119",
+          "source_record_id": "mbe_119",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "4285baba0d124f984918c2e96868c6cfe5c2439d37f59e8942fc3122598871cc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:71:mbe_87",
+          "source_record_id": "mbe_87",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "7d1c78f526c4176e67ff19113efdcc422bd62d897de0f8eea3013e851bbbab74"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:911:mbe_1162",
+          "source_record_id": "mbe_1162",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "6e2df406d01c71aea2643a128f0ff15801b8b899bd31d58a97086c6476ba5021"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:145:mbe_180",
+          "source_record_id": "mbe_180",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b609e00fb63c515d11e4f2f70aba7369db56d832bcad8e2a827efff7cdb2e477"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:356:mbe_447",
+          "source_record_id": "mbe_447",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "660edcf694a6a864edf5a76dc4bd59e67fbe62f7387f7bcda5261c3c55c29e13"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:674:mbe_860",
+          "source_record_id": "mbe_860",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "96b18637456b1386aa395ec422347daf04cc9be5b4c963f8a683d4970b8b5b84"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:523:mbe_660",
+          "source_record_id": "mbe_660",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "347699e402d3cbafbedf9db7031de619a3c53b844ce0577140f85a8513fddb45"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:554:mbe_698",
+          "source_record_id": "mbe_698",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "8a5d83326d609869cf29f4990d5c902526745d9f9365c02c55dcc8b12e3cdfd9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:9:mbe_12",
+          "source_record_id": "mbe_12",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "9de43182bb8909ccc5bc46c7f9fb6d155c171fb3fac0a52da98ba3769f6c60fd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:234:mbe_294",
+          "source_record_id": "mbe_294",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "dec578ad098d899e39afec48c9da16609a089d44ce8b78f3d6d60e6244ff3228"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:171:mbe_210",
+          "source_record_id": "mbe_210",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "bdde64f09e80145418928cf90124f66236cf1dd92dcaeb666b80d333fc3b510c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:392:mbe_496",
+          "source_record_id": "mbe_496",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "4e6ec35c5853b8ab429ad85697aede33bd5927fca4505da57764021a434f775c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:6:mbe_9",
+          "source_record_id": "mbe_9",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f700af9391655fa7edf8d1bcb30a2a5c76ce21edd837b1261e5c471cf03a3115"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:509:mbe_641",
+          "source_record_id": "mbe_641",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "e777a774b4b7aa2b3a9694a74f74f843f22400c40ee61cca9d6110de6f4eeb91"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:650:mbe_827",
+          "source_record_id": "mbe_827",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "a8bf0a0125ed623f9b67c1fd4f0a7fe9bab872b954c3ca80da899756ab288591"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:565:mbe_712",
+          "source_record_id": "mbe_712",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "61a911f87b94a7344e85deed060387eea9360716e53dda5eb9f4c161eb8ddf87"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:770:mbe_981",
+          "source_record_id": "mbe_981",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fe2c2a87c0cb85b74673bb228546176d1bd4c20cf2e4df62f1c9208a4d54a37a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:740:mbe_943",
+          "source_record_id": "mbe_943",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "236e8a4a66268261b810950b34128229b657918080bc90b440fefa49ff90b4d5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:505:mbe_636",
+          "source_record_id": "mbe_636",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "566e3fe29fb6415b88ef617b8381de4a7567cd544b67cdd4dd2345b08836501f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:725:mbe_924",
+          "source_record_id": "mbe_924",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c492dd8a71cdd93d9b0c46cacf6e0826b7e659fabc77c5b7bebf54ef70bad9f5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:445:mbe_556",
+          "source_record_id": "mbe_556",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "7fb719014a7c085a41e55136b12d2708ec97da9e24a3051df2b5b9edc3d349ad"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:141:mbe_176",
+          "source_record_id": "mbe_176",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "cc9e3f917f0244e5aaa83203ddc250bb22806383429fd8d21129c660df158648"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:39:mbe_405",
+          "source_record_id": "mbe_405",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c97f417baba3bc93731be6b0d1b5072776319938ac1de8bed030cfc1b04157af"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:460:mbe_574",
+          "source_record_id": "mbe_574",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "d86f65c7ddaa71fed7413bb1a81d4b8bbd8116b2ad6fb0c136b4b0b59e09660d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:124:mbe_159",
+          "source_record_id": "mbe_159",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "2c2de71ea6303cce65ccfc01885f8c06802be8ee43ea990cb00d77adfb3df21e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:461:mbe_575",
+          "source_record_id": "mbe_575",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "88b8eccba6e32410c0525964f6c45dd283b4e91c7fa72dded5903bef9db52538"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:23:mbe_26",
+          "source_record_id": "mbe_26",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ee4ee1d7e6f5cfa156b22bafdf8c7111928baa901723a61eb6673d6d1e024a6a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:241:mbe_302",
+          "source_record_id": "mbe_302",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "91facb049cd70cacafe9322d63909f1192fca373f884b127db907a0c17177861"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:299:mbe_370",
+          "source_record_id": "mbe_370",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "0f01e86e02111ff34d6a0a31e16177e510214e36cc829540bfac37aac38c0701"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:12:mbe_156",
+          "source_record_id": "mbe_156",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "78fda70001564ac315e4fab69dbe54e6f774b10b8c13ca3d8ae2a78e0e8bb26d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:788:mbe_1004",
+          "source_record_id": "mbe_1004",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "5c79b881bcdce7e5f9b762f4f1ea022bbfed9dd75489a95b2e23043bc613526b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:730:mbe_929",
+          "source_record_id": "mbe_929",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "86de6b1df1300abc69811253ab2bd815986bec866a8a5f376fcd6f0cf0f647e7"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:562:mbe_708",
+          "source_record_id": "mbe_708",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "320a7e23088d3ecf185519376c6d9bf2a17671a3a9e5c2a64526b53946d2bbcb"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:449:mbe_561",
+          "source_record_id": "mbe_561",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "d1780f18bcaf152902bd3bcfce5077e7d717cf8a5305f640352190dbedb274a2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:893:mbe_1143",
+          "source_record_id": "mbe_1143",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "797223457094f49c07a3020c2d88972a82529518b146a2ef664824843aef4716"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:810:mbe_1031",
+          "source_record_id": "mbe_1031",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "e6bdc50cb8c9bbc97805918cf8e24c4836fd4c294311e663b6e69b0da3bf5f50"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:337:mbe_427",
+          "source_record_id": "mbe_427",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fd9094918d7c2358248c6a7383377b64a99d54210a08059c1209cbe51961b448"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:115:mbe_146",
+          "source_record_id": "mbe_146",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "70b3f1d8256f7a642e861bb0d35b248d083bb7dbb49d7e658bd6013386afa319"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:359:mbe_450",
+          "source_record_id": "mbe_450",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fbcc5602bc23353ea5f7641688e0a31e106cde59ce5735ce1d4aeac3d38d7944"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:751:mbe_957",
+          "source_record_id": "mbe_957",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "efdd62fdb49c121dc1fdae899327acc793bf96d6eb938d30e79cde2cda9c84e6"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:317:mbe_398",
+          "source_record_id": "mbe_398",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "d2daa8956cffb87dea5c3133d05892e49fdaf52f9ebb8bb4f196dfdc55d571d7"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:709:mbe_904",
+          "source_record_id": "mbe_904",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "43875e924c1f7fbfa4f28f4ae16e9294334bab42a008d84aa579b12808085809"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:386:mbe_489",
+          "source_record_id": "mbe_489",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "a97d5591ee209c7b7c359f358e82858590233e0b1a33d6ce5c066e3cf6585dbd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:499:mbe_626",
+          "source_record_id": "mbe_626",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "1c9a7821a64a9c0b6edc3a32cbfd427c8e0f3ddbbf58c3b1943360f93a65b409"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:514:mbe_647",
+          "source_record_id": "mbe_647",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "6c292d63f43e4c1fc1e0057f267d038f48522c8e2f75948a5b438ddb2badf222"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:873:mbe_1113",
+          "source_record_id": "mbe_1113",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "0b1b3a63a053e4300b7f906f950f577a85726b7fd1eb0f2a6a74fe11fdea4828"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:139:mbe_174",
+          "source_record_id": "mbe_174",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "64a4dcb013fec4fa8ad28d2519b18bb268dda799a141541c4a2b9705394d5a45"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:515:mbe_648",
+          "source_record_id": "mbe_648",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "630b503aa49268e7e3a54980cef6f1a66f6f953d975b876df3393d957e0c81fc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:91:mbe_113",
+          "source_record_id": "mbe_113",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "5b534bdd37fef637ea1a32527b590124e0f962e035ca0e695f3b9807ff5adcff"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:781:mbe_997",
+          "source_record_id": "mbe_997",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "26207b209383ea3f15a2bd0380a97e443a99169709b2b86d281e034728a961b2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:615:mbe_781",
+          "source_record_id": "mbe_781",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fe988935e810fa9ca1574c24d49c3c7404ddd7df7c03e55196348d0e68478c00"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:89:mbe_891",
+          "source_record_id": "mbe_891",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "8d1a65815a82d7a221b565d38e41eeb16e83db7898b14c4ee197a42197f702b5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:403:mbe_507",
+          "source_record_id": "mbe_507",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f60b3bc64cc90b625820ead17b0c3e1a4ad134f0057dea231447812511de0b65"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:645:mbe_821",
+          "source_record_id": "mbe_821",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "131d2086ad564fc8aca107c66c2bff040fd8febf9927c94704ec7415b082ea81"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:104:mbe_128",
+          "source_record_id": "mbe_128",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "5e1558a350d6b81c00eb2de32090a25bc9f288d87d14f239f7cfef19b57bc78c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:338:mbe_428",
+          "source_record_id": "mbe_428",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ce20880914ac64b1a3504d9c584e9140ea04f18fcc013de04825af978f1a3e84"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:542:mbe_684",
+          "source_record_id": "mbe_684",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "03289f76f0a3a276ef5e4a87ee5f8d3b854af8b865db4285183494353b10a8e0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:79:mbe_803",
+          "source_record_id": "mbe_803",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ff447560a0f2e71a721dab56630af3ec06a2e4526ef682dcaf0512bd4e43ce98"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:678:mbe_864",
+          "source_record_id": "mbe_864",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "26b6f48704fef03e7ad55b9eacb50462db0caa58ec2326596c99417884585ee2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:238:mbe_298",
+          "source_record_id": "mbe_298",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "31807ae7fd4ace7d88f46a7109a4cf2b13c88db2a7e956326bfed46724f40ce8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:80:mbe_98",
+          "source_record_id": "mbe_98",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fb2dadf5697e1282fdc35c56b6f8b581c7da5c5bdcf1f59787a818010426748c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:754:mbe_961",
+          "source_record_id": "mbe_961",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f833ab86636a46d95625decee3f21e27396c843b11293f629436700091be1a32"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:22:mbe_25",
+          "source_record_id": "mbe_25",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "08e056028bc25d2dcfa7d3087884a3ba2b4c390447ad28fe84ea6f03b1cda98c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:280:mbe_351",
+          "source_record_id": "mbe_351",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "17d88bd5e1c84f3c3e3708b631c46da918a30ab4a8fb39a869a3dee68ef80918"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:581:mbe_735",
+          "source_record_id": "mbe_735",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "da858e63e6b59b41a2df50c9eec43e222a964654ecd083c326a27d0c73549bb4"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:463:mbe_577",
+          "source_record_id": "mbe_577",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "cc14acdbfad04ac7c28353b281c41015229492d1f851a47391bb6814e4ccea20"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:438:mbe_548",
+          "source_record_id": "mbe_548",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ba45482a19942e2d757f1dd5fe706d32a19e6d7ce6e31ef7d261c1c135b761c9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:244:mbe_305",
+          "source_record_id": "mbe_305",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c382884b3c21a25726416221647ec9a6b33098c84f7fa7601a47b4b047b15d8d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:70:mbe_738",
+          "source_record_id": "mbe_738",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "089a704d4a129edb185b634a80abf2654e8d5c4b8bda47e05bdff011b8ed8ab2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:482:mbe_601",
+          "source_record_id": "mbe_601",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "00af3ecf654cb121b7a79dccbe63830b10ac8cd41559643c34fe1f395ead72e8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:35:mbe_380",
+          "source_record_id": "mbe_380",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ae0963e84aef8ac9d97036031a94288d6f331b5faf76d969374224592a65b74e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:840:mbe_1072",
+          "source_record_id": "mbe_1072",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f899788e3e59c9047ddf46b0cc8e157542ac17a4aa8d751c43d2a8d1ee86e44e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:353:mbe_444",
+          "source_record_id": "mbe_444",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "79d33f8e0165ef4fae64d5241d7df0296fb91a27b8411f1925b79de886032a1d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:232:mbe_292",
+          "source_record_id": "mbe_292",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "310d3b9672f5778a085373bbc1bc49f97e662de5fcbe1ba3660c717215354b00"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:130:mbe_165",
+          "source_record_id": "mbe_165",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "611509b2d1995866a73ed140a7a0faaf8cecc1f440785c5703a503331e95dae3"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:890:mbe_1139",
+          "source_record_id": "mbe_1139",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ed8e1a0de99fc0317c9528db93a798c5b6574f612a703c58c67c7a49b8f7c195"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:42:mbe_409",
+          "source_record_id": "mbe_409",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "20cc6fa55a340bdb9d517d6783f8efe517c27909477009925d98716a904752b2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:611:mbe_775",
+          "source_record_id": "mbe_775",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c56e1a04108688be88271ae2eb7abcd1f800e0e9478b4f1d319b752dfe8b3447"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:371:mbe_463",
+          "source_record_id": "mbe_463",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b57cd1e2051fabac267875d9b479087bfc6f438da3981fab633af003bcebf294"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:785:mbe_1001",
+          "source_record_id": "mbe_1001",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f9b158888d39b2ad5cce1ab4ba14a8eb330fe5c4d9d923992c2083284504e6aa"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:917:mbe_1170",
+          "source_record_id": "mbe_1170",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f4e2b4abf86dd2ae1fae5aee6969e7895bcb331f430a97409775932382d784e2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:590:mbe_749",
+          "source_record_id": "mbe_749",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "335a56d1d171f0432e664ddc00af3041bebb3c13ef253d8e7fba3d387d59a4bb"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:864:mbe_1104",
+          "source_record_id": "mbe_1104",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "10a50470aabd18826c2f059294b1a1b59ab9d9ab6b8199c79712271113760c01"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:85:mbe_104",
+          "source_record_id": "mbe_104",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "af7a057ba3b892c052d12b04b57e165d80b645b719089248bf239979e7f53dfe"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:557:mbe_703",
+          "source_record_id": "mbe_703",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "3d1ac9a72d92b8195f3df91114b56a83fabf3a09acafa112a8158d131b03224c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:395:mbe_499",
+          "source_record_id": "mbe_499",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "2b88c73c17e660ae10c1fd94f4cefeed6f541a3f090b40d7ab83954fb05785ee"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:486:mbe_605",
+          "source_record_id": "mbe_605",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "0cd462317f3fec7aacceb4b3bd8f27bbc4f9f7531ba44a4a34d0b3f0174f7848"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:8:mbe_11",
+          "source_record_id": "mbe_11",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "33d6ac6b94121807af9f6ac2d333915789208d4398cdcec076caefc5ce263df6"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:207:mbe_257",
+          "source_record_id": "mbe_257",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c715648b139e3764865b174e4d863802864041a9ef23f73163d304022c81735a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:578:mbe_731",
+          "source_record_id": "mbe_731",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "409731d59bdb6f3d49eb4574692561689afb8a113ce35b932fcdbe7d61cc5af8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:180:mbe_220",
+          "source_record_id": "mbe_220",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fc079e5e7dfef6cce81a5a10efc1702e73de1974d1cdc929909856010da99d89"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:28:mbe_32",
+          "source_record_id": "mbe_32",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "48ed45ed4c63d96236165371dfdc4c81dbc5db28f16858d523549afb9fe1f795"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:54:mbe_557",
+          "source_record_id": "mbe_557",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "1263f71db4128d35a46e50e8d067b03fb56c39e00a49cb48db1a861329179dc9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:866:mbe_1106",
+          "source_record_id": "mbe_1106",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "66b0ff1b21367a8b2265b49275a74e6156a309313d89c6c38d192489731a2bd4"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:656:mbe_837",
+          "source_record_id": "mbe_837",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "0e04db674ba246bd3c9084019773ec89844f5979c77ecb2b4e4fd5b7d83ea5a3"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:883:mbe_1129",
+          "source_record_id": "mbe_1129",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "df8c8b8e5cccd4fca2b392829b410a67e2c68d11b1da4b19777b0f7aec3b0649"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:77:mbe_95",
+          "source_record_id": "mbe_95",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "1048a66515d2cef05860953833789940528c89b2173553afdd4b9770e3f573bf"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:776:mbe_987",
+          "source_record_id": "mbe_987",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "2208123369b54760477aeba8eb5953cc6e3132fd8bce146705ddba9bee3e2970"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:274:mbe_345",
+          "source_record_id": "mbe_345",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "640dd2f5890186d13d9dbe5c56dac7787fd0e36ee93f37fcdb7971f1329cc95f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:290:mbe_361",
+          "source_record_id": "mbe_361",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "cc5a3c7eec4335864dd6cf578ee0a4a44beb5d5336450b2612f24921a3997e8a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:13:mbe_157",
+          "source_record_id": "mbe_157",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "40cbbeac590eb8751ea2d5a84cde369ec17e01a396eaea4f7fc1be5fd9cbd335"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:368:mbe_460",
+          "source_record_id": "mbe_460",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "1adcffe57ccc8eac050fe5b5a2bf347609af2bacd4b103d0d1efa5e6bcd2d5cc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:575:mbe_728",
+          "source_record_id": "mbe_728",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "82e7edd717bc3aa5fda68c1a0de79801a892b6c9e69582a302b089e879c886ce"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:886:mbe_1132",
+          "source_record_id": "mbe_1132",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "e1d8613d529656d9a83adcbc69b214bc9b231e12e1b50ee18d7787540a5d915f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:535:mbe_674",
+          "source_record_id": "mbe_674",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "65de3aaafd83492fcaf886f266913039b1fb092d10338b085853294c3c396a33"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:478:mbe_595",
+          "source_record_id": "mbe_595",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "3841a9741811dcd32f20197400ad66393de225e3c2d493bf1929546e4ede5615"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:11:mbe_14",
+          "source_record_id": "mbe_14",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "563544481d8d7d2947d9bed2d417ec6fff8537188a5a05e5934ef91981a5caf1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:721:mbe_919",
+          "source_record_id": "mbe_919",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "5616cb104ac81f7d26700f856ac207739a828812d4e82c606b4a7f5dc6f6b755"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:419:mbe_527",
+          "source_record_id": "mbe_527",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "3427fedb204d52b694e9e79b5c525e0b3a45a329a56a69cbfaad86767553be1e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:393:mbe_497",
+          "source_record_id": "mbe_497",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b6129db94516ca147b2e37533015bc99ebbc5f7f2c621899f15ffff3980bf711"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:541:mbe_683",
+          "source_record_id": "mbe_683",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "0f017f0a7deaad0cbb149244dc61f6d68b3b235864fea77d41ae371ee352d522"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:12:mbe_15",
+          "source_record_id": "mbe_15",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "bb6f222f3e082160fd3c76b87e529310ecefec9a2f7bbec3233b9325644ae64f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:354:mbe_445",
+          "source_record_id": "mbe_445",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "6499b461e7c0ebb83c2b57acb35b782271ee9029c8eec7792fd00b1028eacfd4"
+      }
+    ],
+    "select": [
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:148:mbe_183",
+          "source_record_id": "mbe_183",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ecfb4765665aefcd4dcdab8b9abf52faf7f4cb4659e70e4ad12ebd039ee0ed20"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:87:mbe_885",
+          "source_record_id": "mbe_885",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "8be5c8e131424eca39d0fcd14b2954dc933f46244c76d6760c8fe1688c24cf4d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:396:mbe_500",
+          "source_record_id": "mbe_500",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "9a33c73e713209c4488058415403a1c3237a7e06003b5a7ecd6f6a4f22888510"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:83:mbe_831",
+          "source_record_id": "mbe_831",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "24457e1dd58e5956b20944b8ca6f9ae2db8fb3b1c6779eeb0e1633732d6b5ee8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:40:mbe_406",
+          "source_record_id": "mbe_406",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "87e508e53e246fbd89ded76b331f38f6d351e0a6359e1e712a86aaf8ca7b69c3"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:169:mbe_208",
+          "source_record_id": "mbe_208",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "366653bc308dccabc563d1d19f0494bcc2c39a44ebcd63732b68e0ee67eca708"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:201:mbe_251",
+          "source_record_id": "mbe_251",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f61f48de3e28d89b8ae0527d76b8ccf078b3e56a532b97a7fd3bd6c5d1fea01c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:558:mbe_704",
+          "source_record_id": "mbe_704",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "97f11998172c4ef71b9109437a416548aa03707bb2c5228d6f2b376b4f10ceba"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:188:mbe_230",
+          "source_record_id": "mbe_230",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "9e8e4c6df9b72a25c829583db74e1109187406a277506e25cd7008ec3059a9fc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:921:mbe_1175",
+          "source_record_id": "mbe_1175",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "0fc4232c085f5ab31e78ec0480d7681ea880f79c62d94be96a890db54d9c6788"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:1:mbe_5",
+          "source_record_id": "mbe_5",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "65814b36c18e18435bd7db8000099385ad396fe08981faa77958933d505a6a18"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:692:mbe_881",
+          "source_record_id": "mbe_881",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "78f92d69cfa50018304f7590f86567c0839926f6c189c8f68becc5fac2a1572d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:276:mbe_347",
+          "source_record_id": "mbe_347",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c1573eb8c2275637318f4989160b48705cfc289e5b8f325d59dbce76df654e84"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:157:mbe_192",
+          "source_record_id": "mbe_192",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "54839ba280901f058935ff933e1c00bac7c33e18891bd5621f1679ba68a3c21a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:61:mbe_76",
+          "source_record_id": "mbe_76",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "db873cb27558cb531346583e622a442a102a3c4834c5dc845e1dcd4c6f8553a2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:36:mbe_381",
+          "source_record_id": "mbe_381",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "e063d1034d61c0cad7ea2164c661be402f14a908070daf88d21029f36f3a9288"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:230:mbe_286",
+          "source_record_id": "mbe_286",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "165979bc6ab15f54e9e735e008cd7bfeb7a56859bf86fe4196b818e2dc916b3a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:456:mbe_570",
+          "source_record_id": "mbe_570",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "33b0569a2caef76741d9af45370fe7eca33d93cc6b88815529f291cd5bc41c1e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:120:mbe_1167",
+          "source_record_id": "mbe_1167",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "e2ea393f03c39149fd81476b190d355b7468853011ad414398d1c7aaafc9cd5b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:116:mbe_147",
+          "source_record_id": "mbe_147",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "e05178a574e3a327a034e79407a095218d02446fc1b1d128cc94492162dcd4fd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:248:mbe_311",
+          "source_record_id": "mbe_311",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "7e036d78ed515a5acd922abfe8dbd9e97f236bc4faed808a7338b43cbff5fcd3"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:517:mbe_651",
+          "source_record_id": "mbe_651",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "48c456046b0eaed737ec0ac22cd29dfb28590b2751ce62568e7e92935f055bd0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:114:mbe_145",
+          "source_record_id": "mbe_145",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b50fc0f543ad68920a493ad4b83b89302737f112478b8a8b8279567c130f3034"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:126:mbe_161",
+          "source_record_id": "mbe_161",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "763334d8e0555c72ce38e9a595d2fce5303e96e7516de75a2a828adc2a282868"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:559:mbe_705",
+          "source_record_id": "mbe_705",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f36a96d873a9072a4b9c0db6ef7d2f75bb91056276075c9f4ed017329401d498"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:424:mbe_532",
+          "source_record_id": "mbe_532",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "7dc07bde2105e8fcb19b7eb0551771db1e5acc995d725749d13823cff58f40a0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:925:mbe_1179",
+          "source_record_id": "mbe_1179",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "2de4f4b161eb624878578e21a8a4d987cc043520ba0d30482cc929b26aca88de"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:8:mbe_130",
+          "source_record_id": "mbe_130",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "9de4799380020e02384255805d0a4e3f60c5663ca33047768b7857ea6f6da3eb"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:326:mbe_415",
+          "source_record_id": "mbe_415",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "1355e422be9f1b1e3c9e4dfe2ad22cc45eb8b4145a1afda5bb707d45291c67ff"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:443:mbe_554",
+          "source_record_id": "mbe_554",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "73a1af112e4e4a872cd919a8e9cf577bbd0a30f283bfacdf347ae0a1a5521574"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:544:mbe_687",
+          "source_record_id": "mbe_687",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c843c7cfb881a408c8836d6b5708d7fce1ed6df2db26c60eff505bba004f59a4"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:636:mbe_810",
+          "source_record_id": "mbe_810",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fb7faf238f0e601105096dabf41a353fb0233f8847164a5b0092b7807f287a16"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:306:mbe_384",
+          "source_record_id": "mbe_384",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f01d4f8a659680ac44684419dbb5a4b84e98ef94a00202b603bdd34d9b94d94c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:63:mbe_78",
+          "source_record_id": "mbe_78",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "3b46aaf1ef539f4b0620a851799a9122c830cd462a02d1267f8d36c392dc3a53"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:50:mbe_59",
+          "source_record_id": "mbe_59",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "175316e11253f9a2462e70f9e7384b712704dd21553e8a411e9b662e3850ae4d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:3:mbe_3",
+          "source_record_id": "mbe_3",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "3471cb9a2dd4ed7fd3a4e425fdef5efae35c9fd2d872b7f7573c3f81b7960d0d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:49:mbe_58",
+          "source_record_id": "mbe_58",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "9db8db5794c3dadf7b7df3e008a8c8fb945b8f8f24387f0d6dbc7f61b9a58b17"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:585:mbe_743",
+          "source_record_id": "mbe_743",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b600ce010693b84e0f9b70cd312a334ebea4fab414d220841235509846c980e3"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:335:mbe_425",
+          "source_record_id": "mbe_425",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "6817c25b1402013e12f3d02e1446fc5dbefc7bbf38d9ac018bce55ae24d73e78"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:715:mbe_911",
+          "source_record_id": "mbe_911",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "d1ffda6e88b6f029f35956d0282f0cefebe687d2e1ebe01f66d97dfb64c3e7cc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:292:mbe_363",
+          "source_record_id": "mbe_363",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "cb2d85dc4199473f2ac01a9ac69c835330dfc55426b411f88a94fb1ee6ace9d4"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:905:mbe_1156",
+          "source_record_id": "mbe_1156",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "41c50a465e21de140d170aa8d5db09d4e3853b31a57c05a03009e7b2fa912d8f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:931:mbe_1187",
+          "source_record_id": "mbe_1187",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "fd8df35b4363dce7d046545241a6714b845c7e01081a076c17328517c74ae5a2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:794:mbe_1011",
+          "source_record_id": "mbe_1011",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c7c64451f3b87ba3d191de50e12f1c5dbef11dd0d2148e579609ae8c519343df"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:85:mbe_847",
+          "source_record_id": "mbe_847",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "4f00a628429cdc48331bf623035c7563eeae155aef3f7ae91bfde8b514d304a9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:222:mbe_272",
+          "source_record_id": "mbe_272",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "8b5eb673034fa4dc48864c8aa22bd460d69667d61d2ed8d07bbd56aafbd0d02c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:579:mbe_732",
+          "source_record_id": "mbe_732",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "076849e65d59c2b104057fc707b6d53fd775901ab736bdc0e13058f7b58fd130"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:473:mbe_590",
+          "source_record_id": "mbe_590",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "972da786efed27d98f1a6517b94e888a17ca08092a766955dc8ce0ce361daabc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:826:mbe_1055",
+          "source_record_id": "mbe_1055",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "53084513dbe76f28c9fe5badde03f4e753575d7b299e06ec4767f8b5249c5e0c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:183:mbe_224",
+          "source_record_id": "mbe_224",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "ba8b1b74860b197cbe1ce1c62c75d99a3493694092916fdd2c5597926e977d20"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:831:mbe_1061",
+          "source_record_id": "mbe_1061",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b1b86a6e4a5547b017dabf6cf10678c876d17dd660fc7b8f1dceeefb116c2b10"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:510:mbe_643",
+          "source_record_id": "mbe_643",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "5d91993cbb76da7dec5a061b92789ed825bdbbe4cd951b66d3f41b8cf7f4909a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:836:mbe_1066",
+          "source_record_id": "mbe_1066",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c6c57b8a73dc1cd6d9119266c5339690254c04d80b5d8d9385ce9f8e67b78011"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:414:mbe_522",
+          "source_record_id": "mbe_522",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "798b8b29cd654f0e12d33aa1b4026a0425434278c2ae7d78ad22f9e3e89d7457"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:832:mbe_1062",
+          "source_record_id": "mbe_1062",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "b1c8d807a65bc059736cbe208ae3597aaffa014c6361bdffea069ffd01b6659c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:651:mbe_830",
+          "source_record_id": "mbe_830",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "9297eebe6277913e579a4dafc5d8c97e5777e8d7be28214c75d4f8bb7254235c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:21:mbe_233",
+          "source_record_id": "mbe_233",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "456ce38dc43db9db81ab697101ff8c1a663f295db70dc0aeb393a45cffda6852"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:235:mbe_295",
+          "source_record_id": "mbe_295",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "a5f2321b5684213fb67b6a2a9af34a26adf07c0ff8e87edf826887c8b26e34a9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:605:mbe_769",
+          "source_record_id": "mbe_769",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "f5cb986066bb564270d7b7943905f8507ca37414be9da17a927d5aa16e4ee3fa"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:885:mbe_1131",
+          "source_record_id": "mbe_1131",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "c5465538b6ef233c0aeb9ff8feeab707b55811328b3de8a7936cd3f3f9dd5fb1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:850:mbe_1086",
+          "source_record_id": "mbe_1086",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "5654eceea6c8b9f0efeb237247a0eca7ce5240bd3316e122d141e87169baae04"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:84:mbe_842",
+          "source_record_id": "mbe_842",
+          "source_split": "validation",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "170c8bc1a4dc96166da6180e0a5cafb2627876f6717db70f70f38e6ec1c498d0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:621:mbe_790",
+          "source_record_id": "mbe_790",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "2c5e88ad7e7ae467f6b1daa3fc8a5097aa383f659a8f879ba93b0bdd2ae85411"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:train:142:mbe_177",
+          "source_record_id": "mbe_177",
+          "source_split": "train",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": true,
+        "input_sha256": "2f7702a1aaaf91f18564d772821929d976e600faa4c637d409d3043b9ab280c3"
+      }
+    ],
+    "dev": [
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000009",
+          "source_split": "validation",
+          "source_row_index": 9
+        },
+        "has_feedback": false,
+        "input_sha256": "287cbe7ca8b4c28df688cc9d972d339e6b6c984a4aa26405dcd1ac3aa81dd4d9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000087",
+          "source_split": "validation",
+          "source_row_index": 87
+        },
+        "has_feedback": false,
+        "input_sha256": "99e3c4fac92d033cd5e0d2e66aaaf9bdf82919a2ecfd53eb0f338a1ab1c02792"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000097",
+          "source_split": "validation",
+          "source_row_index": 97
+        },
+        "has_feedback": false,
+        "input_sha256": "75a69cc8e05600c4ddb0035fc201daf0e2b19e10019a71ac7905679e21698c23"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000073",
+          "source_split": "validation",
+          "source_row_index": 73
+        },
+        "has_feedback": false,
+        "input_sha256": "1504ed54fe13171ace228995ec6ca8f24ded54d461147a24d58bbe9c9be52df5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000065",
+          "source_split": "validation",
+          "source_row_index": 65
+        },
+        "has_feedback": false,
+        "input_sha256": "2b5f18e2cad4b1b5d437fd81b86f73fb479fafb58c95e0ce224c85b5a18fce78"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000016",
+          "source_split": "validation",
+          "source_row_index": 16
+        },
+        "has_feedback": false,
+        "input_sha256": "60f2c2f45630f6696ec9be691bcd323f4705efe2e1474ce0de38b86ff335c7de"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000090",
+          "source_split": "validation",
+          "source_row_index": 90
+        },
+        "has_feedback": false,
+        "input_sha256": "b0d73b158a8577206c52879c614856862c3d113da2e663090017f14672ddfe05"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000111",
+          "source_split": "validation",
+          "source_row_index": 111
+        },
+        "has_feedback": false,
+        "input_sha256": "5b922a91c7e6c7ddc0b6081800d6596e6155c32ca96ada253b063e487c9acaa1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000099",
+          "source_split": "validation",
+          "source_row_index": 99
+        },
+        "has_feedback": false,
+        "input_sha256": "1bcf0272bec635cb8b543c48d36dd83582c2ef16c094dbd38a67145149e66649"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000078",
+          "source_split": "validation",
+          "source_row_index": 78
+        },
+        "has_feedback": false,
+        "input_sha256": "eda2355807c9ee63ba2705a086a8782f9137028fe452a52d17e9ae58ffedd120"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000074",
+          "source_split": "validation",
+          "source_row_index": 74
+        },
+        "has_feedback": false,
+        "input_sha256": "0079e85f2946bb654afbd2aaa6243c1be0531ea56a6bd0118efc1195c76ffac5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000021",
+          "source_split": "validation",
+          "source_row_index": 21
+        },
+        "has_feedback": false,
+        "input_sha256": "956e743f8adf65d8297ce7a91f6bfd0bf28f901542381b2f42323412a836c340"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000030",
+          "source_split": "validation",
+          "source_row_index": 30
+        },
+        "has_feedback": false,
+        "input_sha256": "355d0a4ab022a16d529f8d062f6ed59575221da145651ed0bec5e2f5651d15a1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000082",
+          "source_split": "validation",
+          "source_row_index": 82
+        },
+        "has_feedback": false,
+        "input_sha256": "245dab80e083cc4b6b57bf2c2a0b81e088d7391f1ad5f69f77571ac65c63a834"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000032",
+          "source_split": "validation",
+          "source_row_index": 32
+        },
+        "has_feedback": false,
+        "input_sha256": "f1ce1f43ee37108ec9b6378a1d8b768109c177d48ec4a4f64c110b5b1acdf9bd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000047",
+          "source_split": "validation",
+          "source_row_index": 47
+        },
+        "has_feedback": false,
+        "input_sha256": "c953dc9d4c4efcb49ced128ea7a4628ab09e267646a779e3e97d8975cac1b507"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000066",
+          "source_split": "validation",
+          "source_row_index": 66
+        },
+        "has_feedback": false,
+        "input_sha256": "2408ac586e55e4cbca394a01ff5cbb2b8bfd0487f26d886fdcb463876ab72af0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000117",
+          "source_split": "validation",
+          "source_row_index": 117
+        },
+        "has_feedback": false,
+        "input_sha256": "69b9d90ed8d488bafc6d5fc7ce42ec86deb7ced3f72b3c92da5f8f4930b1c732"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000096",
+          "source_split": "validation",
+          "source_row_index": 96
+        },
+        "has_feedback": false,
+        "input_sha256": "cb3fe833d1cb07c23fc75830db585360bfc0f69731e0f7c28c75d85e21df1738"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000098",
+          "source_split": "validation",
+          "source_row_index": 98
+        },
+        "has_feedback": false,
+        "input_sha256": "a54cd6149c951f04dc3cdad24ed5ebe141e36469a0e48390253c827480c94428"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000056",
+          "source_split": "validation",
+          "source_row_index": 56
+        },
+        "has_feedback": false,
+        "input_sha256": "39aab35469bedab96056078447d6931eb412dd1fd0beb4a5e8a98a8f922685de"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000062",
+          "source_split": "validation",
+          "source_row_index": 62
+        },
+        "has_feedback": false,
+        "input_sha256": "6161bad5f69751bd553fd4fcbe8d1ec420fdf8d0b635b1928d70995a29b69534"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000063",
+          "source_split": "validation",
+          "source_row_index": 63
+        },
+        "has_feedback": false,
+        "input_sha256": "c2c7dd7ad7ca4fb2d2a2f3d4370a9c7a530fff8650939aebc7f09f7547fff770"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000076",
+          "source_split": "validation",
+          "source_row_index": 76
+        },
+        "has_feedback": false,
+        "input_sha256": "8f730623fe8a5366c830e0379ea3ff745935c70e581ce1829c3cb65af5476bba"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000036",
+          "source_split": "validation",
+          "source_row_index": 36
+        },
+        "has_feedback": false,
+        "input_sha256": "0ac2a38d433b2bef58a9b54abd4e71dd5e844262487e4b9ef142d24ca187f7c9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000122",
+          "source_split": "validation",
+          "source_row_index": 122
+        },
+        "has_feedback": false,
+        "input_sha256": "66ff5278b6d85e06b5bc620b8e04252c90205e5ba0d927b2480dc888ef88a80a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000007",
+          "source_split": "validation",
+          "source_row_index": 7
+        },
+        "has_feedback": false,
+        "input_sha256": "171591882a07ee79200b41196bc093f79ca59cbb45f065ec22f53a9d78344884"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000001",
+          "source_split": "validation",
+          "source_row_index": 1
+        },
+        "has_feedback": false,
+        "input_sha256": "b6c444e79c17c5d0b8284aa682540017cbce8c080d3398dde316d71c0613adb6"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000095",
+          "source_split": "validation",
+          "source_row_index": 95
+        },
+        "has_feedback": false,
+        "input_sha256": "0802faa16e6d38a38dca46f3918467c4b6b8c1a791a9755168c658cb401da9b0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000050",
+          "source_split": "validation",
+          "source_row_index": 50
+        },
+        "has_feedback": false,
+        "input_sha256": "667b3713888e8b7abc220d32dcced4950d1dc44848d34c63066040253c817d8d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000026",
+          "source_split": "validation",
+          "source_row_index": 26
+        },
+        "has_feedback": false,
+        "input_sha256": "2a1f08b2b854dea3635d9e9ae7580870e5efda8f891f4a6efd3301556bbdc461"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000112",
+          "source_split": "validation",
+          "source_row_index": 112
+        },
+        "has_feedback": false,
+        "input_sha256": "4831d4f35c47fb62c1d173c8c0e93dcf38466092fa04fc617d9b6f72031998a5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000055",
+          "source_split": "validation",
+          "source_row_index": 55
+        },
+        "has_feedback": false,
+        "input_sha256": "573b34de6ba496a6b402cb47e673203c631cacd58a570deaf5928da0eacd24b4"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000080",
+          "source_split": "validation",
+          "source_row_index": 80
+        },
+        "has_feedback": false,
+        "input_sha256": "e7b76e5daaa288abea04a2b10d56294b28bd3aa600a27170806d332122753210"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000092",
+          "source_split": "validation",
+          "source_row_index": 92
+        },
+        "has_feedback": false,
+        "input_sha256": "cbdc9bcff07d47a300ac4fd5153262941948177c9e854f7a66f0aa1d62fc759e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000051",
+          "source_split": "validation",
+          "source_row_index": 51
+        },
+        "has_feedback": false,
+        "input_sha256": "e03f937db8989c3cac3ac581a76049d5d6764d2643dfe65b991523c4a893014c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000039",
+          "source_split": "validation",
+          "source_row_index": 39
+        },
+        "has_feedback": false,
+        "input_sha256": "5db7a185bfbbe15a88dad3a631feef11c058a1a156a869d129879deb34c0a22e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000093",
+          "source_split": "validation",
+          "source_row_index": 93
+        },
+        "has_feedback": false,
+        "input_sha256": "a63b31d05b177147186fecf1e2e814d05294bd433c9bf67a82dc462cd1ef93cd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000034",
+          "source_split": "validation",
+          "source_row_index": 34
+        },
+        "has_feedback": false,
+        "input_sha256": "8e54d8a7a889cbe1744db7356c30375c5ad9c112ad3c8b93ce0d3170e8326bab"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000070",
+          "source_split": "validation",
+          "source_row_index": 70
+        },
+        "has_feedback": false,
+        "input_sha256": "3a91b9d2b55313694c0c94e4603f2e98227a0f37e0c95dbd1f701a438d21e824"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000038",
+          "source_split": "validation",
+          "source_row_index": 38
+        },
+        "has_feedback": false,
+        "input_sha256": "8ca24dd6c4a8a4f59cadaea2860f714d2df304cb29f174b6cfc2f936020c0c28"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000106",
+          "source_split": "validation",
+          "source_row_index": 106
+        },
+        "has_feedback": false,
+        "input_sha256": "1c6e01f6591c412955d75fdf076c5deb0c9fda1b1a75a5118b67a702f163f98f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000041",
+          "source_split": "validation",
+          "source_row_index": 41
+        },
+        "has_feedback": false,
+        "input_sha256": "e97bb4c78a4b0786e33d6512c1d4c082b2a40bd7420d03a4bf5de24ce5e690a8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000052",
+          "source_split": "validation",
+          "source_row_index": 52
+        },
+        "has_feedback": false,
+        "input_sha256": "6279b2a45aca9eb175bdfdfdce6539671a321ddebb111391c5c8e85aa7c3e466"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000061",
+          "source_split": "validation",
+          "source_row_index": 61
+        },
+        "has_feedback": false,
+        "input_sha256": "bb9c1a81ea7f48dbdd925594fe87fa1e87dc46d17389915d269e013378cdec9b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000079",
+          "source_split": "validation",
+          "source_row_index": 79
+        },
+        "has_feedback": false,
+        "input_sha256": "71838621710361f5966bf8b88c6a8d01535acbbdb53b675eb3ba3ae68362851b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000022",
+          "source_split": "validation",
+          "source_row_index": 22
+        },
+        "has_feedback": false,
+        "input_sha256": "c8cf503458df4f857e68b805e77c7d81a2187908bcf1e5093f593dc98ffb22db"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000059",
+          "source_split": "validation",
+          "source_row_index": 59
+        },
+        "has_feedback": false,
+        "input_sha256": "47ba1299f73e8c5061eaaf33b391e556f95a430b7d6c185a7bda84ff4b0871a1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000067",
+          "source_split": "validation",
+          "source_row_index": 67
+        },
+        "has_feedback": false,
+        "input_sha256": "fdc773a7a67c562ef806d7d0c17d76f09b0154ba54b26f8430e750dd6b94ea52"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000023",
+          "source_split": "validation",
+          "source_row_index": 23
+        },
+        "has_feedback": false,
+        "input_sha256": "0e5835e90b5ed0f3a396e3807a395891387ac2eff9d8eaacdd7af6449daed451"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000040",
+          "source_split": "validation",
+          "source_row_index": 40
+        },
+        "has_feedback": false,
+        "input_sha256": "6376d980eb950c808c76af4f5e3ae4c8c656e35e4503da56f94e0050d9a6f448"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000102",
+          "source_split": "validation",
+          "source_row_index": 102
+        },
+        "has_feedback": false,
+        "input_sha256": "40d46572e60d2099c5589cdc3b76267c97bb699a410a671769b4047350cee44b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000115",
+          "source_split": "validation",
+          "source_row_index": 115
+        },
+        "has_feedback": false,
+        "input_sha256": "3371441ce35677880dd3f4ba2ee01466bf5fe55e2429fb37a431525b185bc157"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000101",
+          "source_split": "validation",
+          "source_row_index": 101
+        },
+        "has_feedback": false,
+        "input_sha256": "c2975eded2c392ae13a4b73fbd3840a0db3d71fa4fe20e3964bfa83d976f7202"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000006",
+          "source_split": "validation",
+          "source_row_index": 6
+        },
+        "has_feedback": false,
+        "input_sha256": "cc6eb7ebd28be3b98b83d121a6ca68c22aa228fc227ecab7a9111f5d73be72ab"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000060",
+          "source_split": "validation",
+          "source_row_index": 60
+        },
+        "has_feedback": false,
+        "input_sha256": "38e6368fb4d4001b08425967364ea341adc40f54a59cac1b9ed894b0c192ac82"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000085",
+          "source_split": "validation",
+          "source_row_index": 85
+        },
+        "has_feedback": false,
+        "input_sha256": "05b2ce6d1e1af770c0be8c1ddb7fe29ca393b32bfcccf1f5d56c06af761fc792"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000072",
+          "source_split": "validation",
+          "source_row_index": 72
+        },
+        "has_feedback": false,
+        "input_sha256": "9760d788e64c794a5793799d59e3240cbc290209cc4b9780ab4114d56acd78b1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000018",
+          "source_split": "validation",
+          "source_row_index": 18
+        },
+        "has_feedback": false,
+        "input_sha256": "b251d92d4a8881eeb6942e720b20f8af70bd6c086e013281e198f43b198d626b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000049",
+          "source_split": "validation",
+          "source_row_index": 49
+        },
+        "has_feedback": false,
+        "input_sha256": "3f8cc142aa7fdbf890f66e9f51beb409f41e5558456bed209c274fb987682fbb"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000121",
+          "source_split": "validation",
+          "source_row_index": 121
+        },
+        "has_feedback": false,
+        "input_sha256": "34bbb3721572edf37c8a6fb6c331c0e045cde41ef6800e4a36a56888c4ce2311"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000042",
+          "source_split": "validation",
+          "source_row_index": 42
+        },
+        "has_feedback": false,
+        "input_sha256": "99f5758ddd310bea10d35f061f6286e9be8bda28047cfc354d15ac64c7359568"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000002",
+          "source_split": "validation",
+          "source_row_index": 2
+        },
+        "has_feedback": false,
+        "input_sha256": "d4170001759fc572f9a279c7728c04a50c89dae5139e60ab6941493fbad6a147"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000008",
+          "source_split": "validation",
+          "source_row_index": 8
+        },
+        "has_feedback": false,
+        "input_sha256": "7c15dd6630b5cb49ab9ed87259a6bb43d3ba1f0d5aa352a871ba5cf232042f0a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000024",
+          "source_split": "validation",
+          "source_row_index": 24
+        },
+        "has_feedback": false,
+        "input_sha256": "ddb6ddc44e791bc5733f3d10e4f56e21d7164a6f9aaa09f2a0cb9f45c2d996a7"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000046",
+          "source_split": "validation",
+          "source_row_index": 46
+        },
+        "has_feedback": false,
+        "input_sha256": "143a01ddcb8f49cdcd0a270ae5dfb202f286f8e84a13cf5113a7c84a9ec1c9dd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000037",
+          "source_split": "validation",
+          "source_row_index": 37
+        },
+        "has_feedback": false,
+        "input_sha256": "7e0a9bee3ef626a17bea971692b0e7d7199308844d6167a86813b4300de864f5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000010",
+          "source_split": "validation",
+          "source_row_index": 10
+        },
+        "has_feedback": false,
+        "input_sha256": "dc9a356bcf55ce7880553a3e952d6b1a78e43a0ed3cae4167619fa5ed5f9ff27"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000100",
+          "source_split": "validation",
+          "source_row_index": 100
+        },
+        "has_feedback": false,
+        "input_sha256": "c8386e4774aa4ba9cc5303e272b36eeb46215e3e114b4db173c310be26b9d51f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000015",
+          "source_split": "validation",
+          "source_row_index": 15
+        },
+        "has_feedback": false,
+        "input_sha256": "5ca76207817459ece4d358cd799ffa63fe229dc37d829baafcc554ac258d8f9a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000068",
+          "source_split": "validation",
+          "source_row_index": 68
+        },
+        "has_feedback": false,
+        "input_sha256": "a0a4704bd997fed66144f1c3d555fde0b9f78fb896a82060e0a1f715a57967fc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000058",
+          "source_split": "validation",
+          "source_row_index": 58
+        },
+        "has_feedback": false,
+        "input_sha256": "368e2fe12975e7c817417b87eba1423b71815c94955bb0d32104e19843ab579c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000005",
+          "source_split": "validation",
+          "source_row_index": 5
+        },
+        "has_feedback": false,
+        "input_sha256": "99a18384a2eb819f5a18760a92d083b7679fd072ca5fb6b650559e4ef6424f3a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000033",
+          "source_split": "validation",
+          "source_row_index": 33
+        },
+        "has_feedback": false,
+        "input_sha256": "713b5fe41d3a80334f3be93da8cd6d7504b211a11721a735d3e146bc61ec2ae4"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000044",
+          "source_split": "validation",
+          "source_row_index": 44
+        },
+        "has_feedback": false,
+        "input_sha256": "b8f7b6f983407afd201bcc119b005b2af989644e5dfd3724627a9e9f1f1f4b0e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000045",
+          "source_split": "validation",
+          "source_row_index": 45
+        },
+        "has_feedback": false,
+        "input_sha256": "155bffbf1b88bef748b1f940ec7102e9baa8546e92787707e13aee0612a35491"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000012",
+          "source_split": "validation",
+          "source_row_index": 12
+        },
+        "has_feedback": false,
+        "input_sha256": "0b1d38e5131ad7729e1e9360815ffe215e84b34fe5a1fb0c194fc9bf217d16c8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000048",
+          "source_split": "validation",
+          "source_row_index": 48
+        },
+        "has_feedback": false,
+        "input_sha256": "6522320e3a22600ecc59f90bbf35a8172738d6bd03e44334ebee68ac3f138f34"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000104",
+          "source_split": "validation",
+          "source_row_index": 104
+        },
+        "has_feedback": false,
+        "input_sha256": "97343f04f1ff4f47ca57cf057bc0865267c1564148b6fcf273f1513844e7ee3c"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000113",
+          "source_split": "validation",
+          "source_row_index": 113
+        },
+        "has_feedback": false,
+        "input_sha256": "1690c70563e5c326df8877a1bba686c2538879375dfdc08f4ab0c2b47743d62b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000084",
+          "source_split": "validation",
+          "source_row_index": 84
+        },
+        "has_feedback": false,
+        "input_sha256": "5d6ff187bfd5398284ee21c23d2e881a4c5c5336195cebfa75ed02d848681362"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000103",
+          "source_split": "validation",
+          "source_row_index": 103
+        },
+        "has_feedback": false,
+        "input_sha256": "dabee596cb0b45bab76ae6304002ca4c241ce27aff4359def04f0f64355ed0e7"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000019",
+          "source_split": "validation",
+          "source_row_index": 19
+        },
+        "has_feedback": false,
+        "input_sha256": "a4163b09350e2592f51193894e9276fd22984503f9663e4aa2c09d12bdd8d714"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000088",
+          "source_split": "validation",
+          "source_row_index": 88
+        },
+        "has_feedback": false,
+        "input_sha256": "66fc9ab3fc6b8812aa13bb177c60b1b62cd41956775615979ed67785de6c3d34"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000043",
+          "source_split": "validation",
+          "source_row_index": 43
+        },
+        "has_feedback": false,
+        "input_sha256": "896cf652afe95df85be98c22f1458af742dd2fb1dab069b5efa3070c890dd638"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000107",
+          "source_split": "validation",
+          "source_row_index": 107
+        },
+        "has_feedback": false,
+        "input_sha256": "88abfa5c34ae91dad2cf418dcdd873f01b70dfeef002535e4cc2d5fe32579fe6"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000020",
+          "source_split": "validation",
+          "source_row_index": 20
+        },
+        "has_feedback": false,
+        "input_sha256": "97ca2dc213b42008e5799725d4cc39bed9f3318a86f16380e5242ca338f9981f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000000",
+          "source_split": "validation",
+          "source_row_index": 0
+        },
+        "has_feedback": false,
+        "input_sha256": "a4020637746037e53f83f387c3723d5c9814bb7c89f48719c935f6204b310e13"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000118",
+          "source_split": "validation",
+          "source_row_index": 118
+        },
+        "has_feedback": false,
+        "input_sha256": "887bec047101e24c27b81f36e863c043771099acf12ae6fe7791dfa63be8ae82"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000108",
+          "source_split": "validation",
+          "source_row_index": 108
+        },
+        "has_feedback": false,
+        "input_sha256": "4d59e1bd4e737254b2c090c586a258c592f60e45eff0e62d31c9cc5432030181"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000057",
+          "source_split": "validation",
+          "source_row_index": 57
+        },
+        "has_feedback": false,
+        "input_sha256": "ca69190b5308ab8740725bfd8dc2276acdd9e090e9da04c16ae32d5ed7276408"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000116",
+          "source_split": "validation",
+          "source_row_index": 116
+        },
+        "has_feedback": false,
+        "input_sha256": "f9c8c9a371b3b0b5956e88169f480efcfaab82ef36ec26921f83f6f05cd86a71"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000053",
+          "source_split": "validation",
+          "source_row_index": 53
+        },
+        "has_feedback": false,
+        "input_sha256": "784bdcdd7c18c0ee768965264203f45e22f89baab7aa31c702fee145b7820760"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000110",
+          "source_split": "validation",
+          "source_row_index": 110
+        },
+        "has_feedback": false,
+        "input_sha256": "4fbd92e58e20f718586496e12fa1f37e521772d42c65e783d6bba5ba061221ee"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000089",
+          "source_split": "validation",
+          "source_row_index": 89
+        },
+        "has_feedback": false,
+        "input_sha256": "42cea0616fb0ac37b3100023f1f7e00941964ef8d9d7c1490eabc6b5978d701e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000083",
+          "source_split": "validation",
+          "source_row_index": 83
+        },
+        "has_feedback": false,
+        "input_sha256": "abdf4f333a3e54a43619ef468f9efa9575330f87ee21f6972dc6d57ed65ceb57"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000091",
+          "source_split": "validation",
+          "source_row_index": 91
+        },
+        "has_feedback": false,
+        "input_sha256": "4e6eed52c2ff47823832812bc9d6b4d1e32e082102c8bf3fe9be535f989a282e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000025",
+          "source_split": "validation",
+          "source_row_index": 25
+        },
+        "has_feedback": false,
+        "input_sha256": "23f6e2b8572250f1ec07a510b62cf90bfb2b3e5f82407376a59a3e3e59c8164d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000071",
+          "source_split": "validation",
+          "source_row_index": 71
+        },
+        "has_feedback": false,
+        "input_sha256": "92738ba37b0b38887fe6f1c7c0580f86241ee0ce97ebadffecbb7ff6d2fe925f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000105",
+          "source_split": "validation",
+          "source_row_index": 105
+        },
+        "has_feedback": false,
+        "input_sha256": "b0ca2f8d822273fb5c06148d38d4ab8f636554e514c0afd7ba1e8e7be2d39407"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000077",
+          "source_split": "validation",
+          "source_row_index": 77
+        },
+        "has_feedback": false,
+        "input_sha256": "77d96a1745cbbaa9fe7248f62d1a93732930cf2cf87b5ac061a31181b1b9fca5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000064",
+          "source_split": "validation",
+          "source_row_index": 64
+        },
+        "has_feedback": false,
+        "input_sha256": "840197c78c66c32ad9177318d5c75f2e1498c97468610a7697531e5d46c437bf"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000029",
+          "source_split": "validation",
+          "source_row_index": 29
+        },
+        "has_feedback": false,
+        "input_sha256": "d1cc5dec8f35d43ea8c3902ad622c2fc912eb319c741adc7c3ef36263c923d78"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000027",
+          "source_split": "validation",
+          "source_row_index": 27
+        },
+        "has_feedback": false,
+        "input_sha256": "6813b8501d1849874fc5ab864afc36f8d258ba5a8217bbeef581dc47aff96e4d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000109",
+          "source_split": "validation",
+          "source_row_index": 109
+        },
+        "has_feedback": false,
+        "input_sha256": "38462e38d298fd7cf6758b79a1552afc7dcbacb117d2db13d684e2610c3db0f5"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000120",
+          "source_split": "validation",
+          "source_row_index": 120
+        },
+        "has_feedback": false,
+        "input_sha256": "252d171702cad957c801892775e829efcf4abde520fed7dfee8f96ba19472b27"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000004",
+          "source_split": "validation",
+          "source_row_index": 4
+        },
+        "has_feedback": false,
+        "input_sha256": "31191d9d33899de550e125e3ff90f2bfa8c75632f483383ff858a2d3c90e621e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000054",
+          "source_split": "validation",
+          "source_row_index": 54
+        },
+        "has_feedback": false,
+        "input_sha256": "aefc217b2feb2a884ffe04a1ca2654fa51a6674eff765c0683d99c3cfe1d15bc"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000075",
+          "source_split": "validation",
+          "source_row_index": 75
+        },
+        "has_feedback": false,
+        "input_sha256": "76baed5d15de267c7948805c375adb18d1f50a59ccf936b0c29fde3af9a13b57"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000011",
+          "source_split": "validation",
+          "source_row_index": 11
+        },
+        "has_feedback": false,
+        "input_sha256": "9d2a3e6f4de962d017fb077760b23400169ce47a6d1f7e1bc1ac515a942e17fd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000069",
+          "source_split": "validation",
+          "source_row_index": 69
+        },
+        "has_feedback": false,
+        "input_sha256": "f07ef2976f439749e3a550deb36d9d8cd6dc14c8fd255151f1cc8bf62eed0d63"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000114",
+          "source_split": "validation",
+          "source_row_index": 114
+        },
+        "has_feedback": false,
+        "input_sha256": "f5c1899f2435f48e0ba764752ecf9e72179a86f32f586809d6bfb7d00437e28f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000086",
+          "source_split": "validation",
+          "source_row_index": 86
+        },
+        "has_feedback": false,
+        "input_sha256": "aef9da0176a9b9ca544ed30a5466e9dc6f67164032a1c3f70e65123eca46e4e3"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000013",
+          "source_split": "validation",
+          "source_row_index": 13
+        },
+        "has_feedback": false,
+        "input_sha256": "f2f764973e9d7b64371a8bf30885b2f79091953f5602d73759209c88c8ff2558"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000119",
+          "source_split": "validation",
+          "source_row_index": 119
+        },
+        "has_feedback": false,
+        "input_sha256": "322a9829fb4931acde1928620de4cd25ff38109b4d4e790c1df5562ecf208b44"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000017",
+          "source_split": "validation",
+          "source_row_index": 17
+        },
+        "has_feedback": false,
+        "input_sha256": "3d9bd6a7856774eeaa3db5a765939eeb8ae3126cd5fcb252560c7a96b09b9c87"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000028",
+          "source_split": "validation",
+          "source_row_index": 28
+        },
+        "has_feedback": false,
+        "input_sha256": "3f2f5f4908bceca7e013c5da2f6e635b35b361592ba8da9de7d92443af3e3f51"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000031",
+          "source_split": "validation",
+          "source_row_index": 31
+        },
+        "has_feedback": false,
+        "input_sha256": "b6d5e5b2ce9dc6e1bc8d977006b064314318a387d83fbc11c583caefb2521338"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000035",
+          "source_split": "validation",
+          "source_row_index": 35
+        },
+        "has_feedback": false,
+        "input_sha256": "1b9465abd4462daa009e007e02e8f989ad9d80c95d13fdf68940500181a8f60f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000094",
+          "source_split": "validation",
+          "source_row_index": 94
+        },
+        "has_feedback": false,
+        "input_sha256": "c500c1cfb5181f2369d15c50158facd1217133cde3360155d2e3cd5b6d16c584"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000003",
+          "source_split": "validation",
+          "source_row_index": 3
+        },
+        "has_feedback": false,
+        "input_sha256": "4e61e9c22a293a7523e62eaf51eb3c66c5574836e0bc36b8a3456e67cc6b065a"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000014",
+          "source_split": "validation",
+          "source_row_index": 14
+        },
+        "has_feedback": false,
+        "input_sha256": "e87daa998f83ed945547bc8722d3ed0ba0783274fe3a56b0b283155442d7e361"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa_closed_book:validation:000081",
+          "source_split": "validation",
+          "source_row_index": 81
+        },
+        "has_feedback": false,
+        "input_sha256": "2154feb13067cbca622ade30d958e460ae1ffb3890d14ee81b11d51062e3daad"
+      }
+    ],
+    "test": [
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_333",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "9c01e8bab77cf022b969cbb55611d9a295ce3d373fd72b06a88a3ed5402bb325"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_334",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "51ceb7adc6d105fb29354003069793d65cd0a7dd845ded78a1e02e46e1088c58"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_715",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "262c163b1dd82d3bb969499638612a19072df629c6ce5c776788653f1dd48080"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1172",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "ce8a197ea4056d518960a8ab3574579bf9e2d24e7518df95e0180fec75962697"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_676",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "ea720b3e0705b5be78afee31fafade2e9d7e065401b065595dd3b3dd2dc9b9a2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1096",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "49b1f898b26f92677a1f087c75a4982165a5142ac2333995fe2ec9f1c952d7b9"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_631",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "237dd77c96db758a6a6ae9d8fa428deb92d5adcde61d86892d137d5da9f7fc27"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1134",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "a7ad57e04b2b3c959e4cd435103553f728bdc9db7cacde1c24412e06a3365cd8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_514",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "cc6115b7f30f13c37736bef53e8e04c5dfa83758bbe6c27c9579c58b70d5f1a3"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1042",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "02d0f6c841056cc6ada082fbad70cb38944da296b24e5115d661ae58d1551e44"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_289",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "b149856e625bbbe4e7ab21e3bbd9b85a35aa4e5b761ad102d51e4285e7be932d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_339",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "1be8564117e6cc916dbc323dcd44ca9b9ab056334e2fda5aa5da3d3b85323540"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_371",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "a67de595090c6cb10e81a659aa8977e9517cad343020bedc0f66a64309d85173"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1120",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "bdb99fea1bc0a21435578718cdef8c84de9282cf2bf51ac22da8e8f45ff8ba17"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_390",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "b254fc58e521e7fb462a8784e6a09e6eabd054c8b366dd6d854dd248e3f14df2"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_788",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "dc8d75cfc0a32f10bd75e8a18d7d77009f9fc0681e575dbb31286a40251bdcbb"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_880",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "104d1ee8e8d23442ab9f655dc9cf092df9a6daba5f1e2a4ca9248b2eb717c1a6"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_678",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "612d216770395fc279f91bb8a403bd689cdc027253421edd3452ab2d715426f6"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_779",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "eaf6b8cf661169ae7e9bc9406eb38e0185918be9f57eae42d5c7c0352f58da79"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_118",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "d1c7cfd984f7dc46a5beb57749b81fd0321bfb123f859b6f5af5d90d1f3c9b12"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_727",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "7cf60983116d133517fbd63cf14a84558b5cb3f81e72ef33a835c5d7a53fcba7"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_338",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "e5e6fde6b544b500f4aba45ba45e68fa6431b8d2cbd45ff7ee1006c0d5e2e48e"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_829",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "b3530ab9a7c26a22d0f98bb47dfd8c187309c5baf9a98fd7d9c065e739e3d0e0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1186",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "247c1bc48c02ea9c86824a60b7b19dad2c4cb1e9b4e06f59a10c2a76eab08b87"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1010",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "ab67c2f166aa50c94dcde09edcddc650f0bfa648377b317c86b338f784938cf8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_921",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "aaa1b557b06e2d8beb4851e6cf29797ec3663b8ddc932e81177cb7af72cd3a76"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_832",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "71784a45698e2c54ce90bf2e8ef028161a3c3984d695fa211ebac00d274ce2d8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_513",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "ae9b6695d0ca5873cabdeee7c76c0c29212fc8ba016f89d78d09a860cac08811"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_913",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "9df576b75fddcf3ed3fd22eb33d15bbc178274b5490f985ca214d448b2de7aa6"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_468",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "ba303ab66e782b98345ddc4676c4b549ee66987542c8d3f7b84b4e629eb5426f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_845",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "312f444d4cc292363d808d739a6e8f46ef9945b3aa3497a626956258217178fb"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_726",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "f240d4b42102920aca8472bb6380d559e7287f715a59b1f868f09b3a88e378a1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_700",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "933b625d0cb5cdbef4e20833318cf440b81ce010d40416838e1056d40f5eeaf0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_151",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "bb02b5a1c53dbb3eb9343277736598e07041821ffe9a1d0d81f7636a3cfa4e0d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_629",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "a583535977eb5a5627d0ca820c29b0d2140a9c1399f606980159cc59bb36f7e8"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_796",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "3f0e44430f4dcedf491692ac1ab1287538c1e1b7612718997c79007fb7dec9e1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_670",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "953bb512298e53d1a2779c42c2c6ce0f47b84938565a3f1955fa98fd5242836d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_563",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "35fc68e0e3a75f8a29dc751ac9a026ca260bbac05b4c53ccb0e61368487e0f5f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_238",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "a281afd272276faa724f04f066060d89b8e3c041b8e1a6a048ba407c421298b0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_202",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "8cbaaa9e189710cfb712bfd0d92c0bc79986699073b836891ce985a5598d24f1"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_838",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "30fd500b862bafc8cbd25ccc2866abfaef646d11fbbfc5934864de22a8c2cf53"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_930",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "353101172771580bb8d4ca85c8dde004bfcfd9cbb3ea93b5ff0b12d4aa049197"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1041",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "272d42647ceb24095be587df7631ad1fe8b13ad40df3a3e57286bb539beaf5b0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_469",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "89bda88e4cfc00429268c4d2fb270a7083f5c9fd67f2f4a0ab95b4aceb94e020"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_650",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "be0a9836e9db2c1aa121eb10fa86f12a2ad4c005c570cf5caaeeac39e881a76f"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1097",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "a49724607f91ee769af83aca028282a4f8d7985cbc63207c2f31318dbb68beab"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_616",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "1e22ea609992aa7c53c0f5753df61a9343cf385ff63b9f80e89dbdbf55dbacc0"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_887",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "af59caaeabec1a1ebaa03504f043bf846cf2c1e4a5400b806abf471bef138697"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_714",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "133fe48d449384f868830cf64c651436a052c26756ba61cd02d17e40da1ffafd"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1126",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "8885644863340f7f6e1e312c2db314eb54d090bdbc70c67c4e40b795c2319733"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_93",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "6c8c42b3e988010d5de5c1a6c8ae204ec9a21d54d3a22fdcd4a8d36fa396be46"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1149",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "5ccc3f0a8b83be39d08a798868184940888fb48fd9d90d23125dd92f85389736"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_223",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "19db01c1d7af93b9ec791f4cf6afe9a1b0a75197ad1584f8b8a19f28eec9607b"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_287",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "e3a1e302bf0e0d148005f5a85bf80538c0406127e6010b52ad99e616b922b260"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_301",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "e99c78e0de3d7500dbd71f0b2c8a3a209fb2e82a2fe433cb9c203f9ab6d04a77"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_747",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "9b9ec3a889187eebd1b898140b1837b44360df7823e2c18c12d9cd8578d53946"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1038",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "f134c3dca016d4b999a0a0c0ff2459daca7db5d493cb66b89b8c5c9211814c5d"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_1128",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "c4a519242f8ab3c22f521177d8c734fbe3595518f1e2fdd1c19e7ae91e3b0216"
+      },
+      {
+        "metadata": {
+          "record_id": "barexamqa:test:mbe_69",
+          "source_split": "test",
+          "source_dataset": "reglab/barexam_qa",
+          "source_revision": "b7c245a7e4739f6c785faa2489e283c8daa449d1"
+        },
+        "has_feedback": false,
+        "input_sha256": "cd1f0e71bc0ac4833c67b13f474b16a07dcbdd83ceb1a61f216be257ea900bf2"
+      }
+    ]
+  }
+}

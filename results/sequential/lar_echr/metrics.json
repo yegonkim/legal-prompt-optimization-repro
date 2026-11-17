@@ -1,0 +1,28 @@
+{
+  "dataset": "lar_echr",
+  "metric": "accuracy",
+  "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
+  "splits": {
+    "DEV": {
+      "ordinary_pass1": 0.43813775510204084,
+      "ordinary_vote4": 0.4362244897959184,
+      "optimized_pass1": 0.43813775510204084,
+      "optimized_vote4": 0.4362244897959184,
+      "optimized_judge": 0.4336734693877551,
+      "questions": 98
+    },
+    "TEST": {
+      "ordinary_pass1": 0.4579166666666667,
+      "ordinary_vote4": 0.4666666666666667,
+      "optimized_pass1": 0.4579166666666667,
+      "optimized_vote4": 0.4666666666666667,
+      "optimized_judge": 0.515,
+      "questions": 150
+    }
+  },
+  "notes": [
+    "Judge reflection batch4 follow-up after batch16 exceeded proposer context; other optimization settings held fixed.",
+    "58/98 archived DEV questions overlap FIT/SELECT."
+  ],
+  "new_pipeline_gpu_reproduction": false
+}

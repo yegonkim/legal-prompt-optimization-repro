@@ -1,0 +1,27 @@
+{
+  "dataset": "barexamqa_closed_book",
+  "metric": "accuracy",
+  "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
+  "splits": {
+    "DEV": {
+      "ordinary_pass1": 0.4974593495934959,
+      "ordinary_vote4": 0.516260162601626,
+      "optimized_pass1": 0.4974593495934959,
+      "optimized_vote4": 0.516260162601626,
+      "optimized_judge": 0.47560975609756095,
+      "questions": 123
+    },
+    "TEST": {
+      "ordinary_pass1": 0.3516949152542373,
+      "ordinary_vote4": 0.3559322033898305,
+      "optimized_pass1": 0.3516949152542373,
+      "optimized_vote4": 0.3559322033898305,
+      "optimized_judge": 0.4025423728813559,
+      "questions": 59
+    }
+  },
+  "notes": [
+    "20/123 archived DEV questions overlap FIT/SELECT."
+  ],
+  "new_pipeline_gpu_reproduction": false
+}

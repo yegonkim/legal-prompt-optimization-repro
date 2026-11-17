@@ -59,7 +59,11 @@ class Improvements(unittest.TestCase):
             with self.subTest(key=key):
                 c={**base,key:value}
                 with self.assertRaises(ValueError):validate_config(c)
-        for path in (ROOT/'configs').rglob('*.json'):validate_config(read(path))
+        for path in (ROOT/'configs').rglob('*.json'):
+            if path.parent.name == 'simple':
+                from legal_prompt_optimization.simple_experiment import SearchConfig
+                for item in read(path)['search']: SearchConfig(**item)
+            else: validate_config(read(path))
     def test_truncated_proposer_raw_evidence_is_preserved(self):
         class Truncated(Backend):
             def reflect(self,prompt,call):return 'partial',{'prompt':prompt,'text':'FULL RAW TRUNCATED TEXT','token_ids':[1,2,3],'finish_reason':'length'}

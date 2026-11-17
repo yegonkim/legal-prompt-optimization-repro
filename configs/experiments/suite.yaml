@@ -1,0 +1,27 @@
+version: 1
+root: ../..
+datasets:
+  ledgar:
+    config: configs/experiments/ledgar.yaml
+    prompts: results/sequential/ledgar/prompts.json
+  casehold:
+    config: configs/experiments/casehold.yaml
+    prompts: results/sequential/casehold/prompts.json
+  lar_echr:
+    config: configs/experiments/lar_echr.yaml
+    prompts: results/sequential/lar_echr/prompts.json
+  sara_entailment:
+    config: configs/experiments/sara_entailment.yaml
+    prompts: results/sequential/sara_entailment/prompts.json
+  barexamqa_closed_book:
+    config: configs/experiments/barexamqa_closed_book.yaml
+    prompts: results/sequential/barexamqa_closed_book/prompts.json
+  lexam:
+    config: configs/experiments/lexam.yaml
+    prompts: results/sequential/lexam/prompts.json
+  ecthr_npd:
+    config: configs/experiments/ecthr_npd.yaml
+    prompts: results/sequential/ecthr_npd/prompts.json
+  parcel:
+    config: configs/experiments/parcel.yaml
+    prompts: results/sequential/parcel/prompts.json

@@ -1,0 +1,92 @@
+# Fully resolved settings; no machine-specific paths or environment overrides.
+# Disable generation.answer_forcing.enabled for ordinary capped generation.
+version: 1
+mode: sequential
+seed: 42
+task:
+  metric: mae
+models:
+  student:
+    model: microsoft/Phi-4-mini-instruct
+    revision: cfbefacb99257ffa30c83adab238a50856ac3083
+    endpoint: http://127.0.0.1:8000
+    tokenizer: microsoft/Phi-4-mini-instruct
+    api_key_env: null
+    context_tokens: 16384
+  proposer:
+    model: google/gemma-4-12B-it
+    revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+    endpoint: http://127.0.0.1:8001
+    tokenizer: null
+    api_key_env: null
+    context_tokens: 32768
+generation:
+  response:
+    max_tokens: 1024
+    temperature: 0.7
+    top_p: 0.95
+    top_k: -1
+    repetition_penalty: 1.0
+    presence_penalty: 0.0
+    frequency_penalty: 0.0
+  judge:
+    max_tokens: 1024
+    temperature: 0.7
+    top_p: 0.95
+    top_k: -1
+    repetition_penalty: 1.0
+    presence_penalty: 0.0
+    frequency_penalty: 0.0
+  proposer:
+    max_tokens: 8192
+    temperature: 0.7
+    top_p: 0.95
+    thinking: true
+  schema_mode: guided_json
+  input_overflow: error
+  answer_forcing:
+    enabled: true
+    max_tokens: 128
+    temperature: 0.7
+    top_p: 0.95
+prompts:
+  response: Solve the legal problem carefully. Give a concise explanation and the
+    answer.
+  judge: Evaluate all four complete responses against the problem. Resolve disagreements
+    using the evidence and return your best answer.
+gepa:
+  response:
+    max_proposals: 24
+    reflection_batch_size: 3
+    candidate_selection: pareto
+    max_metric_calls: 10000
+    max_solver_calls: 1500
+    module_selector: round_robin
+    use_merge: false
+  judge:
+    max_proposals: 16
+    reflection_batch_size: 3
+    candidate_selection: pareto
+    max_metric_calls: 10000
+    max_solver_calls: 1500
+    module_selector: round_robin
+    use_merge: false
+  joint:
+    max_proposals: 24
+    reflection_batch_size: 3
+    candidate_selection: pareto
+    max_metric_calls: 10000
+    max_solver_calls: 10000
+    module_selector: round_robin
+    use_merge: false
+evaluation:
+  draws: 4
+  numeric_aggregation: median
+  classification_aggregation: vote
+  pass1_draw: 0
+runtime:
+  concurrency: 8
+  timeout_seconds: 1200
+  max_physical_calls: 100000
+  max_seconds: 172800
+  offline: false

@@ -1,0 +1,36 @@
+{
+  "origin_repository": "msv_legal",
+  "protocol": "legal_gepa_v1",
+  "historical_gpu_score_reproduction_validated": false,
+  "sources": {
+    "configs/migration/LED_oldconfig_seed42_20261107_v1.json": "a9c6571aeb63c9a95083fa4174d89cfce289099d11df440aaef2b8071e5ca62a",
+    "configs/migration/LED_full_reasoning_generic_reflect16_seed43_20261110_v1.json": "013973a60960285cd828767d526879d1c461d4bde4503516e949988d15c1eaf6",
+    "configs/migration/LED_full_reasoning_generic_reflect16_seed43_20261110_v1_results.json": "e61efb31d1b817d1538c088aa4c17a58735ea869124303485d228409f751d94e",
+    "dev_utils/run_LED_full_reasoning_generic_reflect16_seeds_20261110_v1.py": "3b0228d83918db3b508db578f259ab0ec3924460d2ad5c4998a58ed5bcd25c5a",
+    "configs/migration/LED_full_reasoning_user_accepted_reflect16_seed43_20261110_v1.json": "6a3c2282d4ebbe8de12d0a46496942d2f9a8aa5702f8b3680103440e01a6377b",
+    "configs/migration/LED_full_reasoning_accepted_reflect16_seed43_TEST_20261110_v1_results.json": "fadba9dc323c296de6fcd5d1d3dc064e151986c16534b94a86462c68339d40d4",
+    "configs/migration/LED_judge_cap_final_TEST_comparison_20261110_v1.json": "83008896a07c5ecd1fd03d69206e14a3ed7d0f56f5c1256235c64d1a1453f230",
+    "exported_TASK1_report": "7df624029a2caa9e8d0ad8ff654475ddf18bd202de671638152a6095e1fcbef8"
+  },
+  "effective_config_correction": "Original judge JSON has stale minibatch8/seed42 prose. Hash-verified executed runner explicitly uses minibatch16 and search_seed43. This YAML records executed values.",
+  "cohort_manifest_sha256": "7e07b24c06b5891d2f9a8f350df6e84f2efb237307489de3100990849d720930",
+  "reference_accuracy": {
+    "DEV": {
+      "ordinary_pass1": 0.5079,
+      "ordinary_vote4": 0.5229,
+      "optimized_pass1": 0.5853,
+      "optimized_vote4": 0.607421875,
+      "optimized_judge": 0.62060546875
+    },
+    "TEST": {
+      "ordinary_pass1": 0.4713,
+      "ordinary_vote4": 0.4951,
+      "optimized_pass1": 0.5632,
+      "optimized_vote4": 0.58642578125,
+      "optimized_judge": 0.60205078125
+    }
+  },
+  "exposure": "The512-token judge cap was chosen after an explicit512-vs1024 TEST comparison; exploratory, not independent held-out confirmation.",
+  "execution_note": "Historical judge search reused a completed768-response FIT/SELECT bank. A new end-to-end run generates its bank from its response winner, charges768 logical generations, and records exact cached output reuse. Fresh sampling/endpoint kernels may differ from archived raw generations.",
+  "reference_accuracy_precision": "Baseline/individual values are rounded from the archived report; vote4/judge values retain verified full precision."
+}

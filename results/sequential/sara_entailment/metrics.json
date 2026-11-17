@@ -1,0 +1,28 @@
+{
+  "dataset": "sara_entailment",
+  "metric": "accuracy",
+  "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
+  "splits": {
+    "DEV": {
+      "ordinary_pass1": 0.67,
+      "ordinary_vote4": 0.705,
+      "optimized_pass1": 0.64375,
+      "optimized_vote4": 0.66,
+      "optimized_judge": 0.66,
+      "questions": 50
+    },
+    "TEST": {
+      "ordinary_pass1": 0.66375,
+      "ordinary_vote4": 0.685,
+      "optimized_pass1": 0.66375,
+      "optimized_vote4": 0.68,
+      "optimized_judge": 0.605,
+      "questions": 50
+    }
+  },
+  "notes": [
+    "Judge reflection batch4 follow-up after batch16 exceeded proposer context; other optimization settings held fixed.",
+    "Historical DEV and TEST are halves derived from the source TEST partition."
+  ],
+  "new_pipeline_gpu_reproduction": false
+}

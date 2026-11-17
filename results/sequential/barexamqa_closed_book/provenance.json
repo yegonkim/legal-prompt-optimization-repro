@@ -1,0 +1,12 @@
+{
+  "source_file_sha256": {
+    "results/fixed_full_reasoning_bar_officialDEV_TEST_20261110_v1_results.json": "a39d890c709d1878764ea08bec0982e04d6d3283b34f1f84e057da0d767119cb",
+    "results/barexamqa_closed_book/response_winner.json": "b9bd551d805be170c09e97f1fcab385e0051f65252b0b0912fedea61cfc62765",
+    "results/barexamqa_closed_book/judge_winner.json": "5eb3a60fcd371e67a7243ccceec39694977cbe89b32a591aac3045bcf8508c3b",
+    "results/barexamqa_closed_book/source_configs.json": "6fc075bfe908172d05bb4ed1e67408f353d1ece2da4c200bab617576fc835f49"
+  },
+  "notes": [
+    "20/123 archived DEV questions overlap FIT/SELECT."
+  ],
+  "published_content": "Summary metrics and final instructions only; raw records remain local."
+}

@@ -1,0 +1,174 @@
+{
+  "dataset": "ecthr_npd",
+  "metric": "mae",
+  "evaluation": "Individual is draw0 of four; aggregation uses remaining valid draws. Numeric MAE is valid-only.",
+  "splits": {
+    "DEV": {
+      "n": 512,
+      "ordinary": {
+        "n": 512,
+        "pass1": {
+          "mae": 6145225948366.785,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -6145225948366.785,
+          "n": 512,
+          "valid": 511,
+          "failed": 1,
+          "coverage": 0.998046875
+        },
+        "median4": {
+          "mae": 633230.8109499395,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -633230.8109499395,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "failed_actor_draws": 12,
+        "aggregate_valid_draw_counts": {
+          "4": 500,
+          "3": 12
+        },
+        "forcing_attempts": 604,
+        "forcing_recoveries": 592
+      },
+      "optimized_response": {
+        "n": 512,
+        "pass1": {
+          "mae": 2.0876826724425887e+107,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -2.0876826724425887e+107,
+          "n": 512,
+          "valid": 479,
+          "failed": 33,
+          "coverage": 0.935546875
+        },
+        "median4": {
+          "mae": 10491.822970694175,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -10491.822970694175,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "failed_actor_draws": 149,
+        "aggregate_valid_draw_counts": {
+          "3": 98,
+          "4": 390,
+          "2": 21,
+          "1": 3
+        },
+        "forcing_attempts": 2048,
+        "forcing_recoveries": 1899
+      },
+      "optimized_response_and_judge": {
+        "mae": 12601.309515591873,
+        "mae_scope": "valid predictions only",
+        "selection_objective": "minimize_mae",
+        "selection_eligible": true,
+        "primary": -12601.309515591873,
+        "n": 512,
+        "valid": 511,
+        "failed": 1,
+        "coverage": 0.998046875
+      },
+      "response_prompt_changed": true,
+      "judge_prompt_changed": false
+    },
+    "TEST": {
+      "n": 512,
+      "ordinary": {
+        "n": 512,
+        "pass1": {
+          "mae": 453728452816990.9,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -453728452816990.9,
+          "n": 512,
+          "valid": 507,
+          "failed": 5,
+          "coverage": 0.990234375
+        },
+        "median4": {
+          "mae": 1178636735.3770015,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -1178636735.3770015,
+          "n": 512,
+          "valid": 511,
+          "failed": 1,
+          "coverage": 0.998046875
+        },
+        "failed_actor_draws": 18,
+        "aggregate_valid_draw_counts": {
+          "4": 499,
+          "0": 1,
+          "3": 10,
+          "2": 2
+        }
+      },
+      "optimized_response": {
+        "n": 512,
+        "pass1": {
+          "mae": 2.2345132743362832e+202,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -2.2345132743362832e+202,
+          "n": 512,
+          "valid": 452,
+          "failed": 60,
+          "coverage": 0.8828125
+        },
+        "median4": {
+          "mae": 8043.756483541887,
+          "mae_scope": "valid predictions only",
+          "selection_objective": "minimize_mae",
+          "selection_eligible": true,
+          "primary": -8043.756483541887,
+          "n": 512,
+          "valid": 507,
+          "failed": 5,
+          "coverage": 0.990234375
+        },
+        "failed_actor_draws": 211,
+        "aggregate_valid_draw_counts": {
+          "4": 359,
+          "2": 27,
+          "3": 113,
+          "1": 8,
+          "0": 5
+        }
+      },
+      "optimized_response_and_judge": {
+        "mae": 849967.2562988282,
+        "mae_scope": "valid predictions only",
+        "selection_objective": "minimize_mae",
+        "selection_eligible": true,
+        "primary": -849967.2562988282,
+        "n": 512,
+        "valid": 512,
+        "failed": 0,
+        "coverage": 1.0
+      }
+    }
+  },
+  "notes": [
+    "Prior reshuffled official TEST optimization exposure; prior TEST readouts reported. Not pristine.",
+    "Extreme numeric outputs persist. TEST optimized pass1 has 60 failures (88.28% coverage); optimized median4 MAE8043.76 excludes5 cases. Do not describe valid-only MAE as a reliable overall improvement. Judge search retained the neutral seed prompt.",
+    "Portable cohort implementation of original-decoding answer-forcing recipe; not bit-identical to archived runner. Reflection-policy wording, cache layout and transport differ."
+  ],
+  "new_pipeline_gpu_reproduction": false
+}

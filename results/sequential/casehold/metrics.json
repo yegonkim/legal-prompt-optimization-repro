@@ -1,0 +1,28 @@
+{
+  "dataset": "casehold",
+  "metric": "accuracy",
+  "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
+  "splits": {
+    "DEV": {
+      "ordinary_pass1": 0.608642578125,
+      "ordinary_vote4": 0.6171875,
+      "optimized_pass1": 0.6163330078125,
+      "optimized_vote4": 0.63525390625,
+      "optimized_judge": 0.63330078125,
+      "questions": 512
+    },
+    "TEST": {
+      "ordinary_pass1": 0.558837890625,
+      "ordinary_vote4": 0.56103515625,
+      "optimized_pass1": 0.5693359375,
+      "optimized_vote4": 0.5732421875,
+      "optimized_judge": 0.5830078125,
+      "questions": 512
+    }
+  },
+  "notes": [
+    "Judge reflection batch4 follow-up after batch16 exceeded proposer context; other optimization settings held fixed.",
+    "Archived DEV512 includes two FIT-overlapping cases. Public builder removes them: DEV510. Public rerun is not an exact reproduction of archived DEV scores."
+  ],
+  "new_pipeline_gpu_reproduction": false
+}

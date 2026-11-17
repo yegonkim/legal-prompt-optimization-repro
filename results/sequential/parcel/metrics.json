@@ -1,0 +1,143 @@
+{
+  "dataset": "parcel",
+  "metric": "macro_f1",
+  "evaluation": "Individual is draw0 of four; aggregation uses remaining valid draws. Numeric MAE is valid-only.",
+  "splits": {
+    "DEV": {
+      "n": 512,
+      "ordinary": {
+        "n": 512,
+        "pass1": {
+          "primary": 0.39190397888072304,
+          "macro_f1": 0.39190397888072304,
+          "accuracy": 0.466796875,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "vote4": {
+          "primary": 0.40671480456589415,
+          "macro_f1": 0.40671480456589415,
+          "accuracy": 0.50390625,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "failed_actor_draws": 0,
+        "aggregate_valid_draw_counts": {
+          "4": 512
+        },
+        "forcing_attempts": 206,
+        "forcing_recoveries": 206
+      },
+      "optimized_response": {
+        "n": 512,
+        "pass1": {
+          "primary": 0.32210209403574747,
+          "macro_f1": 0.32210209403574747,
+          "accuracy": 0.34765625,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "vote4": {
+          "primary": 0.3374903507007123,
+          "macro_f1": 0.3374903507007123,
+          "accuracy": 0.373046875,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "failed_actor_draws": 0,
+        "aggregate_valid_draw_counts": {
+          "4": 512
+        },
+        "forcing_attempts": 461,
+        "forcing_recoveries": 461
+      },
+      "optimized_response_and_judge": {
+        "primary": 0.3174535546287875,
+        "macro_f1": 0.3174535546287875,
+        "accuracy": 0.341796875,
+        "n": 512,
+        "valid": 512,
+        "failed": 0,
+        "coverage": 1.0
+      },
+      "response_prompt_changed": true,
+      "judge_prompt_changed": true
+    },
+    "TEST": {
+      "n": 512,
+      "ordinary": {
+        "n": 512,
+        "pass1": {
+          "primary": 0.3565320976811331,
+          "macro_f1": 0.3565320976811331,
+          "accuracy": 0.42578125,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "vote4": {
+          "primary": 0.38755092946269415,
+          "macro_f1": 0.38755092946269415,
+          "accuracy": 0.482421875,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "failed_actor_draws": 0,
+        "aggregate_valid_draw_counts": {
+          "4": 512
+        }
+      },
+      "optimized_response": {
+        "n": 512,
+        "pass1": {
+          "primary": 0.3017258413739463,
+          "macro_f1": 0.3017258413739463,
+          "accuracy": 0.33203125,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "vote4": {
+          "primary": 0.3240217976744923,
+          "macro_f1": 0.3240217976744923,
+          "accuracy": 0.3671875,
+          "n": 512,
+          "valid": 512,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "failed_actor_draws": 0,
+        "aggregate_valid_draw_counts": {
+          "4": 512
+        }
+      },
+      "optimized_response_and_judge": {
+        "primary": 0.2839156950567632,
+        "macro_f1": 0.2839156950567632,
+        "accuracy": 0.3125,
+        "n": 512,
+        "valid": 512,
+        "failed": 0,
+        "coverage": 1.0
+      }
+    }
+  },
+  "notes": [
+    "New TEST contains25 priorFIT,8 priorSELECT,70 priorDEV,81 priorTEST cases. All34 opinions shared between DEV and TEST. Not pristine.",
+    "Optimized response and judge are worse than baseline on DEV and TEST. All predictions valid after forcing.",
+    "Portable cohort implementation of original-decoding answer-forcing recipe; not bit-identical to archived runner. Reflection-policy wording, cache layout and transport differ."
+  ],
+  "new_pipeline_gpu_reproduction": false
+}
