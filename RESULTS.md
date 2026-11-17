@@ -8,7 +8,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 |---|---|---|---:|---:|---:|---:|---:|
 | [ledgar](results/sequential/ledgar/prompts.json) | DEV | accuracy | 50.96% | 53.47% | 58.26% | 60.55% | 60.69% |
 | [ledgar](results/sequential/ledgar/prompts.json) | TEST | accuracy | 46.61% | 47.95% | 56.77% | 59.13% | 60.79% |
-| [casehold](results/sequential/casehold/prompts.json) | DEV | accuracy | 60.86% | 61.72% | 61.63% | 63.53% | 63.33% |
+| [casehold](results/sequential/casehold/prompts.json) | DEV | accuracy | 60.22% | 60.64% | 62.25% | 63.24% | 63.68% |
 | [casehold](results/sequential/casehold/prompts.json) | TEST | accuracy | 55.88% | 56.10% | 56.93% | 57.32% | 58.30% |
 | [lar_echr](results/sequential/lar_echr/prompts.json) | DEV | accuracy | 43.81% | 43.62% | 43.81% | 43.62% | 43.37% |
 | [lar_echr](results/sequential/lar_echr/prompts.json) | TEST | accuracy | 45.79% | 46.67% | 45.79% | 46.67% | 51.50% |
@@ -34,7 +34,7 @@ NPD remains unstable: its TEST optimized individual has 60 failures (88.28% cove
 ## Exposure and reproduction limits
 
 - LEDGAR judge cap512 was chosen using a TEST comparison against cap1024; results are exploratory.
-- CaseHOLD reported DEV512 included two cases also in FIT. The explicit public recipe removes those cases (DEV510); a clean rerun is not the same DEV evaluation.
+- CaseHOLD DEV excludes two FIT-overlapping cases (510 cases).
 - LAR-ECHR has 58/98 DEV questions overlapping FIT/SELECT; BarExamQA has 20/123.
 - SARA and LEXam retain reported DEV/TEST halves derived from source TEST.
 - NPD had earlier optimization exposure to official TEST through reshuffled partitions.

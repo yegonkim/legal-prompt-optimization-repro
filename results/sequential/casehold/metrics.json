@@ -4,12 +4,44 @@
   "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
   "splits": {
     "DEV": {
-      "ordinary_pass1": 0.608642578125,
-      "ordinary_vote4": 0.6171875,
-      "optimized_pass1": 0.6163330078125,
-      "optimized_vote4": 0.63525390625,
-      "optimized_judge": 0.63330078125,
-      "questions": 512
+      "ordinary_pass1": 0.6022058823529411,
+      "ordinary_vote4": 0.6063725490196078,
+      "optimized_pass1": 0.6225490196078431,
+      "optimized_vote4": 0.6323529411764706,
+      "optimized_judge": 0.6367647058823529,
+      "questions": 510,
+      "prediction_counts": {
+        "ordinary_pass1": {
+          "n": 8160,
+          "valid": 8160,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "ordinary_vote4": {
+          "n": 2040,
+          "valid": 2040,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_pass1": {
+          "n": 8160,
+          "valid": 8159,
+          "failed": 1,
+          "coverage": 0.9998774509803922
+        },
+        "optimized_vote4": {
+          "n": 2040,
+          "valid": 2040,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_judge": {
+          "n": 2040,
+          "valid": 2040,
+          "failed": 0,
+          "coverage": 1.0
+        }
+      }
     },
     "TEST": {
       "ordinary_pass1": 0.558837890625,
@@ -22,7 +54,7 @@
   },
   "notes": [
     "Judge reflection batch size is4 to fit the proposer context limit.",
-    "Reported DEV512 includes two FIT-overlapping cases. Public builder removes them: DEV510. Public rerun is not an exact reproduction of reported DEV scores."
+    "DEV contains510 cases after removing two FIT-overlapping cases."
   ],
   "gpu_reproduction_verified": false
 }
