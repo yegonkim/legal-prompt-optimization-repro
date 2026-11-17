@@ -1,23 +1,18 @@
 # vLLM model serving
 
-vLLM is the default backend. Run `legal-prompts` in a runner environment and the two model servers in a shared serving environment. The supplied experiment configs use Phi for responses/judges and Gemma for reflection. Installing the runner does not install either server.
+vLLM is the default backend. **Use one environment for the entire pipeline:** dataset preparation, GEPA optimization, evaluation, Phi responses/judges, and Gemma reflection. The models run as separate server processes using the same Python installation as `legal-prompts`.
 
 ## Install
 
-Run these commands from the repository root on Linux with Python 3.11 and an NVIDIA GPU. Both Phi and Gemma use **vLLM 0.33.0 in one shared serving environment**. The runner stays separate. The pinned serving wheel uses CUDA 13.0; your driver and GPU must support it, and BF16 requires Ampere or newer. See the [official vLLM installation guide](https://docs.vllm.ai/en/stable/getting_started/installation/gpu/) for hardware-specific installation.
+Run these commands from the repository root on Linux with Python 3.11 and an NVIDIA GPU. The unified environment uses **vLLM 0.33.0**. The pinned serving wheel uses CUDA 13.0; your driver and GPU must support it, and BF16 requires Ampere or newer. See the [official vLLM installation guide](https://docs.vllm.ai/en/stable/getting_started/installation/gpu/) for hardware-specific installation.
 
 ```bash
-python3.11 -m venv .venv-runner
-.venv-runner/bin/python -m pip install --upgrade pip
-.venv-runner/bin/python -m pip install -e '.[data,grammar]'
-
-python3.11 -m venv .venv-vllm
-.venv-vllm/bin/python -m pip install --upgrade pip
-.venv-vllm/bin/python -m pip install -r requirements/serve.txt
-.venv-vllm/bin/python -m pip check
-.venv-vllm/bin/python -c 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.get_device_name()); print(torch.ones(1, device="cuda") + 1)'
-
-source .venv-runner/bin/activate
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e '.[data,vllm]'
+python -m pip check
+python -c 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.get_device_name()); print(torch.ones(1, device="cuda") + 1)'
 legal-prompts --help
 ```
 
@@ -25,31 +20,31 @@ legal-prompts --help
 |---|---|---|---|---|---|
 | Phi and Gemma | 0.33.0 | 2.14.0 | 5.20.2 | 0.2.8 | `structured_outputs` |
 
-The requirements pin the four core serving packages, not all transitive dependencies. All supplied configs use `structured_outputs`; JSON, compact grammar, and answer-forcing choice/regex constraints use this API. See [vLLM structured outputs](https://docs.vllm.ai/en/stable/features/structured_outputs/).
+The `vllm` extra in `pyproject.toml` pins the four core serving packages, not all transitive dependencies. All supplied configs use `structured_outputs`; JSON, compact grammar, and answer-forcing choice/regex constraints use this API. See [vLLM structured outputs](https://docs.vllm.ai/en/stable/features/structured_outputs/).
 
 For a gated model, obtain access on its Hugging Face model page, then authenticate:
 
 ```bash
-.venv-vllm/bin/hf auth login
+hf auth login
 ```
 
 The servers download the model revisions pinned in the config on first launch. Allow disk space and download time for both checkpoints. Set `HF_HOME` before launching if you want a shared cache. For unattended authentication, supply `HF_TOKEN` through your environment or secret manager. Never put credentials in YAML.
 
 ## Launch
 
-Choose the experiment config you intend to run and set its `models.student.endpoint` and `models.proposer.endpoint` to the desired ports. Default ports are 8000 and 8001. Launch from the activated runner environment. These examples use one GPU per model; run each command in its own terminal:
+Choose the experiment config you intend to run and set its `models.student.endpoint` and `models.proposer.endpoint` to the desired ports. Default ports are 8000 and 8001. Launch from the activated environment. These examples use one GPU per model; run each command in its own terminal:
 
 ```bash
 legal-prompts serve --config configs/experiments/ledgar.yaml --role student \
-  --python .venv-vllm/bin/python --gpu 0 \
+  --gpu 0 \
   --memory-fraction 0.85 --max-sequences 8
 
 legal-prompts serve --config configs/experiments/ledgar.yaml --role proposer \
-  --python .venv-vllm/bin/python --gpu 1 \
+  --gpu 1 \
   --memory-fraction 0.85 --max-sequences 1
 ```
 
-Add `--dry-run` to print the command without inspecting the environment or starting a server. Actual launch checks the selected interpreter and rejects known API/version mismatches. The helper runs in the foreground; use your service manager for persistent servers. It does not stop existing processes or alter installed packages.
+The launcher uses the same Python interpreter as `legal-prompts` by default. No `--python` argument or second environment is needed. Add `--dry-run` to print the command without inspecting the environment or starting a server. Actual launch checks the selected interpreter and rejects known API/version mismatches. The helper runs in the foreground; use your service manager for persistent servers. It does not stop existing processes or alter installed packages.
 
 Model revision, BF16, context limit, memory fraction, maximum sequences and the structured-output backend are passed explicitly. Gemma-4 runs in language-only mode; thinking enables the `gemma4` reasoning parser and chat-template flag. CUDA graphs use vLLM defaults; eager execution is not forced. Requests run concurrently according to `runtime.concurrency`, allowing vLLM to batch them. Each draw has its own seed and `n: 1`.
 
@@ -82,7 +77,7 @@ legal-prompts evaluate --data examples/toy.jsonl --config examples/smoke.yaml \
 
 - Connection refused: wait for server startup, check its logs, and verify the configured port. Downloading weights and building CUDA graphs can take time.
 - Unknown `guided_json`, `guided_choice` or `guided_regex`: use a current config with `schema_mode: structured_outputs`; these fields were removed from modern vLLM.
-- Unknown Gemma architecture or `gemma4` parser: use the pinned shared serving environment.
+- Unknown Gemma architecture or `gemma4` parser: install the pinned `vllm` extra in the active environment.
 - CUDA out of memory: check other GPU processes, model weights, context length and the combined memory reservations. The launcher does not manage GPU allocation across servers.
 - Missing final reflection text: check that thinking output is parsed separately and that the configured proposer output budget is sufficient. The runner rejects truncated/empty reflection output.
 - Context overflow: inputs are never silently clipped. Check the server's loaded context against the config and the full prompt plus output budget.

@@ -12,6 +12,7 @@ dependencies = ["PyYAML>=6.0,<7", "gepa==0.1.4"]
 [project.optional-dependencies]
 grammar = ["xgrammar>=0.1.21,<0.3"]
 data = ["huggingface-hub>=0.30,<2", "pyarrow>=14,<27", "transformers>=4.49,<6", "datasets>=3.6,<4"]
+vllm = ["vllm==0.33.0", "torch==2.14.0", "transformers==5.20.2", "xgrammar==0.2.8"]
 
 [project.scripts]
 legal-prompts = "legal_prompt_optimization.pipeline.cli:entrypoint"

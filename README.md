@@ -6,20 +6,20 @@ Supports classification, numeric regression and probability prediction, with res
 
 ## Install
 
-Use Python3.11 in an environment separate from model serving:
+Use one Python 3.11 environment for dataset preparation, GEPA, evaluation, and both vLLM model servers:
 
 ```bash
-python3.11 -m venv .venv-runner
-source .venv-runner/bin/activate
-pip install -e '.[data,grammar]'
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[data,vllm]'
 legal-prompts --help
 ```
 
-`legal-prompts` is the only installed command. For an existing installation, reinstall with `pip install -e '.[data,grammar]'` to remove superseded console entry points.
+`legal-prompts` is the only installed command. For an existing installation, reinstall with `pip install -e '.[data,vllm]'` to remove superseded console entry points.
 
-The `data` extra provides source readers and tokenizers. The `grammar` extra supports compact structured output in per-case profiles. Neither installs a vLLM server. `pip install -e .` suffices for custom JSONL and endpoints providing tokenization, when compact grammar is not required.
+The `data` extra installs source readers and tokenizers. The `vllm` extra installs pinned vLLM 0.33.0, PyTorch, Transformers, and XGrammar. The same environment runs the CLI and both servers.
 
-Before running optimization, [install and start the shared vLLM 0.33.0 environment](docs/serving.md#install), then verify real generation:
+Before running optimization, [start the vLLM servers](docs/serving.md#install), then verify real generation:
 
 ```bash
 legal-prompts smoke --config configs/experiments/ledgar.yaml --out runs/smoke-ledgar
@@ -101,7 +101,7 @@ Run models with vLLM using the [serving instructions and launch helpers](docs/se
 
 ```bash
 legal-prompts serve --config configs/experiments/ledgar.yaml --role student \
-  --python .venv-vllm/bin/python --gpu 0 --dry-run
+  --gpu 0 --dry-run
 ```
 
 Remove `--dry-run` to launch a foreground server. Credentials are read from configured environment-variable names. Secret values are not written into configs or cache identities.

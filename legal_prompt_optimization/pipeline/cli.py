@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import sys
 import time
 from dataclasses import asdict
 from pathlib import Path
@@ -111,7 +112,7 @@ def main(argv=None, backend_factory=None):
     p.add_argument("--config", type=Path, required=True)
     p.add_argument("--role", choices=["student", "proposer"], required=True)
     p.add_argument("--gpu", type=int, required=True)
-    p.add_argument("--python", default="python")
+    p.add_argument("--python", default=sys.executable)
     p.add_argument("--memory-fraction", type=float, default=0.45)
     p.add_argument("--max-sequences", type=int, default=8)
     p.add_argument("--dry-run", action="store_true")

@@ -31,8 +31,9 @@ def environment(python):
         return json.loads(result.stdout)
     except (OSError, subprocess.SubprocessError, ValueError) as error:
         raise RuntimeError(
-            "Cannot inspect the vLLM environment. Install requirements/serve.txt in a separate environment and pass "
-            "its interpreter with --python; see docs/serving.md."
+            "Cannot inspect the vLLM environment. Install the project with "
+            "pip install -e '.[data,vllm]' in the active environment; "
+            "--python can override the interpreter. See docs/serving.md."
         ) from error
 
 

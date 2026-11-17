@@ -1,5 +1,6 @@
 import copy
 import json
+import sys
 import tempfile
 import tomllib
 import unittest
@@ -15,6 +16,23 @@ from legal_prompt_optimization.pipeline.smoke import smoke
 
 
 class Serving(unittest.TestCase):
+    def test_launcher_defaults_to_cli_interpreter(self):
+        from legal_prompt_optimization.pipeline.cli import main
+
+        with patch("legal_prompt_optimization.pipeline.serve.serve") as launch:
+            main(
+                [
+                    "serve",
+                    "--config",
+                    "examples/smoke.yaml",
+                    "--role",
+                    "student",
+                    "--gpu",
+                    "0",
+                ]
+            )
+        self.assertEqual(launch.call_args.args[0].python, sys.executable)
+
     def test_single_console_command(self):
         project = tomllib.loads(Path("pyproject.toml").read_text())
         self.assertEqual(set(project["project"]["scripts"]), {"legal-prompts"})
