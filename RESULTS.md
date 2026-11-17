@@ -11,7 +11,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 | [casehold](results/sequential/casehold/prompts.json) | DEV | accuracy | 60.22% | 60.64% | 62.25% | 63.24% | 63.68% |
 | [casehold](results/sequential/casehold/prompts.json) | TEST | accuracy | 56.79% | 57.42% | 57.20% | 58.25% | 58.50% |
 | [lar_echr](results/sequential/lar_echr/prompts.json) | DEV | accuracy | 43.69% | 45.92% | 43.69% | 45.92% | 43.37% |
-| [lar_echr](results/sequential/lar_echr/prompts.json) | TEST | accuracy | 45.79% | 46.67% | 45.79% | 46.67% | 51.50% |
+| [lar_echr](results/sequential/lar_echr/prompts.json) | TEST | accuracy | 46.04% | 48.17% | 46.04% | 48.17% | 49.67% |
 | [sara_entailment](results/sequential/sara_entailment/prompts.json) | DEV | accuracy | 67.00% | 70.50% | 64.38% | 66.00% | 66.00% |
 | [sara_entailment](results/sequential/sara_entailment/prompts.json) | TEST | accuracy | 66.38% | 68.50% | 66.38% | 68.00% | 60.50% |
 | [barexamqa_closed_book](results/sequential/barexamqa_closed_book/prompts.json) | DEV | accuracy | 49.75% | 51.63% | 49.75% | 51.63% | 47.56% |

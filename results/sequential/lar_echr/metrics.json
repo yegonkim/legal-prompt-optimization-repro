@@ -44,17 +44,49 @@
       }
     },
     "TEST": {
-      "ordinary_pass1": 0.4579166666666667,
-      "ordinary_vote4": 0.4666666666666667,
-      "optimized_pass1": 0.4579166666666667,
-      "optimized_vote4": 0.4666666666666667,
-      "optimized_judge": 0.515,
-      "questions": 150
+      "ordinary_pass1": 0.46041666666666664,
+      "ordinary_vote4": 0.4816666666666667,
+      "optimized_pass1": 0.46041666666666664,
+      "optimized_vote4": 0.4816666666666667,
+      "optimized_judge": 0.49666666666666665,
+      "questions": 150,
+      "prediction_counts": {
+        "ordinary_pass1": {
+          "n": 2400,
+          "valid": 2400,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "ordinary_vote4": {
+          "n": 600,
+          "valid": 600,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_pass1": {
+          "n": 2400,
+          "valid": 2400,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_vote4": {
+          "n": 600,
+          "valid": 600,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_judge": {
+          "n": 600,
+          "valid": 600,
+          "failed": 0,
+          "coverage": 1.0
+        }
+      }
     }
   },
   "notes": [
     "Judge reflection batch size is4 to fit the proposer context limit.",
     "58/98 reported DEV questions overlap FIT/SELECT."
   ],
-  "gpu_reproduction_verified": false
+  "gpu_reproduction_verified": true
 }
