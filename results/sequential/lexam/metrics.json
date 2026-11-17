@@ -4,12 +4,44 @@
   "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
   "splits": {
     "DEV": {
-      "ordinary_pass1": 0.2127685546875,
-      "ordinary_vote4": 0.21875,
-      "optimized_pass1": 0.2589111328125,
-      "optimized_vote4": 0.28369140625,
-      "optimized_judge": 0.2646484375,
-      "questions": 512
+      "ordinary_pass1": 0.2120361328125,
+      "ordinary_vote4": 0.2255859375,
+      "optimized_pass1": 0.2545166015625,
+      "optimized_vote4": 0.2763671875,
+      "optimized_judge": 0.25390625,
+      "questions": 512,
+      "prediction_counts": {
+        "ordinary_pass1": {
+          "n": 8192,
+          "valid": 8191,
+          "failed": 1,
+          "coverage": 0.9998779296875
+        },
+        "ordinary_vote4": {
+          "n": 2048,
+          "valid": 2048,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_pass1": {
+          "n": 8192,
+          "valid": 8169,
+          "failed": 23,
+          "coverage": 0.9971923828125
+        },
+        "optimized_vote4": {
+          "n": 2048,
+          "valid": 2048,
+          "failed": 0,
+          "coverage": 1.0
+        },
+        "optimized_judge": {
+          "n": 2048,
+          "valid": 2047,
+          "failed": 1,
+          "coverage": 0.99951171875
+        }
+      }
     },
     "TEST": {
       "ordinary_pass1": 0.22314453125,
