@@ -1,6 +1,6 @@
-# Model endpoints and optional vLLM launch helpers
+# vLLM model serving
 
-The optimization runner is separate from model serving. Keep existing servers if you have them; configure `models.student.endpoint` and `models.proposer.endpoint` in YAML. A server must expose OpenAI-compatible chat completions and the configured structured-output mode. If local tokenizers are not configured, `/tokenize` is also required. Answer forcing additionally requires `continue_final_message`, `add_generation_prompt: false`, and guided choice/regex continuation.
+vLLM is the default serving backend. The optimization runner is separate from model serving. Configure `models.student.endpoint` and `models.proposer.endpoint` in YAML to point to your vLLM servers. A server must expose OpenAI-compatible chat completions and the configured structured-output mode. If local tokenizers are not configured, `/tokenize` is also required. Answer forcing additionally requires `continue_final_message`, `add_generation_prompt: false`, and guided choice/regex continuation.
 
 The default models are Phi-4-mini-instruct for responses/judges and Gemma-4-12B-it for reflection. Both model revisions are pinned in the example configs. Model access approval and Hugging Face authentication, where required, are handled in the serving environment.
 

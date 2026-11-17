@@ -1,6 +1,6 @@
 # Legal prompt optimization
 
-A config-driven pipeline for **dataset preparation → GEPA prompt optimization → evaluation**. Supply a JSONL dataset and a YAML config. Models run through configured endpoints; the pipeline runner needs no GPU.
+A config-driven pipeline for **dataset preparation → GEPA prompt optimization → evaluation**. Supply a JSONL dataset and a YAML config. vLLM is the default model-serving backend; the pipeline runner connects to its endpoints and needs no GPU.
 
 Supports classification, numeric regression and probability prediction, with response-only, judge-only, sequential and joint optimization. Generation settings, including answer forcing, apply during both optimization and evaluation.
 
@@ -41,7 +41,6 @@ Numeric rows use `task_type: "regression"` or `"probability"` and numeric answer
 
 ```bash
 legal-prompts validate --data data/ledgar.jsonl --config configs/experiments/ledgar.yaml
-legal-prompts preflight --config configs/experiments/ledgar.yaml
 legal-prompts optimize --data data/ledgar.jsonl --config configs/experiments/ledgar.yaml --out runs/ledgar
 
 legal-prompts evaluate --data data/ledgar.jsonl --config configs/experiments/ledgar.yaml \
@@ -51,6 +50,8 @@ legal-prompts evaluate --data data/ledgar.jsonl --config configs/experiments/led
 ```
 
 The same YAML controls optimization and evaluation. GEPA uses FIT for reflection and SELECT for prompt selection. DEV supports configuration assessment; freeze choices before TEST. Optimization never passes DEV/TEST examples to GEPA or the proposer.
+
+Optimization and evaluation automatically check server health, model names and tokenization before generation. The separate `legal-prompts preflight --config CONFIG.yaml` command is an optional diagnostic; it does not test generation or answer-forcing support.
 
 `mode: sequential` optimizes a response prompt, generates fixed four-response FIT/SELECT banks, then optimizes a judge. Use `mode: joint` with `protocol: cohort_v1` to optimize four response instructions and one judge together; [`parcel_joint.yaml`](configs/pipeline/parcel_joint.yaml) is an example. Judge-only mode requires `--response PATH/TO/RESPONSE_WINNER.json`.
 
@@ -86,7 +87,7 @@ Repeat an interrupted optimization/evaluation command with `--resume`. Config, d
 
 ## Model serving
 
-Use existing endpoints or the optional [vLLM launch helpers](docs/serving.md):
+Run models with vLLM using the [serving instructions and launch helpers](docs/serving.md). An already-running compatible vLLM server can also be used:
 
 ```bash
 legal-prompts serve --config configs/experiments/ledgar.yaml --role student \
