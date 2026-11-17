@@ -4,22 +4,22 @@
   "evaluation": "Individual is mean of16 draws; aggregate is mean of four groups of four.",
   "splits": {
     "DEV": {
-      "ordinary_pass1": 0.5079,
-      "ordinary_vote4": 0.5229,
-      "optimized_pass1": 0.5853,
-      "optimized_vote4": 0.607421875,
-      "optimized_judge": 0.62060546875
+      "ordinary_pass1": 0.5096435546875,
+      "ordinary_vote4": 0.53466796875,
+      "optimized_pass1": 0.5826416015625,
+      "optimized_vote4": 0.60546875,
+      "optimized_judge": 0.60693359375
     },
     "TEST": {
-      "ordinary_pass1": 0.4713,
-      "ordinary_vote4": 0.4951,
-      "optimized_pass1": 0.5632,
-      "optimized_vote4": 0.58642578125,
-      "optimized_judge": 0.60205078125
+      "ordinary_pass1": 0.466064453125,
+      "ordinary_vote4": 0.4794921875,
+      "optimized_pass1": 0.5677490234375,
+      "optimized_vote4": 0.59130859375,
+      "optimized_judge": 0.60791015625
     }
   },
   "notes": [
-    "Baseline and individual accuracies rounded from original report; judge cap512 selected using TEST comparison (exploratory)."
+    "Judge cap512 selected using TEST comparison (exploratory)."
   ],
-  "gpu_reproduction_verified": false
+  "gpu_reproduction_verified": true
 }

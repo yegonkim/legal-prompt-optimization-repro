@@ -6,8 +6,8 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 
 | Dataset | Split | Metric | Baseline individual | Baseline aggregate@4 | Optimized individual | Optimized aggregate@4 | Optimized + judge |
 |---|---|---|---:|---:|---:|---:|---:|
-| [ledgar](results/sequential/ledgar/prompts.json) | DEV | accuracy | 50.79% | 52.29% | 58.53% | 60.74% | 62.06% |
-| [ledgar](results/sequential/ledgar/prompts.json) | TEST | accuracy | 47.13% | 49.51% | 56.32% | 58.64% | 60.21% |
+| [ledgar](results/sequential/ledgar/prompts.json) | DEV | accuracy | 50.96% | 53.47% | 58.26% | 60.55% | 60.69% |
+| [ledgar](results/sequential/ledgar/prompts.json) | TEST | accuracy | 46.61% | 47.95% | 56.77% | 59.13% | 60.79% |
 | [casehold](results/sequential/casehold/prompts.json) | DEV | accuracy | 60.86% | 61.72% | 61.63% | 63.53% | 63.33% |
 | [casehold](results/sequential/casehold/prompts.json) | TEST | accuracy | 55.88% | 56.10% | 56.93% | 57.32% | 58.30% |
 | [lar_echr](results/sequential/lar_echr/prompts.json) | DEV | accuracy | 43.81% | 43.62% | 43.81% | 43.62% | 43.37% |
