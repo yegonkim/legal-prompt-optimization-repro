@@ -15,7 +15,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 | [sara_entailment](results/sequential/sara_entailment/prompts.json) | DEV | accuracy | 67.00% | 70.50% | 64.38% | 66.00% | 66.00% |
 | [sara_entailment](results/sequential/sara_entailment/prompts.json) | TEST | accuracy | 66.38% | 68.50% | 66.38% | 68.00% | 60.50% |
 | [barexamqa_closed_book](results/sequential/barexamqa_closed_book/prompts.json) | DEV | accuracy | 49.34% | 50.41% | 49.34% | 50.41% | 46.34% |
-| [barexamqa_closed_book](results/sequential/barexamqa_closed_book/prompts.json) | TEST | accuracy | 35.17% | 35.59% | 35.17% | 35.59% | 40.25% |
+| [barexamqa_closed_book](results/sequential/barexamqa_closed_book/prompts.json) | TEST | accuracy | 35.49% | 37.71% | 35.49% | 37.71% | 38.56% |
 | [lexam](results/sequential/lexam/prompts.json) | DEV | accuracy | 21.20% | 22.56% | 25.45% | 27.64% | 25.39% |
 | [lexam](results/sequential/lexam/prompts.json) | TEST | accuracy | 22.34% | 23.39% | 24.55% | 26.66% | 24.90% |
 | [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | DEV | mae | 27810.1 | 14681.9 | 11230.5 | 12223.1 | 13519.5 |
