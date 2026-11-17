@@ -83,84 +83,80 @@
       "ordinary": {
         "n": 512,
         "pass1": {
-          "mae": 453728452816990.9,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -453728452816990.9,
+          "coverage": 1.0,
+          "failed": 0,
+          "mae": 41730.06690297127,
           "n": 512,
-          "valid": 507,
-          "failed": 5,
-          "coverage": 0.990234375
+          "primary": -41730.06690297127,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
         "median4": {
-          "mae": 1178636735.3770015,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -1178636735.3770015,
+          "coverage": 1.0,
+          "failed": 0,
+          "mae": 24452.802869140625,
           "n": 512,
-          "valid": 511,
-          "failed": 1,
-          "coverage": 0.998046875
+          "primary": -24452.802869140625,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
-        "failed_actor_draws": 18,
+        "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
-          "4": 499,
-          "0": 1,
-          "3": 10,
-          "2": 2
-        }
+          "4": 512
+        },
+        "forcing_attempts": 2,
+        "forcing_recoveries": 2
       },
       "optimized_response": {
         "n": 512,
         "pass1": {
-          "mae": 2.2345132743362832e+202,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -2.2345132743362832e+202,
+          "coverage": 1.0,
+          "failed": 0,
+          "mae": 8215.830078125,
           "n": 512,
-          "valid": 452,
-          "failed": 60,
-          "coverage": 0.8828125
+          "primary": -8215.830078125,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
         "median4": {
-          "mae": 8043.756483541887,
-          "mae_scope": "valid predictions only",
-          "selection_objective": "minimize_mae",
-          "selection_eligible": true,
-          "primary": -8043.756483541887,
+          "coverage": 1.0,
+          "failed": 0,
+          "mae": 7855.441748046876,
           "n": 512,
-          "valid": 507,
-          "failed": 5,
-          "coverage": 0.990234375
+          "primary": -7855.441748046876,
+          "scope": "valid predictions only",
+          "selection_eligible": true,
+          "valid": 512
         },
-        "failed_actor_draws": 211,
+        "failed_actor_draws": 0,
         "aggregate_valid_draw_counts": {
-          "4": 359,
-          "2": 27,
-          "3": 113,
-          "1": 8,
-          "0": 5
-        }
+          "4": 512
+        },
+        "forcing_attempts": 1,
+        "forcing_recoveries": 1
       },
       "optimized_response_and_judge": {
-        "mae": 849967.2562988282,
-        "mae_scope": "valid predictions only",
-        "selection_objective": "minimize_mae",
-        "selection_eligible": true,
-        "primary": -849967.2562988282,
-        "n": 512,
-        "valid": 512,
+        "coverage": 1.0,
         "failed": 0,
-        "coverage": 1.0
-      }
+        "forcing_attempts": 0,
+        "forcing_recoveries": 0,
+        "mae": 7946.046875,
+        "n": 512,
+        "primary": -7946.046875,
+        "scope": "valid predictions only",
+        "selection_eligible": true,
+        "valid": 512
+      },
+      "response_prompt_changed": true,
+      "judge_prompt_changed": false
     }
   },
   "notes": [
     "Prior reshuffled official TEST optimization exposure; prior TEST readouts reported. Not pristine.",
-    "Extreme numeric outputs persist. TEST optimized pass1 has 60 failures (88.28% coverage); optimized median4 MAE8043.76 excludes5 cases. Do not describe valid-only MAE as a reliable overall improvement. Judge search retained the neutral seed prompt."
+    "Judge search retained the neutral seed prompt."
   ],
-  "gpu_reproduction_verified": false
+  "gpu_reproduction_verified": true
 }

@@ -4,11 +4,11 @@ ecthr_npd,DEV,Baseline aggregate@4,512,512,0,1.0,14681.919489257813,,
 ecthr_npd,DEV,Optimized response pass@1,512,512,0,1.0,11230.487787109376,,
 ecthr_npd,DEV,Optimized response aggregate@4,512,512,0,1.0,12223.12904422433,,
 ecthr_npd,DEV,Optimized response + judge,512,512,0,1.0,13519.524583984374,,
-ecthr_npd,TEST,Baseline pass@1,512,507,5,0.990234375,453728452816990.9,,
-ecthr_npd,TEST,Baseline aggregate@4,512,511,1,0.998046875,1178636735.3770015,,
-ecthr_npd,TEST,Optimized response pass@1,512,452,60,0.8828125,2.2345132743362832e+202,,
-ecthr_npd,TEST,Optimized response aggregate@4,512,507,5,0.990234375,8043.756483541886,,
-ecthr_npd,TEST,Optimized response + judge,512,512,0,1.0,849967.2562988282,,
+ecthr_npd,TEST,Baseline pass@1,512,512,0,1.0,41730.06690297127,,
+ecthr_npd,TEST,Baseline aggregate@4,512,512,0,1.0,24452.802869140625,,
+ecthr_npd,TEST,Optimized response pass@1,512,512,0,1.0,8215.830078125,,
+ecthr_npd,TEST,Optimized response aggregate@4,512,512,0,1.0,7855.441748046876,,
+ecthr_npd,TEST,Optimized response + judge,512,512,0,1.0,7946.046875,,
 parcel,DEV,Baseline pass@1,512,512,0,1.0,,0.595703125,0.5068922572433808
 parcel,DEV,Baseline aggregate@4,512,512,0,1.0,,0.6328125,0.5283624736054412
 parcel,DEV,Optimized response pass@1,512,512,0,1.0,,0.66796875,0.5947830904702377

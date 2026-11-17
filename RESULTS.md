@@ -19,7 +19,7 @@ All eight [configs](configs/experiments/suite.yaml), final prompts and metrics a
 | [lexam](results/sequential/lexam/prompts.json) | DEV | accuracy | 21.20% | 22.56% | 25.45% | 27.64% | 25.39% |
 | [lexam](results/sequential/lexam/prompts.json) | TEST | accuracy | 22.34% | 23.39% | 24.55% | 26.66% | 24.90% |
 | [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | DEV | mae | 27810.1 | 14681.9 | 11230.5 | 12223.1 | 13519.5 |
-| [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | TEST | mae | 4.53728e+14 | 1.17864e+09 | 2.23451e+202 | 8043.76 | 849967 |
+| [ecthr_npd](results/sequential/ecthr_npd/prompts.json) | TEST | mae | 41730.1 | 24452.8 | 8215.83 | 7855.44 | 7946.05 |
 | [parcel](results/sequential/parcel/prompts.json) | DEV | macro_f1 | 50.69% | 52.84% | 59.48% | 58.77% | 57.48% |
 | [parcel](results/sequential/parcel/prompts.json) | TEST | macro_f1 | 50.30% | 50.36% | 59.18% | 61.51% | 56.62% |
 
@@ -29,7 +29,7 @@ The six original datasets use mean individual accuracy over 16 sampled responses
 
 The reported LEDGAR recipe uses per-case accuracy, response reflection batch3/seed42, judge batch16/seed43, compact JSON grammar, and greedy 512-token judges. CaseHOLD, LAR-ECHR, SARA and LEXam use judge reflection batch4 to fit the proposer context. NPD/PARCEL used the adapted cohort recipe, MAE/macro-F1, sampled 1024-token responses and judges, and sampled 128-token answer forcing on length failures. See each YAML for complete settings.
 
-NPD remains unstable: its TEST optimized individual has 60 failures (88.28% coverage), while optimized median@4 excludes five failures. Low-coverage, valid-only MAE is **not reliable evidence of improvement**. All parseable finite values, including extreme numbers, remain in the metric. Failures are never converted to arbitrary numbers. Exact [failure/coverage counts](results/sequential/final-DEV-TEST-table.csv) and [forcing attempts/recoveries](results/sequential/final-forcing-counts.csv) are published; reported failure counts unavailable in summary sources are not inferred as zero.
+Numeric MAE is computed on valid predictions only and must be interpreted alongside coverage. All parseable finite values, including extreme numbers, remain in the metric. Failures are never converted to arbitrary numbers. Exact [failure/coverage counts](results/sequential/final-DEV-TEST-table.csv) and [forcing attempts/recoveries](results/sequential/final-forcing-counts.csv) are published; reported failure counts unavailable in summary sources are not inferred as zero.
 
 ## Exposure and reproduction limits
 
